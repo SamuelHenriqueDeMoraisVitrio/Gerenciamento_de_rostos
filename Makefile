@@ -8,16 +8,16 @@ g ?= ""
 gt ?= ""
 
 teste: clear
-	@cd /home/samuel/Documentos/proc/serjaoServerWeb/serjao_web/ && $(RUN)
+	@cd /home/samuel/Documentos/api_gerenciamento_de_users/src && $(RUN)
 	@echo ""
 
 zip: clear
-	@rm -f serjao_web.zip
-	@zip -r serjao_web.zip serjao_web
+	@rm -f src.zip
+	@zip -r src.zip src
 	@echo ""
-	@zip -T serjao_web.zip -v
+	@zip -T src.zip -v
 	@echo ""
-	@unzip -l serjao_web.zip
+	@unzip -l src.zip
 	@echo ""
 
 clear:
