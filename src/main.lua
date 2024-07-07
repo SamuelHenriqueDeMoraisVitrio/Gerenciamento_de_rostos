@@ -1,6 +1,9 @@
 serjao = require("dependencies/serjao_berranteiro/serjao_berranteiro")
 dtw = require("dependencies/luaDoTheWorld/luaDoTheWorld")
 
+set_server.single_process = false
+set_server.nullterminator = "null"
+
 require("headders")
 require("banco/users")
 require("atenticacao")
@@ -24,11 +27,16 @@ local function main_server(rq)
   if "/api/incrementasaldo" == rq.route then
     
     return seting_saldo(headders, banco)
-
   end
 
   if "/api/decrementasaldo" == rq.route then
     return seting_saldo(headders, banco, true)
+  end
+
+  if "/api/excluir/user" == rq.route then
+    
+    return { nada = "null"}
+
   end
 
   return "Rota não encontrada", 404

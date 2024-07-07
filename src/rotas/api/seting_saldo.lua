@@ -59,5 +59,10 @@ function seting_saldo(headers, banco, decrement)
 
     local response = set_saldo(banco, filtragem_nome, filtragem_email, filtragem_saldo_min, filtragem_saldo_max, requisicao_saldo)
 
+    if response[3] then
+        return serjao.send_json(response[1], response[2])
+    end
+
     return serjao.send_text(response[1], response[2])
 end
+

@@ -119,31 +119,42 @@ function set_saldo(banco, filtragem_nome, filtragem_email, filtragem_saldo_min, 
   end
 
   local users = banco.sub_resource("usuarios")
-
-  for _, user_list in ipairs(list) do
+  
+  local list_users_saldo = {}
+  for index_user, user_list in ipairs(list) do
     
     local user_email_list = user_list.email
 
     local user_finding = users.get_resource_matching_primary_key("email", user_email_list)
-
-    local saldo = user_finding.get_value_from_sub_resource("saldo")
-
-
-    if saldo == nil then
+    
+    local name_user = user_finding.get_value_from_sub_resource("nome")
+    local saldo_user = user_finding.get_value_from_sub_resource("saldo")
+    
+    
+    if not saldo_user then
       
       return {"saldo salvo em banco é invalido", 500}
-
+      
     end
 
-    saldo = saldo + number
+    saldo_user = tonumber(saldo_user)
+    if not saldo_user then
+     
+      return {"saldo não é um número válido", 500}
 
-    user_finding.set_value_in_sub_resource("saldo", saldo)
+    end
+    
+    saldo_user = saldo_user + number
+
+    list_users_saldo[index_user] = {nome = name_user, saldo = saldo_user}
+    
+    user_finding.set_value_in_sub_resource("saldo", saldo_user)
 
   end
   
   banco.commit()
 
-  return {"Saldo configurado com suscesso", 201}
+  return {list_users_saldo, 201, true}
 
 end
 
