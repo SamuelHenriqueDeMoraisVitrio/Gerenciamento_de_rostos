@@ -41,18 +41,55 @@ function Add_user(banco, nome, email, senha, root)
 end
 
 ---@param banco DtwResource
-function Describe_users(banco)
+---@param filtragem_nome string | nil
+---@param filtragem_email string | nil
+---@param filtragem_saldo_min number | nil
+---@param filtragem_saldo_max number | nil
+---@return table
+function Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_min, filtragem_saldo_max)
 
   local users = banco.sub_resource("usuarios")
   local list = users.schema_map(function(element)
   
+    nome = element.get_value_from_sub_resource("nome")
+    email = element.get_value_from_sub_resource("email")
+    saldo = element.get_value_from_sub_resource("saldo")
+
+    if filtragem_nome ~= nome and filtragem_nome then
+      return nil
+    end
+
+    if filtragem_email ~= email and filtragem_email then
+
+      return nil
+    
+    end
+
+    if filtragem_saldo_min then
+
+      if filtragem_saldo_min >= saldo then
+
+        return nil
+      
+      end
+
+    end
+
+    if filtragem_saldo_max then
+      if filtragem_saldo_max <= saldo then
+
+        return nil
+      
+      end
+    end
+
     return {
-      nome = element.get_value_from_sub_resource("nome"),
-      email = element.get_value_from_sub_resource("email")
+      nome = nome,
+      email = email,
+      saldo = saldo
     }
-
   end)
-  
-  return nil
 
+  return list
 end
+

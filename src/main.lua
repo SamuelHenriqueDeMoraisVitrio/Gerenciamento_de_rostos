@@ -18,10 +18,11 @@ local function main_server(rq)
   end
 
   if "/api/list_users" == rq.route then
-    return Lista_user(headders, banco)
+    return Lista_users(headders, banco)
   end
 
   return "Rota não encontrada", 404
 end
 
-serjao.server(3000, main_server)
+serjao.server(3000, 5000, main_server)
+
