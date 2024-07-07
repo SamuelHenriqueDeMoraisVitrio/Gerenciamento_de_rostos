@@ -12,11 +12,11 @@ function delete_user(headers, banco)
       return erro
     end
 
-    local email = headers.obtem_headder_opcional("email")
+    local email = headers.obtem_headder("email")
 
-    if not email then
+    if headers.erro then
       
-      return serjao.send_text("O email não foi informado", 404)
+      return headers.erro
 
     end
 

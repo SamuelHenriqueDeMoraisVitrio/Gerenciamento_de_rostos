@@ -41,7 +41,7 @@ local function main_server(rq)
 
   if "/api/list_users/current" == rq.route then
     
-    return {nome = "null"}
+    return list_current(headders, banco)
 
   end
 
