@@ -24,6 +24,7 @@ function Add_user(banco, nome, email, senha, root)
   local user_add = users.schema_new_insertion()
 
   user_add.set_value_in_sub_resource("nome", nome)
+  user_add.set_value_in_sub_resource("saldo", 100)
   local ok, erro = user_add.try_set_value_in_sub_resource("email", email)
 
   if ok == false then
@@ -37,4 +38,21 @@ function Add_user(banco, nome, email, senha, root)
   user_add.set_value_in_sub_resource("senha", sha_senha)
 
   return true
+end
+
+---@param banco DtwResource
+function Describe_users(banco)
+
+  local users = banco.sub_resource("usuarios")
+  local list = users.schema_map(function(element)
+  
+    return {
+      nome = element.get_value_from_sub_resource("nome"),
+      email = element.get_value_from_sub_resource("email")
+    }
+
+  end)
+  
+  return nil
+
 end

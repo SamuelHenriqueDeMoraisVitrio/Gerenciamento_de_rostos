@@ -10,11 +10,11 @@ function Cria_user_server(headers, banco)
     return erro
   end
 
-
   local nome = headers.obtem_headder("nome")
   local email = headers.obtem_headder("email")
   local senha = headers.obtem_headder("senha")
   local root_str = headers.obtem_headder("root","false")
+
   if headers.erro then
   	return headers.erro
   end

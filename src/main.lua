@@ -17,6 +17,9 @@ local function main_server(rq)
     return Cria_user_server(headders, banco)
   end
 
+  if "/api/list_users" == rq.route then
+    return Lista_user(headders, banco)
+  end
 
   return "Rota não encontrada", 404
 end

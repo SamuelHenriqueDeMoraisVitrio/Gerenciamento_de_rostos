@@ -8,7 +8,7 @@ g ?= ""
 gt ?= ""
 
 teste: clear
-	@cd /home/samuel/Documentos/api_gerenciamento_de_users/src && $(RUN)
+	@cd /home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src && $(RUN)
 	@echo ""
 
 zip: clear
