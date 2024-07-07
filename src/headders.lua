@@ -21,25 +21,32 @@ function Cria_headders(headers)
     	  end
     	  return false
     end
+    
     tabela.obtem_headder = function (nome,default)
         if tabela.erro then
         	return nil
         end
+
     	local resultado = tabela.headers[nome]
     	if resultado then
+
     		return resultado
+
     	end
         if default then
+
         	return default
+
         end
 
     	tabela.erro = serjao.send_text("headder "..nome.." não informado",404)
     end
 
     tabela.obtem_headder_opcional = function (nome)
-        return tabela.headers[nome]
-    end
 
+        return tabela.headers[nome]
+
+    end
 
     return tabela
 

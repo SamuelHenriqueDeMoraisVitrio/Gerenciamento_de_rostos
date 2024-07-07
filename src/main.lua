@@ -21,6 +21,16 @@ local function main_server(rq)
     return Lista_users(headders, banco)
   end
 
+  if "/api/incrementasaldo" == rq.route then
+    
+    return seting_saldo(headders, banco)
+
+  end
+
+  if "/api/decrementasaldo" == rq.route then
+    return seting_saldo(headders, banco, true)
+  end
+
   return "Rota não encontrada", 404
 end
 
