@@ -1,0 +1,1 @@
+require("rotas/api/cria_user")

@@ -17,7 +17,8 @@ end
 ---@param email string
 ---@param senha string
 ---@param root boolean
-function add_user(banco, nome, email, senha, root)
+---@return boolean ,string | nil
+function Add_user(banco, nome, email, senha, root)
 
   local users = banco.sub_resource("usuarios")
   local user_add = users.schema_new_insertion()

@@ -1,10 +1,14 @@
 
 
----@param rq Request
+---@param headers Headders
 ---@param banco DtwResource
----@return serjaoResponse|nil
-function altentica_root(rq, banco)
-  local possivel_header_root = rq.header["root_max"]
+---@return boolean,serjaoResponse|nil
+function Altentica_root(headers, banco)
+  local possivel_header_root = headers.obtem_headder("root_max")
+
+  if headers.erro then
+  	return false,headers.erro
+  end
 
   if possivel_header_root == SENHA_ROOT_MAIN then
     return true

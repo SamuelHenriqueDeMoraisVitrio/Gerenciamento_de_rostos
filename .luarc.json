@@ -1,0 +1,8 @@
+{
+    "diagnostics.disable": [
+        "return-type-mismatch"
+    ],
+    "diagnostics.globals": [
+        "erro_banco"
+    ]
+}
