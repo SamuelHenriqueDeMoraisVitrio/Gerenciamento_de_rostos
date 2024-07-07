@@ -14,6 +14,7 @@ function Cria_user_server(headers, banco)
   local email = headers.obtem_headder("email")
   local senha = headers.obtem_headder("senha")
   local root_str = headers.obtem_headder("root","false")
+  local saldo = headers.obtem_headder("saldo", 100)
 
   if headers.erro then
   	return headers.erro
@@ -24,7 +25,7 @@ function Cria_user_server(headers, banco)
   	 root = true
   end
 
-  ok, erro_banco = Add_user(banco, nome, email, senha, root)
+  ok, erro_banco = Add_user(banco, nome, email, senha, root, saldo)
 
   if ok then
     banco.commit()

@@ -33,9 +33,9 @@ local function main_server(rq)
     return seting_saldo(headders, banco, true)
   end
 
-  if "/api/excluir/user" == rq.route then
+  if "/api/deleteuser" == rq.route then
     
-    return { nada = "null"}
+    return delete_user(headders, banco)
 
   end
 
