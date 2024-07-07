@@ -1,5 +1,7 @@
 
 
+local date = "%Y-%m-%d %H:%M:%S"
+
 ---@return DtwResource
 function add_banco()
   local banco = dtw.newResource("data")
@@ -23,12 +25,12 @@ function Add_user(banco, nome, email, senha, root, saldo)
 
   local users = banco.sub_resource("usuarios")
   local user_add = users.schema_new_insertion()
-  local current = user_add.sub_resource("corrent")
+  local current = user_add.sub_resource("current")
 
   user_add.set_value_in_sub_resource("nome", nome)
   user_add.set_value_in_sub_resource("saldo", saldo)
 
-  local formatted_time = os.date("%Y-%m-%d %H:%M:%S")
+  local formatted_time = os.date(date)
   current.set_value_in_sub_resource(formatted_time, saldo)
 
   local ok, erro = user_add.try_set_value_in_sub_resource("email", email)
@@ -155,6 +157,12 @@ function set_saldo(banco, filtragem_nome, filtragem_email, filtragem_saldo_min, 
     list_users_saldo[index_user] = {nome = name_user, saldo = saldo_user}
     
     user_finding.set_value_in_sub_resource("saldo", saldo_user)
+
+    local time = os.date(date)
+
+    local current_user = user_finding.sub_resource("current")
+
+    current_user.set_value_in_sub_resource(time, saldo_user)
 
   end
   

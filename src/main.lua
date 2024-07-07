@@ -39,6 +39,12 @@ local function main_server(rq)
 
   end
 
+  if "/api/list_users/current" == rq.route then
+    
+    return {nome = "null"}
+
+  end
+
   return "Rota não encontrada", 404
 end
 
