@@ -3,6 +3,9 @@
 ---@class Headders
 ---@field erro serjaoResponse |nil
 ---@field obtem_headder fun(nome:string,default:string|nil):string | nil
+---@field obtem_headder_numerico fun(nome:string,default:string|nil):number | nil
+---@field obtem_headder_opcional fun(nome:string):string | nil
+---@field obtem_headder_numerico_opcional fun(nome:string):number | nil
 ---@field existe fun(nome:string):boolean
 
 
@@ -21,7 +24,7 @@ function Cria_headders(headers)
     	  end
     	  return false
     end
-    
+
     tabela.obtem_headder = function (nome,default)
         if tabela.erro then
         	return nil
@@ -38,16 +41,44 @@ function Cria_headders(headers)
         	return default
 
         end
-
     	tabela.erro = serjao.send_text("headder "..nome.." não informado",404)
     end
 
-    tabela.obtem_headder_opcional = function (nome)
-
-        return tabela.headers[nome]
-
+    tabela.obtem_headder_numerico = function (nome)
+    	local valor = tabela.obtem_headder(nome)
+    	if valor == nil then
+    		return nil
+    	end
+        local valor_convertido = tonumber(valor)
+        if valor_convertido == nil then
+            tabela.erro = serjao.send_text("headder "..nome.."não é um número")
+        end
+        return valor_convertido
     end
 
+
+    tabela.obtem_headder_opcional = function (nome)
+        if tabela.erro then
+        	return nil
+        end
+
+        return tabela.headers[nome]
+    end
+
+
+    tabela.obtem_headder_numerico_opcional = function (nome)
+        local valor = tabela.obtem_headder_opcional(nome)
+        if valor == nil then
+        	return nil
+        end
+
+        local valor_convertido = tonumber(valor)
+        if valor_convertido == nil then
+        	tabela.erro = serjao.send_text("headder "..nome.."não é um número")
+        end
+        return valor_convertido
+
+    end
     return tabela
 
 end

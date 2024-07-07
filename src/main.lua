@@ -5,9 +5,9 @@ set_server.single_process = false
 set_server.nullterminator = "null"
 
 require("headders")
-require("banco/users")
+require("banco.tudo")
 require("atenticacao")
-require("rotas/tudo")
+require("rotas.tudo")
 
 SENHA_ROOT_MAIN = "senha"
 
@@ -25,12 +25,11 @@ local function main_server(rq)
   end
 
   if "/api/incrementasaldo" == rq.route then
-    
-    return seting_saldo(headders, banco)
+    return Registrar_transacoes_rota(headders,banco, 1)
   end
 
   if "/api/decrementasaldo" == rq.route then
-    return seting_saldo(headders, banco, true)
+    return Registrar_transacoes_rota(headders, banco, -1)
   end
 
   if "/api/deleteuser" == rq.route then
