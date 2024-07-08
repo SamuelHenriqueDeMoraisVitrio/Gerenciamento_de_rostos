@@ -2,7 +2,7 @@
 
 ---@param headers table
 ---@param banco DtwResource
----@return serjaoResponse | nil
+---@return serjaoResponse
 function list_current(headers, banco)
 
     local ok, erro = Altentica_root(headers,banco)
@@ -19,6 +19,7 @@ function list_current(headers, banco)
 
     local response = list_current_banco(banco, email)
 
-    return serjao.send_text("Final", 200)
+
+    return response
 
 end

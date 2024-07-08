@@ -16,9 +16,10 @@ function Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_
 
   local list,size = users.schema_map(function(element)
 
-    nome = element.get_value_from_sub_resource("nome")
-    email = element.get_value_from_sub_resource("email")
-    saldo = element.get_value_from_sub_resource("saldo")
+    local nome = element.get_value_from_sub_resource("nome")
+    local email = element.get_value_from_sub_resource("email")
+    local saldo = element.get_value_from_sub_resource("saldo")
+
     if filtragem_nome ~= nome and filtragem_nome then
       return nil
     end

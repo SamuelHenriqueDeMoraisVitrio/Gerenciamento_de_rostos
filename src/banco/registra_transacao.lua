@@ -21,6 +21,7 @@ function Registra_transcoes_no_banco(banco, valor,filtragem_nome, filtragem_emai
     local transacao_atual =  transacoes.sub_resource_next()
     transacao_atual.set_value_in_sub_resource("valor",valor)
     transacao_atual.set_value_in_sub_resource("data",os.time())
+    transacao_atual.set_value_in_sub_resource("saldo_now", novo_saldo)
     usuarios_modificados[i] = {
     nome=usuario.nome,
     email = usuario.email,
@@ -32,3 +33,5 @@ function Registra_transcoes_no_banco(banco, valor,filtragem_nome, filtragem_emai
   return usuarios_modificados
 
 end
+
+

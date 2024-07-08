@@ -10,7 +10,7 @@ function user_delete_banco(banco, email)
 
   local user_finding = users.get_resource_matching_primary_key("email", email)
 
-  if not user_finding then
+  if user_finding == nil then
 
     return {"Usuario não encontrado", 404}
 
@@ -19,7 +19,6 @@ function user_delete_banco(banco, email)
   user_finding.destroy()
 
   banco.commit()
-
 
   return {"Usuario excluido com suscesso", 200}
 

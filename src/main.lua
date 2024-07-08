@@ -8,6 +8,7 @@ require("headders")
 require("banco.tudo")
 require("atenticacao")
 require("rotas.tudo")
+require("consts")
 
 SENHA_ROOT_MAIN = "senha"
 
@@ -35,7 +36,6 @@ local function main_server(rq)
   if "/api/deleteuser" == rq.route then
     
     return delete_user(headders, banco)
-
   end
 
   if "/api/list_users/current" == rq.route then
