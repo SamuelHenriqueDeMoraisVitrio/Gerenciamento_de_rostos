@@ -14,6 +14,31 @@ SENHA_ROOT_MAIN = "senha"
 
 ---@param rq Request
 local function main_server(rq)
+
+  if rq.route == "/" then
+    
+    return serjao.send_file("pages/index.html")
+
+  end
+
+
+  if not dtw.starts_with(rq.route, "/api") then
+    
+    local arquivo = dtw.concat_path("pages", rq.route)
+
+    arquivo = arquivo .. ".html"
+
+    if dtw.isfile(arquivo) then
+      
+      return serjao.send_file(arquivo)
+
+    end
+
+    return serjao.send_file("pages/not_found.html", 404)
+
+  end
+
+
   local banco = add_banco()
   local headders = Cria_headders(rq.header)
 
