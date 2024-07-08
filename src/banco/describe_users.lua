@@ -12,13 +12,13 @@
 ---@return DescricaoUsuario[],number
 function Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_min, filtragem_saldo_max)
 
-  local users = banco.sub_resource("usuarios")
+  local users = banco.sub_resource(USERS_BANCO)
 
   local list,size = users.schema_map(function(element)
 
-    local nome = element.get_value_from_sub_resource("nome")
-    local email = element.get_value_from_sub_resource("email")
-    local saldo = element.get_value_from_sub_resource("saldo")
+    local nome = element.get_value_from_sub_resource(NOME_BANCO)
+    local email = element.get_value_from_sub_resource(EMAIL_BANCO)
+    local saldo = element.get_value_from_sub_resource(SALDO_BANCO)
 
     if filtragem_nome ~= nome and filtragem_nome then
       return nil

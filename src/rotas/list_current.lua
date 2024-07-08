@@ -11,7 +11,7 @@ function list_current(headers, banco)
       return erro
     end
 
-    local email = headers.obtem_headder("email")
+    local email = headers.obtem_headder(EMAIL)
 
     if headers.erro then
         return headers.erro

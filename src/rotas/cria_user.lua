@@ -10,11 +10,11 @@ function Cria_user_server(headers, banco)
     return erro
   end
 
-  local nome = headers.obtem_headder("nome")
-  local email = headers.obtem_headder("email")
-  local senha = headers.obtem_headder("senha")
-  local root_str = headers.obtem_headder("root","false")
-  local saldo = headers.obtem_headder("saldo", 100)
+  local nome = headers.obtem_headder(NOME)
+  local email = headers.obtem_headder(EMAIL)
+  local senha = headers.obtem_headder(SENHA)
+  local root_str = headers.obtem_headder(ROOT,"false")
+  local saldo = headers.obtem_headder(SALDO, 100)
 
   if headers.erro then
   	return headers.erro
@@ -29,7 +29,7 @@ function Cria_user_server(headers, banco)
 
   if ok then
     banco.commit()
-    return serjao.send_text("O usuario foi criado", 202)
+    return serjao.send_text(USUARIO_CRIADO, 202)
   end
 
 

@@ -12,7 +12,7 @@ function delete_user(headers, banco)
       return erro
     end
 
-    local email = headers.obtem_headder("email")
+    local email = headers.obtem_headder(EMAIL)
 
     if headers.erro then
       

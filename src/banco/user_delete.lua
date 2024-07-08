@@ -6,13 +6,13 @@
 ---@return table
 function user_delete_banco(banco, email)
 
-  local users = banco.sub_resource("usuarios")
+  local users = banco.sub_resource(USERS_BANCO)
 
-  local user_finding = users.get_resource_matching_primary_key("email", email)
+  local user_finding = users.get_resource_matching_primary_key(EMAIL_BANCO, email)
 
   if user_finding == nil then
 
-    return {"Usuario não encontrado", 404}
+    return {USER_NOT_FOUND, 404}
 
   end
 
@@ -20,6 +20,6 @@ function user_delete_banco(banco, email)
 
   banco.commit()
 
-  return {"Usuario excluido com suscesso", 200}
+  return {USER_SUCCESSFULY_DELETED, 200}
 
 end

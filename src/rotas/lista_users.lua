@@ -10,10 +10,10 @@ function Lista_users(headers, banco)
       return erro
     end
 
-    local filtragem_nome = headers.obtem_headder_opcional("nome")
-    local filtragem_email = headers.obtem_headder_opcional("email")
-    local filtragem_saldo_min = headers.obtem_headder_numerico_opcional("saldo_min")
-    local filtragem_saldo_max = headers.obtem_headder_numerico_opcional("saldo_max")
+    local filtragem_nome = headers.obtem_headder_opcional(NOME)
+    local filtragem_email = headers.obtem_headder_opcional(EMAIL)
+    local filtragem_saldo_min = headers.obtem_headder_numerico_opcional(SALDO_MIN)
+    local filtragem_saldo_max = headers.obtem_headder_numerico_opcional(SALDO_MAX)
 
     if headers.erro then
     	return headers.erro

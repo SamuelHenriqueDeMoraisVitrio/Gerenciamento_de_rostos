@@ -22,7 +22,7 @@ local function main_server(rq)
   end
 
 
-  if not dtw.starts_with(rq.route, "/api") then
+  if not dtw.starts_with(rq.route, API) then
     
     local arquivo = dtw.concat_path("pages", rq.route)
 
@@ -42,34 +42,34 @@ local function main_server(rq)
   local banco = add_banco()
   local headders = Cria_headders(rq.header)
 
-  if "/api/add_user" == rq.route then
+  if API .. ADD .. USER == rq.route then
     return Cria_user_server(headders, banco)
   end
 
-  if "/api/list_users" == rq.route then
+  if API .. LIST .. USER == rq.route then
     return Lista_users(headders, banco)
   end
 
-  if "/api/incrementasaldo" == rq.route then
+  if API .. INCREASES .. BALANCE == rq.route then
     return Registrar_transacoes_rota(headders,banco, 1)
   end
 
-  if "/api/decrementasaldo" == rq.route then
+  if API .. DECREASES .. BALANCE == rq.route then
     return Registrar_transacoes_rota(headders, banco, -1)
   end
 
-  if "/api/deleteuser" == rq.route then
+  if API .. DELETE .. USER == rq.route then
     
     return delete_user(headders, banco)
   end
 
-  if "/api/list_users/current" == rq.route then
+  if API .. LIST .. USER .. CURRENT == rq.route then
     
     return list_current(headders, banco)
 
   end
 
-  return "Rota não encontrada", 404
+  return ROTA_NAO_ENCONTRADA, 404
 end
 
 serjao.server(3000, 5000, main_server)
