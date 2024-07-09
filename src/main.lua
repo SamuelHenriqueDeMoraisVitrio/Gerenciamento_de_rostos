@@ -7,7 +7,7 @@ set_server.nullterminator = "null"
 require("headders")
 require("atenticacao")
 require("consts")
-require("requires")
+require("dependencies/requires")
 require_dir("banco")
 require_dir("rotas")
 
@@ -61,6 +61,18 @@ local function main_server(rq)
     return Registrar_transacoes_rota(headders, banco, -1)
   end
 
+  if API .. INCREASES .. BALANCE .. USER == rq.route then
+    
+    return registra_transacao_por_email(headders, banco, 1)
+
+  end
+
+  if API .. DECREASES .. BALANCE .. USER == rq.route then
+    
+    return registra_transacao_por_email(headders, banco, -1)
+
+  end
+
   if API .. DELETE .. USER == rq.route then
     
     return delete_user(headders, banco)
@@ -69,12 +81,6 @@ local function main_server(rq)
   if API .. LIST .. USER .. CURRENT == rq.route then
     
     return list_current(headders, banco)
-
-  end
-
-  if API .. INCREASES .. BALANCE .. USER == rq.route then
-    
-    return serjao.send_text("Not_found")
 
   end
 

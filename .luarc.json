@@ -5,6 +5,8 @@
         "param-type-mismatch"
     ],
     "diagnostics.globals": [
-        "erro_banco"
+        "erro_banco",
+        "registra_transacao_por_email",
+        "registra_saldo_email"
     ]
 }

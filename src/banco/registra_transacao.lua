@@ -33,15 +33,16 @@ function Registra_transcoes_no_banco(banco, valor, filtragem_nome, filtragem_ema
 
     
     usuarios_modificados[i] = {
-      nome=usuario.nome,
-    email = usuario.email,
-    novo_saldo = novo_saldo
+      nome = usuario.nome,
+      email = usuario.email,
+      credito = valor,
+      novo_saldo = novo_saldo
     }
       ::continue::
   end
 
   banco.commit()
-  return usuarios_modificados
+  return serjao.send_json(usuarios_modificados, 202)
 
 end
 
