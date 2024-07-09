@@ -18,6 +18,7 @@ EMAIL = "/email"
 DELETE = "/deleta"
 USER = "/usuario"
 CURRENT = "/corrente"
+IMAGEM = "/foto"
 
 --Responses
 ROTA_NAO_ENCONTRADA = "Rota não encontrada."
@@ -26,6 +27,9 @@ USUARIO_CRIADO = "O usuario foi criado."
 USER_NOT_FOUND = "Usuario não encontrado."
 USER_SUCCESSFULY_DELETED = "Usuario excluido com suscesso."
 VALUE_INVALID = "O valor informado é invalido."
+VALUE_NOT_FOUND = "O valor não foi informado."
+IMG_ADD = "Imagem adicionada ao banco."
+IMG_FULL = "O limite de imagens a ser guardada foi exsedida."
 
 --Headers
 ROOT_MAX = "root_max"
@@ -47,7 +51,12 @@ NOME_BANCO = "nome"
 SALDO_BANCO = "saldo"
 ROOT_BANCO = "root"
 SENHA_BANCO = "senha"
+--Banco Transações
 TRANSACOES_BANCO = "transacoes"
 VALOR_BANCO_TRANSACOES = "valor"
 DATA_BANCO_TRANSACOES = "data"
 SALDO_NOW_BANCO_TRANSACOES = "saldo_now"
+--Banco imagens
+IMGS_BANCO = "imagens"
+IMG = "imagem.jpg"
+DATE = "data"

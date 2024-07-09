@@ -12,8 +12,7 @@ function registra_saldo_email(banco, email, valor)
 
     if not user_finding then
 
-    return serjao.send_text(USER_NOT_FOUND, 404)
-
+        return serjao.send_text(USER_NOT_FOUND, 404)
     end
 
     local saldo = user_finding.get_value_from_sub_resource(SALDO_BANCO)
@@ -21,7 +20,7 @@ function registra_saldo_email(banco, email, valor)
     local email = user_finding.get_value_from_sub_resource(EMAIL_BANCO)
 
     if (saldo < (valor * -1) and valor < 0) or valor == 0 then
-        return serjao.send_text("valor creditado invalido.")
+        return serjao.send_text(VALUE_INVALID)
     end
 
     local novo_saldo = saldo + valor

@@ -42,6 +42,7 @@ local function main_server(rq)
 
   local banco = add_banco()
   local headders = Cria_headders(rq.header)
+  local body = Cria_body(rq.read_body)
 
   if API .. ADD .. USER == rq.route then
     return Cria_user_server(headders, banco)
@@ -81,6 +82,12 @@ local function main_server(rq)
   if API .. LIST .. USER .. CURRENT == rq.route then
     
     return list_current(headders, banco)
+
+  end
+
+  if API .. ADD .. IMAGEM == rq.route then
+    
+    return Add_img(headders, banco, body)
 
   end
 

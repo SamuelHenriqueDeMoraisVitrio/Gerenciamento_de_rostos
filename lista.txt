@@ -4,7 +4,7 @@
 
 token
 
-upload de fotos
+[X] upload de fotos
 
 [X] sha senha root
 
@@ -13,3 +13,9 @@ upload de fotos
 [X] Rota de transferencia de saldo por email
 
 [X] Diferentes permissões
+
+[ ] Listar fotos
+
+[ ] Deletar fotos
+
+[ ] atualizar fotos
