@@ -16,6 +16,6 @@ token
 
 [ ] Listar fotos
 
-[ ] Deletar fotos
+[X] Deletar fotos
 
 [ ] atualizar fotos
