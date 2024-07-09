@@ -1,9 +1,9 @@
 
+--Key root_max
+SENHA_ROOT_MAX = "bc98ce7ed333873e0c31eab367e0bd4697f42e8907e7d94b38f54b31bb5d3b20"
+
 --Time_formated
 DATE_FORMATED = "%Y-%m-%d %H:%M:%S"
-
---Key root_max
-SENHA = "senha"
 
 -- Rotas
 API = "/api"

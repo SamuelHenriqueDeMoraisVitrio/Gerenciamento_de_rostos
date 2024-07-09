@@ -10,7 +10,7 @@ require("atenticacao")
 require("rotas.tudo")
 require("consts")
 
-SENHA_ROOT_MAIN = "senha"
+SENHA_ROOT_MAIN = SENHA_ROOT_MAX
 
 ---@param rq Request
 local function main_server(rq)
@@ -68,6 +68,12 @@ local function main_server(rq)
   if API .. LIST .. USER .. CURRENT == rq.route then
     
     return list_current(headders, banco)
+
+  end
+
+  if API .. INCREASES .. BALANCE .. USER then
+    
+    return serjao.send_text("Not_found")
 
   end
 

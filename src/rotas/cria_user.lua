@@ -4,7 +4,7 @@
 ---@param banco DtwResource
 ---@return serjaoResponse
 function Cria_user_server(headers, banco)
-  local ok, erro = Altentica_root(headers,banco)
+  local ok, erro = Altentica_root(headers)
 
   if ok == false then
     return erro

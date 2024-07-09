@@ -1,9 +1,9 @@
 
 
-valor negativado
+[X] valor negativado
 
 token
 
 upload de fotos
 
-sha senha root
+[X] sha senha root

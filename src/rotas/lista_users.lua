@@ -4,11 +4,6 @@
 ---@param banco DtwResource
 ---@return serjaoResponse
 function Lista_users(headers, banco)
-    local ok, erro = Altentica_root(headers,banco)
-
-    if ok == false then
-      return erro
-    end
 
     local filtragem_nome = headers.obtem_headder_opcional(NOME)
     local filtragem_email = headers.obtem_headder_opcional(EMAIL)

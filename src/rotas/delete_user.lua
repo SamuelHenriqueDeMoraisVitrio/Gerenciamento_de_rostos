@@ -6,7 +6,7 @@
 function delete_user(headers, banco)
 
 
-    local ok, erro = Altentica_root(headers,banco)
+    local ok, erro = Altentica_root(headers)
   
     if ok == false then
       return erro
