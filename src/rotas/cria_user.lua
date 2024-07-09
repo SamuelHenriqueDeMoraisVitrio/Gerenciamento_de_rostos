@@ -6,7 +6,7 @@
 function Cria_user_server(headers, banco)
   local ok, erro = Altentica_root(headers)
 
-  if ok == false then
+  if not ok then
     return erro
   end
 

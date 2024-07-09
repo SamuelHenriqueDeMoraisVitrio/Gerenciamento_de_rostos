@@ -31,6 +31,7 @@ VALUE_NOT_FOUND = "O valor não foi informado."
 IMG_ADD = "Imagem adicionada ao banco."
 IMG_FULL = "O limite de imagens a ser guardada foi exsedida."
 IMG_DELL = "O banco de imagem foi deletada."
+IMG_NOT_FOUND = "Esse usuario não tem fotos."
 
 --Headers
 ROOT_MAX = "root_max"

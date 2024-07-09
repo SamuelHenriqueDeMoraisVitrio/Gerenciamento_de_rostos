@@ -1,6 +1,8 @@
 
 
-
+---@param banco DtwResource
+---@param email string
+---@return serjaoResponse
 function Dell_imgs_banco(banco, email)
     
     local users = banco.sub_resource(USERS_BANCO)

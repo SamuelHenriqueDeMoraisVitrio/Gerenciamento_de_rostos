@@ -95,6 +95,10 @@ local function main_server(rq)
     return Dell_imgs(headders, banco)
   end
 
+  if API .. LIST .. IMAGEM == rq.route then
+    
+  end
+
   return ROTA_NAO_ENCONTRADA, 404
 end
 
