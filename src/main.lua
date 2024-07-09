@@ -88,7 +88,11 @@ local function main_server(rq)
   if API .. ADD .. IMAGEM == rq.route then
     
     return Add_img(headders, banco, body)
+  end
 
+  if API .. DELETE .. IMAGEM == rq.route then
+    
+    return Dell_imgs(headders, banco)
   end
 
   return ROTA_NAO_ENCONTRADA, 404
