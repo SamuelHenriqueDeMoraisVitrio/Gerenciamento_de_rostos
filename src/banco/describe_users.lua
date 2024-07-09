@@ -20,6 +20,10 @@ function Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_
     local email = element.get_value_from_sub_resource(EMAIL_BANCO)
     local saldo = element.get_value_from_sub_resource(SALDO_BANCO)
 
+    if "number" == type(email) then
+      email = string.format("%d", email)
+    end
+
     if filtragem_nome ~= nome and filtragem_nome then
       return nil
     end

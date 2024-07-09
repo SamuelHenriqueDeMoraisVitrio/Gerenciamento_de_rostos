@@ -22,7 +22,7 @@ function delete_user(headers, banco)
 
     local response = user_delete_banco(banco, email)
 
-    return serjao.send_text(response[1], response[2])
+    return response
     
 end
 

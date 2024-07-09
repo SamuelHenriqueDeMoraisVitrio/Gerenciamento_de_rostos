@@ -16,7 +16,7 @@ function Registra_transcoes_no_banco(banco, valor, filtragem_nome, filtragem_ema
 
     local usuario = usuarios[i]
     local user_finding = resource_users.get_resource_matching_primary_key(EMAIL_BANCO, usuario.email)
-    if usuario.saldo < (valor * -1) and valor < 0 then
+    if (usuario.saldo < (valor * -1) and valor < 0) or valor == 0 then
       goto continue
     end
 

@@ -7,3 +7,7 @@ token
 upload de fotos
 
 [X] sha senha root
+
+[X] describe não aceita number
+
+Rota de transferencia de saldo por email

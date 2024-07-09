@@ -2,6 +2,12 @@
 dtw = require("src/dependencies/luaDoTheWorld/luaDoTheWorld")
 
 
-local sha_senha = dtw.generate_sha("sesiplanalto")
+local number = 11.0
 
-print('\n', sha_senha, '\n')
+number = tostring(number)
+
+print(number)
+
+if number == 11 then
+    print("sim")
+end

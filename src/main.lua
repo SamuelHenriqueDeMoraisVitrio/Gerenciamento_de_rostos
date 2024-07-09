@@ -5,10 +5,11 @@ set_server.single_process = false
 set_server.nullterminator = "null"
 
 require("headders")
-require("banco.tudo")
 require("atenticacao")
-require("rotas.tudo")
 require("consts")
+require("requires")
+require_dir("banco")
+require_dir("rotas")
 
 SENHA_ROOT_MAIN = SENHA_ROOT_MAX
 
@@ -71,7 +72,7 @@ local function main_server(rq)
 
   end
 
-  if API .. INCREASES .. BALANCE .. USER then
+  if API .. INCREASES .. BALANCE .. USER == rq.route then
     
     return serjao.send_text("Not_found")
 

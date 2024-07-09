@@ -12,7 +12,7 @@ function user_delete_banco(banco, email)
 
   if user_finding == nil then
 
-    return {USER_NOT_FOUND, 404}
+    return serjao.send_text(USER_NOT_FOUND, 404)
 
   end
 
@@ -20,6 +20,6 @@ function user_delete_banco(banco, email)
 
   banco.commit()
 
-  return {USER_SUCCESSFULY_DELETED, 200}
+  return serjao.send_text(USER_SUCCESSFULY_DELETED)
 
 end
