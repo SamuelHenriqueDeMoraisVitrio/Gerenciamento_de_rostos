@@ -51,10 +51,12 @@ local function main_server(rq)
   end
 
   if API .. INCREASES .. BALANCE == rq.route then
+
     return Registrar_transacoes_rota(headders,banco, 1)
   end
 
   if API .. DECREASES .. BALANCE == rq.route then
+    
     return Registrar_transacoes_rota(headders, banco, -1)
   end
 

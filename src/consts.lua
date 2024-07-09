@@ -21,9 +21,10 @@ CURRENT = "/corrente"
 --Responses
 ROTA_NAO_ENCONTRADA = "Rota não encontrada."
 ALTENTICA_FALHOU = "A altenticação falhou."
-USUARIO_CRIADO = "O usuario foi criado"
-USER_NOT_FOUND = "Usuario não encontrado"
-USER_SUCCESSFULY_DELETED = "Usuario excluido com suscesso"
+USUARIO_CRIADO = "O usuario foi criado."
+USER_NOT_FOUND = "Usuario não encontrado."
+USER_SUCCESSFULY_DELETED = "Usuario excluido com suscesso."
+VALUE_INVALID = "O valor informado é invalido."
 
 --Headers
 ROOT_MAX = "root_max"

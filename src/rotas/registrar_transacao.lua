@@ -4,8 +4,7 @@
 ---@param banco DtwResource
 ---@param multiplicador number
 ---@return serjaoResponse
-function Registrar_transacoes_rota(headers, banco,multiplicador)
-
+function Registrar_transacoes_rota(headers, banco, multiplicador)
 
     local ok, erro = Altentica_root(headers,banco)
   
@@ -23,7 +22,9 @@ function Registrar_transacoes_rota(headers, banco,multiplicador)
     if headers.erro then
     	return headers.erro
     end
+    
     valor = valor * multiplicador
+    
     local usuarios_modificados = Registra_transcoes_no_banco(banco,valor,filtragem_nome,filtragem_email,filtragem_saldo_min,filtragem_saldo_max)
     return usuarios_modificados
 end

@@ -44,11 +44,13 @@ function Cria_headders(headers)
     	tabela.erro = serjao.send_text("headder "..nome.." não informado",404)
     end
 
-    tabela.obtem_headder_numerico = function (nome)
-    	local valor = tabela.obtem_headder(nome)
+    tabela.obtem_headder_numerico = function (nome, default)
+        
+    	local valor = tabela.obtem_headder(nome, default)
     	if valor == nil then
     		return nil
     	end
+
         local valor_convertido = tonumber(valor)
         if valor_convertido == nil then
             tabela.erro = serjao.send_text("headder "..nome.."não é um número")
