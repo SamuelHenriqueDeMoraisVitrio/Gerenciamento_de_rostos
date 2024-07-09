@@ -2,11 +2,13 @@
     "diagnostics.disable": [
         "return-type-mismatch",
         "cast-local-type",
-        "param-type-mismatch"
+        "param-type-mismatch",
+        "redundant-parameter"
     ],
     "diagnostics.globals": [
         "erro_banco",
         "registra_transacao_por_email",
-        "registra_saldo_email"
+        "registra_saldo_email",
+        "require_dir"
     ]
 }

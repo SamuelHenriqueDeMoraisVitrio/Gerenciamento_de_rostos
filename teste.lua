@@ -1,13 +1,6 @@
 
 dtw = require("src/dependencies/luaDoTheWorld/luaDoTheWorld")
 
+local senha = dtw.generate_sha("sesiplanaltoroot")
 
-local number = 11.0
-
-number = tostring(number)
-
-print(number)
-
-if number == 11 then
-    print("sim")
-end
+print('\n', senha, '\n')

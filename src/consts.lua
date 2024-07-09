@@ -1,6 +1,7 @@
 
 --Key root_max
-SENHA_ROOT_MAX = "bc98ce7ed333873e0c31eab367e0bd4697f42e8907e7d94b38f54b31bb5d3b20"
+SENHA_ROOT_MAX = "948a388842d594797bfd749245cb5ec3a63501b1ee0de97f257fb217382c571b"
+SENHA_ROOT_READ = "594844d023da212ef8f15221d782666c4df907304deca543159a3235c4fe58e7"
 
 --Time_formated
 DATE_FORMATED = "%Y-%m-%d %H:%M:%S"
@@ -28,6 +29,7 @@ VALUE_INVALID = "O valor informado é invalido."
 
 --Headers
 ROOT_MAX = "root_max"
+ROOT_READ = "root_read"
 ROOT = "root"
 EMAIL = "email"
 NOME = "nome"

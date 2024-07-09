@@ -10,4 +10,6 @@ upload de fotos
 
 [X] describe não aceita number
 
-Rota de transferencia de saldo por email
+[X] Rota de transferencia de saldo por email
+
+[X] Diferentes permissões

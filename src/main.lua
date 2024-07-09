@@ -4,14 +4,14 @@ dtw = require("dependencies/luaDoTheWorld/luaDoTheWorld")
 set_server.single_process = false
 set_server.nullterminator = "null"
 
-require("headders")
-require("atenticacao")
 require("consts")
 require("dependencies/requires")
+require_dir("tratamento_de_erros")
 require_dir("banco")
 require_dir("rotas")
 
 SENHA_ROOT_MAIN = SENHA_ROOT_MAX
+SENHA_ROOT_READ = SENHA_ROOT_READ
 
 ---@param rq Request
 local function main_server(rq)
