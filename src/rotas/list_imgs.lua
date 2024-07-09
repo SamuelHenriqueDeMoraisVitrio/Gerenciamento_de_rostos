@@ -1,6 +1,8 @@
 
 
-
+---@param headders Headders
+---@param banco DtwResource
+---@return serjaoResponse
 function List_imgs(headders, banco)
 
     local ok, erro = Altentica_root(headders)
@@ -11,7 +13,11 @@ function List_imgs(headders, banco)
 
     local email = headders.obtem_headder(EMAIL)
 
-    local response = {}
+    if headders.erro then
+        return headders.erro
+    end
+
+    local response = List_imgs_banco(banco, email)
 
     return response
     

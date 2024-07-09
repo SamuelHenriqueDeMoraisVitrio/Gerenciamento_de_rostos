@@ -97,6 +97,7 @@ local function main_server(rq)
 
   if API .. LIST .. IMAGEM == rq.route then
     
+    return List_imgs(headders, banco)
   end
 
   return ROTA_NAO_ENCONTRADA, 404

@@ -4,7 +4,7 @@
 ---@param email string
 ---@return serjaoResponse
 function List_imgs_banco(banco, email)
-    
+
     local users = banco.sub_resource(USERS_BANCO)
 
     local user_finding = users.get_resource_matching_primary_key(EMAIL_BANCO, email)
@@ -15,14 +15,24 @@ function List_imgs_banco(banco, email)
 
     local dir_images = user_finding.sub_resource(IMGS_BANCO)
 
-    if not dir_images then
-        return serjao.send_text(IMG_NOT_FOUND, 404)
-    end
+    banco.commit()
 
-    local list, size = user_finding.map(function(element)
-       local  
+    local list = dir_images.map(
+    function(element)
+
+        local file = element.get_value_from_sub_resource(IMG)
+        local date = element.get_value_from_sub_resource(DATE)
+
+        local convert_date = nil
+        if date then
+            convert_date = os.date(DATE_FORMATED, date)
+        end
+
+        return {
+            foto = file,
+            data = convert_date
+        }
     end)
 
-
-    return serjao.send_text("Its ok")
+    return list
 end

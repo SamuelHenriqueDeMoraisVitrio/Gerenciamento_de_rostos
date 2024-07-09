@@ -2,8 +2,6 @@
 
 [X] valor negativado
 
-token
-
 [X] upload de fotos
 
 [X] sha senha root
@@ -14,8 +12,11 @@ token
 
 [X] Diferentes permissões
 
-[ ] Listar fotos
+[X] Listar fotos
 
 [X] Deletar fotos
 
+[ ] token
+
 [ ] atualizar fotos
+

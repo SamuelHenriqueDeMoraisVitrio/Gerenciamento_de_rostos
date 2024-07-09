@@ -1,6 +1,10 @@
 
 dtw = require("src/dependencies/luaDoTheWorld/luaDoTheWorld")
 
-local senha = dtw.generate_sha("sesiplanaltoroot")
+DATE_FORMATED = "%Y-%m-%d %H:%M:%S"
 
-print('\n', senha, '\n')
+local sla = nil
+
+local data = os.date(DATE_FORMATED, sla)
+
+print(data)

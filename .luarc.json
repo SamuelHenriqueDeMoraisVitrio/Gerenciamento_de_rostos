@@ -9,6 +9,8 @@
         "erro_banco",
         "registra_transacao_por_email",
         "registra_saldo_email",
-        "require_dir"
+        "require_dir",
+        "serjao",
+        "dtw"
     ]
 }
