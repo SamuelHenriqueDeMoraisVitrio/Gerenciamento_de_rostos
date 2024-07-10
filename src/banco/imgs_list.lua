@@ -20,7 +20,6 @@ function List_imgs_banco(banco, email)
     local list = dir_images.map(
     function(element)
 
-        local file = element.get_value_from_sub_resource(IMG)
         local date = element.get_value_from_sub_resource(DATE)
 
         local convert_date = nil
@@ -29,7 +28,7 @@ function List_imgs_banco(banco, email)
         end
 
         return {
-            foto = file,
+            id_foto = dtw.newPath(element.get_path_string()).get_only_name(),
             data = convert_date
         }
     end)
