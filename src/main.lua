@@ -44,7 +44,8 @@ local function main_server(rq)
   local headders = Cria_headders(rq.header)
   local body = Cria_body(rq.read_body)
 
-  if API .. ADD .. TOKEN == rq.route then
+
+  if API..ADD..TOKEN_ROUTE == rq.route then
     return Cria_token(headders, banco)
   end
 
@@ -71,7 +72,6 @@ local function main_server(rq)
     return registra_transacao_por_email(headders, banco, 1)
 
   end
-
   if API .. DECREASES .. BALANCE .. USER == rq.route then
     
     return registra_transacao_por_email(headders, banco, -1)
@@ -104,7 +104,7 @@ local function main_server(rq)
     return List_imgs(headders, banco)
   end
 
-  if API .. PREVIEW .. IMAGEM then
+  if API .. PREVIEW .. IMAGEM == rq.route then
     
     return preview_img(headders, banco)
   end

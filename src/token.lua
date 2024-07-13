@@ -15,7 +15,7 @@ end
 ---@return boolean,Token | string
 function Desempacota_token(token)
     local TAMANHO_TOTAL = 50
-    if string.len(token) ~TAMANHO_TOTAL then
+    if string.len(token) ~=TAMANHO_TOTAL then
     	return false,"token invalido"
     end
     local obj_token = {

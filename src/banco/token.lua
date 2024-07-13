@@ -47,3 +47,32 @@ function Cria_token_banco(user)
     return Empacota_token(user_id,token_id,senha)
 
 end
+
+---@param banco DtwResource
+---@param token Token
+---@return boolean,serjaoResponse | nil
+function  Valida_token(banco,token)
+	local users = banco.sub_resource(USERS_BANCO)
+	local possivel_usuario = users.get_resource_by_name_id(token.id_usuario)
+    if possivel_usuario == nil then
+    	return false,serjao.send_text(USER_NOT_FOUND,404)
+    end
+    local tokens = possivel_usuario.sub_resource("tokens")
+    local possivel_token = tokens.sub_resource(token.id_token)
+
+    if possivel_token.get_type() == "null" then
+    	 return false,serjao.send_text("token invalido",404)
+    end
+
+    local senha = possivel_token.sub_resource(SENHA).get_string()
+    if senha ~= token.senha_token then
+    	return false,serjao.send_text("token invalido",404)
+    end
+
+    local criacao = possivel_token.get_value_from_sub_resource("criacao")
+
+    if criacao + (EXPIRACAO * 60) < os.time() then
+    	return false,serjao.send_text("token expirado",404)
+    end
+    return true,possivel_usuario
+end
