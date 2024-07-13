@@ -4,10 +4,10 @@
 ---@param banco DtwResource
 ---@return serjaoResponse
 function Cria_user_server(headers, banco)
-  local ok, erro = Altentica_root(headers,banco)
+  local ok, erro_ou_user = Altentica(headers,banco,true)
 
   if not ok then
-    return erro
+    return erro_ou_user
   end
 
   local nome = headers.obtem_headder(NOME)

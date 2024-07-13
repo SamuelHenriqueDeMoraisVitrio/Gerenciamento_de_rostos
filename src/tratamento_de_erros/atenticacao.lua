@@ -2,8 +2,9 @@
 
 ---@param headers Headders
 ---@param banco DtwResource
+---@param precisa_ser_root boolean
 ---@return boolean,serjaoResponse|DtwResource|nil
-function Altentica_root(headers,banco)
+function Altentica(headers,banco,precisa_ser_root)
 
   local possivel_root_max = headers.obtem_headder_opcional(ROOT_MAX)
   if possivel_root_max then
@@ -24,6 +25,7 @@ function Altentica_root(headers,banco)
   if not ok then
   	   return false,serjao.send_text(token_ou_erro,405)
   end
-  local ok,usuario_ou_erro= Valida_token(banco,token_ou_erro)
+  local ok,usuario_ou_erro= Valida_token(banco,token_ou_erro,precisa_ser_root)
+
   return ok,usuario_ou_erro
 end

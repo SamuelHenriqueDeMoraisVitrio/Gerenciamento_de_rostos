@@ -50,12 +50,21 @@ end
 
 ---@param banco DtwResource
 ---@param token Token
+---@param precisa_ser_root boolean
 ---@return boolean,serjaoResponse | nil
-function  Valida_token(banco,token)
+function  Valida_token(banco,token,precisa_ser_root)
 	local users = banco.sub_resource(USERS_BANCO)
 	local possivel_usuario = users.get_resource_by_name_id(token.id_usuario)
     if possivel_usuario == nil then
     	return false,serjao.send_text(USER_NOT_FOUND,404)
+    end
+
+    if precisa_ser_root then
+    	local root = possivel_usuario.get_value_from_sub_resource("root")
+    	if root ~= true then
+    		return false,serjao.send_text("usuario não é root",403)
+    	end
+
     end
     local tokens = possivel_usuario.sub_resource("tokens")
     local possivel_token = tokens.sub_resource(token.id_token)

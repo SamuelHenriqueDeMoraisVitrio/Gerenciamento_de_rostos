@@ -5,14 +5,11 @@
 ---@return serjaoResponse
 function Lista_users(headers, banco)
 
-    local ok, erro = Altentica_read(headers)
+    local ok, erro_ou_user = Altentica(headers,banco,true)
 
-    if not ok then
-        
-        return erro
-
-    end
-
+      if not ok then
+        return erro_ou_user
+      end
     local filtragem_nome = headers.obtem_headder_opcional(NOME)
     local filtragem_email = headers.obtem_headder_opcional(EMAIL)
     local filtragem_saldo_min = headers.obtem_headder_numerico_opcional(SALDO_MIN)
