@@ -56,7 +56,7 @@ function  Valida_token(banco,token,precisa_ser_root)
 	local users = banco.sub_resource(USERS_BANCO)
 	local possivel_usuario = users.get_resource_by_name_id(token.id_usuario)
     if possivel_usuario == nil then
-    	return false,serjao.send_text(USER_NOT_FOUND,404)
+    	return false,serjao.send_text(USER_NOT_FOUND,403)
     end
 
     if precisa_ser_root then
@@ -70,18 +70,18 @@ function  Valida_token(banco,token,precisa_ser_root)
     local possivel_token = tokens.sub_resource(token.id_token)
 
     if possivel_token.get_type() == "null" then
-    	 return false,serjao.send_text("token invalido",404)
+    	 return false,serjao.send_text("token invalido",403)
     end
 
     local senha = possivel_token.sub_resource(SENHA).get_string()
     if senha ~= token.senha_token then
-    	return false,serjao.send_text("token invalido",404)
+    	return false,serjao.send_text("token invalido",403)
     end
 
     local criacao = possivel_token.get_value_from_sub_resource("criacao")
 
     if criacao + (EXPIRACAO * 60) < os.time() then
-    	return false,serjao.send_text("token expirado",404)
+    	return false,serjao.send_text("token expirado",403)
     end
     return true,possivel_usuario
 end

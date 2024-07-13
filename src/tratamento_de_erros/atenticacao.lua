@@ -23,7 +23,7 @@ function Altentica(headers,banco,precisa_ser_root)
   local ok,token_ou_erro = Desempacota_token(token_raw)
 
   if not ok then
-  	   return false,serjao.send_text(token_ou_erro,405)
+  	   return false,serjao.send_text(token_ou_erro,403)
   end
   local ok,usuario_ou_erro= Valida_token(banco,token_ou_erro,precisa_ser_root)
 

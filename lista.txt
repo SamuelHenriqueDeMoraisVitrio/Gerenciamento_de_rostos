@@ -20,3 +20,9 @@
 
 [ ] atualizar fotos
 
+remove token
+
+remove item
+
+redirecionamento de /itens
+

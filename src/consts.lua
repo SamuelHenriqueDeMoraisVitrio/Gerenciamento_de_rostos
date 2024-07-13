@@ -68,4 +68,4 @@ IMGS_BANCO = "imagens"
 IMG = "imagem.jpg"
 DATE = "data"
 MAXIMO_DE_TOKENS  = 5
-EXPIRACAO = 1
+EXPIRACAO = 5

@@ -45,7 +45,7 @@ local function main_server(rq)
   local body = Cria_body(rq.read_body)
 
 
-  if API..ADD..TOKEN_ROUTE == rq.route then
+  if API .. ADD .. TOKEN_ROUTE == rq.route then
     return Cria_token(headders, banco)
   end
 
@@ -111,6 +111,10 @@ local function main_server(rq)
 
   if API .. DELETE .. IMAGEM then
     
+  end
+
+  if "/api/retorna/usuario" == rq.route then
+    return Retorna_dados_do_user(headders, banco)
   end
 
   return ROTA_NAO_ENCONTRADA, 404
