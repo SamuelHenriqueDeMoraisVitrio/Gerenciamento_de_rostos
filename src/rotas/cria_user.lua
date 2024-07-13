@@ -26,7 +26,7 @@ function Cria_user_server(headers, banco)
   end
 
   if saldo < 1 then
-    
+
     return serjao.send_text(VALUE_INVALID, 406)
 
   end

@@ -9,7 +9,7 @@ require("dependencies/requires")
 require_dir("tratamento_de_erros")
 require_dir("banco")
 require_dir("rotas")
-
+require("token")
 SENHA_ROOT_MAIN = SENHA_ROOT_MAX
 SENHA_ROOT_READ = SENHA_ROOT_READ
 
@@ -43,6 +43,10 @@ local function main_server(rq)
   local banco = add_banco()
   local headders = Cria_headders(rq.header)
   local body = Cria_body(rq.read_body)
+
+  if API .. ADD .. TOKEN == rq.route then
+    return Cria_token(headders, banco)
+  end
 
   if API .. ADD .. USER == rq.route then
     return Cria_user_server(headders, banco)
