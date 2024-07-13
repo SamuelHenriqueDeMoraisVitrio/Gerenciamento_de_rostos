@@ -3,9 +3,9 @@
 ---@param headders Headders
 ---@param banco DtwResource
 ---@return serjaoResponse
-function List_imgs(headders, banco)
-
-    local ok, erro = Altentica_read(headders)
+function Dell_all_imgs(headders, banco)
+   
+    local ok, erro = Altentica_root(headders)
 
     if not ok then
         return erro
@@ -17,8 +17,7 @@ function List_imgs(headders, banco)
         return headders.erro
     end
 
-    local response = List_imgs_banco(banco, email)
+    local response = Dell_imgs_banco(banco, email)
 
     return response
-    
 end

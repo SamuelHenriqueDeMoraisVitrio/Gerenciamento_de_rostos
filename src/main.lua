@@ -52,12 +52,12 @@ local function main_server(rq)
     return Lista_users(headders, banco)
   end
 
-  if API .. INCREASES .. BALANCE == rq.route then
+  if API .. INCREASES .. BALANCE .. LOTE == rq.route then
 
     return Registrar_transacoes_rota(headders,banco, 1)
   end
 
-  if API .. DECREASES .. BALANCE == rq.route then
+  if API .. DECREASES .. BALANCE .. LOTE == rq.route then
     
     return Registrar_transacoes_rota(headders, banco, -1)
   end
@@ -90,14 +90,23 @@ local function main_server(rq)
     return Add_img(headders, banco, body)
   end
 
-  if API .. DELETE .. IMAGEM == rq.route then
+  if API .. DELETE .. ALL .. IMAGEM == rq.route then
     
-    return Dell_imgs(headders, banco)
+    return Dell_all_imgs(headders, banco)
   end
 
-  if API .. LIST .. IMAGEM == rq.route then
+  if API .. LIST .. ALL .. IMAGEM == rq.route then
     
     return List_imgs(headders, banco)
+  end
+
+  if API .. PREVIEW .. IMAGEM then
+    
+    return preview_img(headders, banco)
+  end
+
+  if API .. DELETE .. IMAGEM then
+    
   end
 
   return ROTA_NAO_ENCONTRADA, 404

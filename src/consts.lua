@@ -19,6 +19,8 @@ DELETE = "/deleta"
 USER = "/usuario"
 CURRENT = "/corrente"
 IMAGEM = "/foto"
+PREVIEW = "/ver"
+ALL = "/todas"
 
 --Responses
 ROTA_NAO_ENCONTRADA = "Rota não encontrada."
@@ -44,6 +46,7 @@ SALDO = "saldo"
 SALDO_MIN = "saldo_min"
 SALDO_MAX = "saldo_max"
 VALOR = "valor"
+ID = "id"
 
 --Banco
 BANCO = "data"
