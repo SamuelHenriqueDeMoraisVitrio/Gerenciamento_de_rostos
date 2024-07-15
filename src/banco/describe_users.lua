@@ -25,9 +25,7 @@ function Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_
     local email = element.get_value_from_sub_resource(EMAIL_BANCO)
     local saldo = element.get_value_from_sub_resource(SALDO_BANCO)
     local root = element.sub_resource(ROOT_BANCO).get_bool()
-
-    local sub_imgs = element.sub_resource(IMGS_BANCO)
-    local list, size = dtw.list_dirs(string.format("%s", sub_imgs), false)
+    local sub_imgs, size = element.sub_resource(IMGS_BANCO).list()
 
     if "number" == type(email) then
       email = string.format("%d", email)

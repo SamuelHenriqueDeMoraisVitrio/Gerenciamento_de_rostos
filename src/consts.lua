@@ -38,6 +38,8 @@ IMG_NOT_FOUND = "Esse usuario não tem fotos."
 NOT_FOUND_TOKEN = "token invalido"
 EXPIRED_TOKEN = "token expirado"
 USER_NOT_ROOT = "O usuario não é root"
+ID_INVALID = "O id é invalido."
+ID_NOT_IMG = "Essa imagem não existe no banco."
 
 --Headers
 ROOT_MAX = "root_max"
@@ -85,4 +87,7 @@ NULL = "null"
 --set_server
 set_server.single_process = false
 set_server.nullterminator = NULL
+
+--content/type
+TYPE_JPEG = "image/jpeg"
 

@@ -16,19 +16,18 @@ function preview_img_banco(banco, email, id)
         return serjao.send_text(USER_NOT_FOUND, 404)
     end
 
-    local dir_images = user_finding.sub_resource(IMGS_BANCO)
+    local dir_images, size = user_finding.sub_resource(IMGS_BANCO).list()
 
-    banco.commit()
-
-    local finding_img = dir_images.sub_resource(string.format("%s", id))
-
-    local list, size = dtw.list_files(string.format("%s", finding_img), false)
-
-    if size > 0 then
-        local sla = nil
+    id = id + 1
+    if size < id then
+        return serjao.send_text(ID_NOT_IMG, 404)
     end
 
-    return {}
+    local dir_img = dir_images[id]
+
+    local img = dir_img.get_value_from_sub_resource(IMG)
+
+    return serjao.send_raw(img, TYPE_JPEG, 200)
 
 end
 

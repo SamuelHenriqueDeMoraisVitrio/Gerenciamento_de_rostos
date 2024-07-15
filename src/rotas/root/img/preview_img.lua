@@ -18,6 +18,10 @@ function preview_img(headders, banco)
         return headders.erro
     end
 
+    if id < 0 or id > 12 then
+        return serjao.send_text(ID_INVALID, 400)
+    end
+
     local response = preview_img_banco(banco, email, id)
 
     return response
