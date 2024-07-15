@@ -2,11 +2,13 @@
 
 
 
+
+
 ---@param banco DtwResource
 ---@param email string
 ---@param id number
 ---@return serjaoResponse
-function preview_img_banco(banco, email, id)
+function Dell_one_img_banco(banco, email, id)
 
     local users = banco.sub_resource(USERS_BANCO)
 
@@ -24,11 +26,10 @@ function preview_img_banco(banco, email, id)
         return serjao.send_text(ID_NOT_IMG, 404)
     end
 
-    local dir_img = dir_images[id]
+    dir_images[id].destroy()
 
-    local img = dir_img.get_value_from_sub_resource(IMG)
+    banco.commit()
 
-    return serjao.send_raw(img, TYPE_JPEG, 200)
-
+    return serjao.send_text("Imagem deletada do banco.", 200)
 end
 

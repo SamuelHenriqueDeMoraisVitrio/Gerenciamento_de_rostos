@@ -108,6 +108,7 @@ local function main_server(rq)
 
   if API .. DELETE .. IMAGEM then
 
+    return Dell_one_img(headders, banco)
   end
 
   if "/api/retorna/usuario" == rq.route then
