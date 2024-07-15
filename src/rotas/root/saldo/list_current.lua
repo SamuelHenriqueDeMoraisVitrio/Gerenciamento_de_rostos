@@ -5,10 +5,10 @@
 ---@return serjaoResponse
 function list_current(headers, banco)
 
-    local ok, erro = Altentica_read(headers)
+    local ok, erro_ou_user = Altentica(headers,banco,true)
 
     if not ok then
-        return erro
+      return erro_ou_user
     end
 
     local email = headers.obtem_headder(EMAIL)

@@ -5,12 +5,11 @@
 ---@param body Request
 ---@return serjaoResponse
 function Add_img(headders, banco, body)
-    
-    local ok, erro = Altentica_root(headders)
+
+    local ok, erro_ou_user = Altentica(headders, banco, true)
 
     if not ok then
-        
-        return erro
+      return erro_ou_user
     end
 
     local email = headders.obtem_headder(EMAIL)

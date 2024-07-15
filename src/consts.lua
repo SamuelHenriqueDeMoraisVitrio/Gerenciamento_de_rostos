@@ -50,6 +50,8 @@ SENHA = "senha"
 SALDO = "saldo"
 SALDO_MIN = "saldo_min"
 SALDO_MAX = "saldo_max"
+IMG_MAX = "img_max"
+IMG_MIN = "img_min"
 VALOR = "valor"
 ID = "id"
 

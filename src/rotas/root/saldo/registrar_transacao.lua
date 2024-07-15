@@ -6,10 +6,10 @@
 ---@return serjaoResponse
 function Registrar_transacoes_rota(headers, banco, multiplicador)
 
-    local ok, erro = Altentica_root(headers)
-  
-    if ok == false then
-      return erro
+    local ok, erro_ou_user = Altentica(headers, banco, true)
+
+    if not ok then
+      return erro_ou_user
     end
 
 

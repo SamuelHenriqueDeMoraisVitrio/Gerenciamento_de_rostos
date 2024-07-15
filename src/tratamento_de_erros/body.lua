@@ -1,6 +1,6 @@
 
 ---@class Body
----@field erro serjaoResponse|nil
+---@field erro serjaoResponse |nil
 ---@field obtem_body fun(default:number|nil):string|nil
 
 

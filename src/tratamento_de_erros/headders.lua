@@ -6,6 +6,7 @@
 ---@field obtem_headder_numerico fun(nome:string,default:string|nil):number | nil
 ---@field obtem_headder_opcional fun(nome:string):string | nil
 ---@field obtem_headder_numerico_opcional fun(nome:string):number | nil
+---@field obtem_headder_booleano_opcional fun(nome:string):boolean | nil
 ---@field existe fun(nome:string):boolean
 
 
@@ -53,7 +54,7 @@ function Cria_headders(headers)
 
         local valor_convertido = tonumber(valor)
         if valor_convertido == nil then
-            tabela.erro = serjao.send_text("headder "..nome.."não é um número")
+            tabela.erro = serjao.send_text("headder "..nome.." não é um número")
         end
         return valor_convertido
     end
@@ -76,10 +77,24 @@ function Cria_headders(headers)
 
         local valor_convertido = tonumber(valor)
         if valor_convertido == nil then
-        	tabela.erro = serjao.send_text("headder "..nome.."não é um número")
+        	tabela.erro = serjao.send_text("headder "..nome.." não é um número")
         end
         return valor_convertido
 
+    end
+
+    tabela.obtem_headder_booleano_opcional = function (nome)
+
+        local valor = tabela.obtem_headder_opcional(nome)
+        if valor == "true" then
+            return true
+        end
+
+        if valor == "false" then
+            return false
+        end
+
+        return nil
     end
 
     return tabela
