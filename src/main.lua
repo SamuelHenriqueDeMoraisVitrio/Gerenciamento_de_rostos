@@ -1,15 +1,14 @@
 serjao = require("dependencies/serjao_berranteiro/serjao_berranteiro")
 dtw = require("dependencies/luaDoTheWorld/luaDoTheWorld")
-
-set_server.single_process = false
-set_server.nullterminator = "null"
-
-require("consts")
 require("dependencies/requires")
+require("consts")
+
 require_dir("tratamento_de_erros")
-require_dir("banco")
-require_dir("rotas")
-require("token")
+require_dir("autentica")
+
+require_dir_recursively("banco")
+require_dir_recursively("rotas")
+
 SENHA_ROOT_MAIN = SENHA_ROOT_MAX
 SENHA_ROOT_READ = SENHA_ROOT_READ
 
@@ -17,20 +16,18 @@ SENHA_ROOT_READ = SENHA_ROOT_READ
 local function main_server(rq)
 
   if rq.route == "/" then
-    
-    return serjao.send_file("pages/index.html")
 
+    return serjao.send_file("pages/index.html")
   end
 
-
   if not dtw.starts_with(rq.route, API) then
-    
+
     local arquivo = dtw.concat_path("pages", rq.route)
 
     arquivo = arquivo .. ".html"
 
     if dtw.isfile(arquivo) then
-      
+
       return serjao.send_file(arquivo)
 
     end
@@ -63,54 +60,54 @@ local function main_server(rq)
   end
 
   if API .. DECREASES .. BALANCE .. LOTE == rq.route then
-    
+
     return Registrar_transacoes_rota(headders, banco, -1)
   end
 
   if API .. INCREASES .. BALANCE .. USER == rq.route then
-    
+
     return registra_transacao_por_email(headders, banco, 1)
 
   end
   if API .. DECREASES .. BALANCE .. USER == rq.route then
-    
+
     return registra_transacao_por_email(headders, banco, -1)
 
   end
 
   if API .. DELETE .. USER == rq.route then
-    
+
     return delete_user(headders, banco)
   end
 
   if API .. LIST .. USER .. CURRENT == rq.route then
-    
+
     return list_current(headders, banco)
 
   end
 
   if API .. ADD .. IMAGEM == rq.route then
-    
+
     return Add_img(headders, banco, body)
   end
 
   if API .. DELETE .. ALL .. IMAGEM == rq.route then
-    
+
     return Dell_all_imgs(headders, banco)
   end
 
   if API .. LIST .. ALL .. IMAGEM == rq.route then
-    
+
     return List_imgs(headders, banco)
   end
 
   if API .. PREVIEW .. IMAGEM == rq.route then
-    
+
     return preview_img(headders, banco)
   end
 
   if API .. DELETE .. IMAGEM then
-    
+
   end
 
   if "/api/retorna/usuario" == rq.route then

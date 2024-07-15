@@ -9,7 +9,6 @@ async function faz_requisicao_autenticada(rota, props){
     }
 
     if(!props){
-
         props = {};
     }
 
@@ -23,6 +22,9 @@ async function faz_requisicao_autenticada(rota, props){
 
     if(response.status === 403){
         window.location.href = "/index";
+
+        sessionStorage.removeItem("token")
+
         return;
     }
 
@@ -41,6 +43,5 @@ window.onload = async function () {
 
     let dados_do_user = await faz_requisicao_autenticada("/api/retorna/usuario")
 
-    console.log(dados_do_user)
 }
 

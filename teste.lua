@@ -1,6 +1,5 @@
 
+dtw = require("src.dependencies.luaDoTheWorld.luaDoTheWorld")
+require("src.dependencies.requires")
 
-
-if "aaaaaa" then
-
-end
+require_dir_recursively("src/rotas")

@@ -35,6 +35,9 @@ IMG_ADD = "Imagem adicionada ao banco."
 IMG_FULL = "O limite de imagens a ser guardada foi exsedida."
 IMG_DELL = "O banco de imagem foi deletada."
 IMG_NOT_FOUND = "Esse usuario não tem fotos."
+NOT_FOUND_TOKEN = "token invalido"
+EXPIRED_TOKEN = "token expirado"
+USER_NOT_ROOT = "O usuario não é root"
 
 --Headers
 ROOT_MAX = "root_max"
@@ -67,5 +70,17 @@ SALDO_NOW_BANCO_TRANSACOES = "saldo_now"
 IMGS_BANCO = "imagens"
 IMG = "imagem.jpg"
 DATE = "data"
+--Token
+CRIACAO = "criacao"
+TOKENS = "tokens"
+TAMANHO_TOTAL = 50
 MAXIMO_DE_TOKENS  = 5
 EXPIRACAO = 5
+
+--extra
+NULL = "null"
+
+--set_server
+set_server.single_process = false
+set_server.nullterminator = NULL
+
