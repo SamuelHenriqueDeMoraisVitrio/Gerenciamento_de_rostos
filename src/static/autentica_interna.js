@@ -44,3 +44,23 @@ window.onload = async function () {
     let dados_do_user = await faz_requisicao_autenticada("/api/usuario")
 }
 
+
+async function logout(){
+
+    let token = sessionStorage.getItem("token");
+    if(!token){
+        window.location.href = "/";
+        return;
+    }
+
+    let props = {}
+    props.headers = {}
+    props.headers.token = token
+
+    await fetch("/api/deleta/token", props)
+
+    window.location.href = "/";
+
+    sessionStorage.removeItem("token")
+}
+

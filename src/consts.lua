@@ -80,7 +80,7 @@ CRIACAO = "criacao"
 TOKENS = "tokens"
 TAMANHO_TOTAL = 50
 MAXIMO_DE_TOKENS  = 5
-EXPIRACAO = 5
+EXPIRACAO = 30
 
 --extra
 NULL = "null"

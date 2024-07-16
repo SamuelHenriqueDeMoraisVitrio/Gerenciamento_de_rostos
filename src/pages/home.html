@@ -1,16 +1,67 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meu Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/style/home.css">
     <script src="/static/autentica_interna.js"></script>
 </head>
 <body>
-    
-
-    <p>Ambiente interno</p>
-
-
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <h2>Meu Site</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <button onclick="navigateTo('perfil')">
+                    <i class="fas fa-user"></i>
+                    Perfil
+                </button>
+            </li>
+            <li>
+                <button onclick="navigateTo('foto')">
+                    <i class="fas fa-camera"></i>
+                    Foto
+                </button>
+            </li>
+            <li>
+                <button onclick="navigateTo('saldo')">
+                    <i class="fas fa-wallet"></i>
+                    Saldo
+                </button>
+            </li>
+            <li>
+                <button onclick="navigateTo('sobre')">
+                    <i class="fas fa-info-circle"></i>
+                    Sobre
+                </button>
+            </li>
+            <li>
+                <button onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Deslogar
+                </button>
+            </li>
+            <li>
+                <button onclick="navigateTo('modo-root')">
+                    <i class="fas fa-terminal"></i>
+                    Modo Root
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Bem-vindo ao Meu Site</h1>
+        <p>Selecione uma opção no menu para começar.</p>
+    </div>
+    <script>
+        function navigateTo(section) {
+            console.log('Navegando para', section);
+            // Aqui você pode adicionar a lógica para navegação
+        }
+    </script>
 </body>
 </html>
