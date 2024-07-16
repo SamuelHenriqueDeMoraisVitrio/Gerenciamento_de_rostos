@@ -1,20 +1,8 @@
 
 
----@param banco DtwResource
----@param email string
+---@param user DtwResource
 ---@return serjaoResponse
-function list_current_banco(banco, email)
-
-
-    local users = banco.sub_resource(USERS_BANCO)
-
-    local user = users.get_resource_matching_primary_key(EMAIL_BANCO, email)
-
-    if user == nil then
-        
-        return serjao.send_text(USER_NOT_FOUND, 404)
-    end
-
+function List_current_banco(user)
 
     local transactions = user.sub_resource(TRANSACOES_BANCO)
 

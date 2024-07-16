@@ -3,7 +3,7 @@
 ---@param headders Headders
 ---@param banco DtwResource
 ---@return serjaoResponse
-function preview_img(headders, banco)
+function Preview_img(headders, banco)
 
     local ok, erro = Altentica(headders, banco, true)
 

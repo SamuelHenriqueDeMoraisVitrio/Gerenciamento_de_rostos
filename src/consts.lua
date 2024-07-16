@@ -22,6 +22,7 @@ CURRENT = "/corrente"
 IMAGEM = "/foto"
 PREVIEW = "/ver"
 ALL = "/todas"
+GUYS = "/pessoal"
 
 --Responses
 ROTA_NAO_ENCONTRADA = "Rota não encontrada."

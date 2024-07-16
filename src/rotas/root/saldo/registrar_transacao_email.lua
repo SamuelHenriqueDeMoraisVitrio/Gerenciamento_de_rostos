@@ -3,7 +3,7 @@
 ---@param headders Headders
 ---@param banco DtwResource
 ---@return serjaoResponse
-function registra_transacao_por_email(headders, banco, multiplicador)
+function Registra_transacao_por_email(headders, banco, multiplicador)
 
     local ok, erro_ou_user = Altentica(headders, banco, true)
 

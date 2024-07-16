@@ -4,6 +4,7 @@
 ---@field erro serjaoResponse |nil
 ---@field obtem_headder fun(nome:string,default:string|nil):string | nil
 ---@field obtem_headder_numerico fun(nome:string,default:string|nil):number | nil
+---@field obtem_headder_booleano fun(nome:string, default:string|nil):boolean | nil
 ---@field obtem_headder_opcional fun(nome:string):string | nil
 ---@field obtem_headder_numerico_opcional fun(nome:string):number | nil
 ---@field obtem_headder_booleano_opcional fun(nome:string):boolean | nil
@@ -81,6 +82,26 @@ function Cria_headders(headers)
         end
         return valor_convertido
 
+    end
+
+    tabela.obtem_headder_booleano = function (nome, default)
+
+        local valor = tabela.obtem_headder(nome, default)
+
+        if valor == nil then
+    		return nil
+    	end
+
+        if valor == "true" then
+            return true
+        end
+
+        if valor == "false" then
+            return false
+        end
+
+        tabela.erro = serjao.send_text("headder "..nome.." não é um valor booleano.")
+        return false
     end
 
     tabela.obtem_headder_booleano_opcional = function (nome)

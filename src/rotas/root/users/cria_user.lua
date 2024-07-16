@@ -13,16 +13,11 @@ function Cria_user_server(headers, banco)
   local nome = headers.obtem_headder(NOME)
   local email = headers.obtem_headder(EMAIL)
   local senha = headers.obtem_headder(SENHA)
-  local root_str = headers.obtem_headder(ROOT,"false")
+  local root = headers.obtem_headder_booleano(ROOT, "false")
   local saldo = headers.obtem_headder_numerico(SALDO, 100)
 
   if headers.erro then
   	return headers.erro
-  end
-
-  local root = false
-  if root_str == "true" then
-  	 root = true
   end
 
   if saldo < 1 then

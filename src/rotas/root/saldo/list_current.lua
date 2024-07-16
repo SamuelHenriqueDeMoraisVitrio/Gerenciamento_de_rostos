@@ -3,7 +3,7 @@
 ---@param headers table
 ---@param banco DtwResource
 ---@return serjaoResponse
-function list_current(headers, banco)
+function List_current(headers, banco)
 
     local ok, erro_ou_user = Altentica(headers,banco,true)
 
@@ -17,8 +17,16 @@ function list_current(headers, banco)
         return headers.erro
     end
 
-    local response = list_current_banco(banco, email)
+    local users = banco.sub_resource(USERS_BANCO)
 
+    local user = users.get_resource_matching_primary_key(EMAIL_BANCO, email)
+
+    if user == nil then
+
+      return serjao.send_text(USER_NOT_FOUND, 404)
+    end
+
+    local response = List_current_banco(user)
 
     return response
 

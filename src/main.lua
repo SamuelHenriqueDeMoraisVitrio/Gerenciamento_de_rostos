@@ -66,23 +66,23 @@ local function main_server(rq)
 
   if API .. INCREASES .. BALANCE .. USER == rq.route then
 
-    return registra_transacao_por_email(headders, banco, 1)
+    return Registra_transacao_por_email(headders, banco, 1)
 
   end
   if API .. DECREASES .. BALANCE .. USER == rq.route then
 
-    return registra_transacao_por_email(headders, banco, -1)
+    return Registra_transacao_por_email(headders, banco, -1)
 
   end
 
   if API .. DELETE .. USER == rq.route then
 
-    return delete_user(headders, banco)
+    return Delete_user(headders, banco)
   end
 
   if API .. LIST .. USER .. CURRENT == rq.route then
 
-    return list_current(headders, banco)
+    return List_current(headders, banco)
 
   end
 
@@ -103,12 +103,17 @@ local function main_server(rq)
 
   if API .. PREVIEW .. IMAGEM == rq.route then
 
-    return preview_img(headders, banco)
+    return Preview_img(headders, banco)
   end
 
-  if API .. DELETE .. IMAGEM then
+  if API .. DELETE .. IMAGEM == rq.route then
 
     return Dell_one_img(headders, banco)
+  end
+
+  if API .. LIST .. USER .. CURRENT .. GUYS == rq.route then
+
+    return List_current_guys(headders, banco)
   end
 
   if "/api/retorna/usuario" == rq.route then

@@ -3,7 +3,7 @@
 ---@param headers table
 ---@param banco DtwResource
 ---@return serjaoResponse
-function delete_user(headers, banco)
+function Delete_user(headers, banco)
 
   local ok, erro_ou_user = Altentica(headers,banco,true)
 
