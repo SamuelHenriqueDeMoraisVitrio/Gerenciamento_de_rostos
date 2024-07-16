@@ -123,7 +123,7 @@ local function main_server(rq)
 
   if API .. DELETE .. ALL .. IMAGEM .. GUYS == rq.route then
 
-    return Dell_all_imgs(headders, banco)
+    return Dell_all_imgs_guys(headders, banco)
   end
 
   if API .. LIST .. ALL .. IMAGEM .. GUYS == rq.route then
