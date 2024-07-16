@@ -1,18 +1,9 @@
 
-
 ---@param banco DtwResource
 ---@param file string
----@param email string
+---@param user_finding DtwResource
 ---@return serjaoResponse
-function Add_img_banco(banco, file, email)
-    
-    local users = banco.sub_resource(USERS_BANCO)
-
-    local user_finding = users.get_resource_matching_primary_key(EMAIL_BANCO, email)
-
-    if not user_finding then
-        return serjao.send_text(USER_NOT_FOUND, 404)
-    end
+function Add_img_banco(banco, file, user_finding)
 
     local imgs = user_finding.sub_resource(IMGS_BANCO)
 
@@ -33,12 +24,12 @@ function Add_img_banco(banco, file, email)
             name_dir = tostring(time)
             break
         end
-        
+
         time = time + 1
         name_dir = tostring(time)
     end
 
-    
+
     if size > 13 then
         return serjao.send_text(IMG_FULL, 405)
     end

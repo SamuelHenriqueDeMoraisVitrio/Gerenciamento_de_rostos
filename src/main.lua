@@ -116,6 +116,31 @@ local function main_server(rq)
     return List_current_guys(headders, banco)
   end
 
+  if API .. ADD .. IMAGEM .. GUYS == rq.route then
+
+    return Add_img_guys(headders, banco, body)
+  end
+
+  if API .. DELETE .. ALL .. IMAGEM .. GUYS == rq.route then
+
+    return Dell_all_imgs(headders, banco)
+  end
+
+  if API .. LIST .. ALL .. IMAGEM .. GUYS == rq.route then
+
+    return List_imgs(headders, banco)
+  end
+
+  if API .. PREVIEW .. IMAGEM .. GUYS == rq.route then
+
+    return Preview_img(headders, banco)
+  end
+
+  if API .. DELETE .. IMAGEM .. GUYS == rq.route then
+
+    return Dell_one_img(headders, banco)
+  end
+
   if "/api/retorna/usuario" == rq.route then
     return Retorna_dados_do_user(headders, banco)
   end
