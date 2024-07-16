@@ -1,21 +1,27 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sesi Planalto LOGIN</title>
+    <link rel="stylesheet" href="/static/style/index.css">
     <script src="/static/autentica_extern.js"></script>
 </head>
 <body>
-
-
-    <h1>Hello Word</h1>
-
-    <button>Qualquer coisa</button>
-
-    <input id="email" type="text">
-    <input id="senha" type="text">
-    <button onclick="efetua_log()">login</button>
-    
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="senha" name="password" required>
+            </div>
+            <button type="submit" onclick="efetua_log()">Entrar</button>
+        </form>
+    </div>
 </body>
 </html>

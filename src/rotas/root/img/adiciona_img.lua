@@ -23,15 +23,13 @@ function Add_img(headders, banco, body)
         return body.erro
     end
 
-    local users = banco.sub_resource(USERS_BANCO)
+    local existe, user_or_error_by_email = User_finding_by_email(banco, email)
 
-    local user_finding = users.get_resource_matching_primary_key(EMAIL_BANCO, email)
-
-    if not user_finding then
-        return serjao.send_text(USER_NOT_FOUND, 404)
+    if not existe then
+        return user_or_error_by_email
     end
 
-    local response = Add_img_banco(banco, file, user_finding)
+    local response = Add_img_banco(banco, file, user_or_error_by_email)
 
     return response
 end

@@ -5,20 +5,12 @@
 
 
 ---@param banco DtwResource
----@param email string
+---@param user_finding DtwResource
 ---@param id number
 ---@return serjaoResponse
-function Dell_one_img_banco(banco, email, id)
+function Dell_one_img_banco(banco, user_finding, id)
 
-    local users = banco.sub_resource(USERS_BANCO)
-
-    local user_finding = users.get_resource_matching_primary_key(EMAIL_BANCO, email)
-
-    if not user_finding then
-        return serjao.send_text(USER_NOT_FOUND, 404)
-    end
-
-    local dir_images, size = user_finding.sub_resource(IMGS_BANCO).list()
+    local dir_images = user_finding.sub_resource(IMGS_BANCO).list()
 
     id = id + 1
 

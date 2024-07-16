@@ -17,16 +17,13 @@ function List_current(headers, banco)
         return headers.erro
     end
 
-    local users = banco.sub_resource(USERS_BANCO)
+    local existe, user_or_error_by_email = User_finding_by_email(banco, email)
 
-    local user = users.get_resource_matching_primary_key(EMAIL_BANCO, email)
-
-    if user == nil then
-
-      return serjao.send_text(USER_NOT_FOUND, 404)
+    if not existe then
+      return user_or_error_by_email
     end
 
-    local response = List_current_banco(user)
+    local response = List_current_banco(user_or_error_by_email)
 
     return response
 

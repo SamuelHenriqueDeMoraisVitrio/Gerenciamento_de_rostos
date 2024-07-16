@@ -128,20 +128,20 @@ local function main_server(rq)
 
   if API .. LIST .. ALL .. IMAGEM .. GUYS == rq.route then
 
-    return List_imgs(headders, banco)
+    return List_all_imgs_guys(headders, banco)
   end
 
   if API .. PREVIEW .. IMAGEM .. GUYS == rq.route then
 
-    return Preview_img(headders, banco)
+    return Preview_img_guys(headders, banco)
   end
 
   if API .. DELETE .. IMAGEM .. GUYS == rq.route then
 
-    return Dell_one_img(headders, banco)
+    return Dell_one_img_guys(headders, banco)
   end
 
-  if "/api/retorna/usuario" == rq.route then
+  if API .. USER == rq.route then
     return Retorna_dados_do_user(headders, banco)
   end
 

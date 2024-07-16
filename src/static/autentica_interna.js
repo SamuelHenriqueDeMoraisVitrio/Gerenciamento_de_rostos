@@ -41,7 +41,6 @@ async function faz_requisicao_autenticada(rota, props){
 
 window.onload = async function () {
 
-    let dados_do_user = await faz_requisicao_autenticada("/api/retorna/usuario")
-
+    let dados_do_user = await faz_requisicao_autenticada("/api/usuario")
 }
 
