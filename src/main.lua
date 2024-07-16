@@ -141,6 +141,10 @@ local function main_server(rq)
     return Dell_one_img_guys(headders, banco)
   end
 
+  if API .. DELETE .. TOKEN_ROUTE == rq.route then
+    return Dell_tokens(headders, banco)
+  end
+
   if API .. USER == rq.route then
     return Retorna_dados_do_user(headders, banco)
   end
