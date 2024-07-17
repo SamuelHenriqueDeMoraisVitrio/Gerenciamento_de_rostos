@@ -2,7 +2,7 @@
 
 ---@param headders Headders
 ---@param banco DtwResource
----@param body Request
+---@param body Body
 ---@return serjaoResponse
 function Add_img(headders, banco, body)
 
@@ -13,7 +13,7 @@ function Add_img(headders, banco, body)
     end
 
     local email = headders.obtem_headder(EMAIL)
-    local file = body.obtem_body(1500000)
+    local file, extension = body.obtem_body_img_extension()
 
     if headders.erro then
         return headders.erro
@@ -29,7 +29,7 @@ function Add_img(headders, banco, body)
         return user_or_error_by_email
     end
 
-    local response = Add_img_banco(banco, file, user_or_error_by_email)
+    local response = Add_img_banco(banco, file, user_or_error_by_email, extension)
 
     return response
 end

@@ -23,6 +23,7 @@ IMAGEM = "/foto"
 PREVIEW = "/ver"
 ALL = "/todas"
 GUYS = "/pessoal"
+PERFIL = "/perfil"
 
 --Responses
 ROTA_NAO_ENCONTRADA = "Rota não encontrada."
@@ -66,6 +67,8 @@ NOME_BANCO = "nome"
 SALDO_BANCO = "saldo"
 ROOT_BANCO = "root"
 SENHA_BANCO = "senha"
+CLASS_BANCO = "class"
+FREQUENCY_BANCO = "frequencia"
 --Banco Transações
 TRANSACOES_BANCO = "transacoes"
 VALOR_BANCO_TRANSACOES = "valor"
@@ -73,8 +76,12 @@ DATA_BANCO_TRANSACOES = "data"
 SALDO_NOW_BANCO_TRANSACOES = "saldo_now"
 --Banco imagens
 IMGS_BANCO = "imagens"
-IMG = "imagem.jpg"
+IMG = "imagem"
 DATE = "data"
+--Banco perfil
+DIR_PERFIL = "perfil"
+IMG_PERFIL = "foto_perfil"
+BOOL_PERFIL = "bool"
 --Token
 CRIACAO = "criacao"
 TOKENS = "tokens"

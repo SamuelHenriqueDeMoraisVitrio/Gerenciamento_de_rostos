@@ -2,7 +2,7 @@
 
 ---@param headders Headders
 ---@param banco DtwResource
----@param body Request
+---@param body Body
 ---@return serjaoResponse
 function Add_img_guys(headders, banco, body)
 
@@ -12,13 +12,13 @@ function Add_img_guys(headders, banco, body)
         return erro_or_user
     end
 
-    local file = body.obtem_body(1500000)
+    local file, extension = body.obtem_body_img_extension()
 
     if body.erro then
         return body.erro
     end
 
-    local response = Add_img_banco(banco, file, erro_or_user)
+    local response = Add_img_banco(banco, file, erro_or_user, extension)
 
     return response
 

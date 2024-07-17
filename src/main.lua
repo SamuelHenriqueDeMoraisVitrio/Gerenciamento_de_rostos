@@ -111,6 +111,11 @@ local function main_server(rq)
     return Dell_one_img(headders, banco)
   end
 
+  if API .. ADD .. IMAGEM .. PERFIL == rq.route then
+    
+    return Add_img_perfil(headders, banco, body)
+  end
+
   if API .. LIST .. USER .. CURRENT .. GUYS == rq.route then
 
     return List_current_guys(headders, banco)
