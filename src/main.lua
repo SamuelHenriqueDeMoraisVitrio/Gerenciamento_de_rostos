@@ -112,8 +112,13 @@ local function main_server(rq)
   end
 
   if API .. ADD .. IMAGEM .. PERFIL == rq.route then
-    
+
     return Add_img_perfil(headders, banco, body)
+  end
+
+  if API .. DELETE .. IMAGEM .. PERFIL == rq.route then
+
+    return Dell_img_perfil(headders, banco)
   end
 
   if API .. LIST .. USER .. CURRENT .. GUYS == rq.route then
@@ -147,10 +152,12 @@ local function main_server(rq)
   end
 
   if API .. DELETE .. TOKEN_ROUTE == rq.route then
+
     return Dell_tokens(headders, banco)
   end
 
   if API .. USER == rq.route then
+
     return Retorna_dados_do_user(headders, banco)
   end
 

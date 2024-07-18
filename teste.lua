@@ -2,20 +2,19 @@
 dtw = require("src.dependencies.luaDoTheWorld.luaDoTheWorld")
 require("src.dependencies.requires")
 
+DATE_FORMATED = "%Y-%m-%d %H:%M:%S"
 
 
-local banco = dtw.newResource("sla")
+local time = os.time()
 
-local sla = banco.sub_resource("sla/sla/sla")
+local date1 = os.date(DATE_FORMATED, time)
 
-sla.set_value_in_sub_resource("nome", true)
+time = time + 86400
 
-banco.commit()
+local date2 = os.date(DATE_FORMATED, time)
 
-local list, size = sla.list()
+local date3 = os.date("%d", time)
 
-local path_new = dtw.newPath(list[1].get_path_string())
+local sla1 = 86400 * 2
 
-print(path_new.get_only_name())
-print(path_new.get_name())
-print(path_new.get_extension())
+print(date1, date2, type(date3), sla1)

@@ -21,9 +21,9 @@ async function faz_requisicao_autenticada(rota, props){
     let response = await fetch(rota, props);
 
     if(response.status === 403){
-        window.location.href = "/index";
-
         sessionStorage.removeItem("token")
+        
+        window.location.href = "/index";
 
         return;
     }
@@ -58,9 +58,9 @@ async function logout(){
     props.headers.token = token
 
     await fetch("/api/deleta/token", props)
-
-    window.location.href = "/";
-
+    
     sessionStorage.removeItem("token")
+    
+    window.location.href = "/";
 }
 
