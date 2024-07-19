@@ -68,20 +68,39 @@ window.onload = async function () {
 
     if(dados_do_user.perfil_bool){
         let img_in_html = document.getElementById("profile-picture");
-
+        let button_troca = document.getElementById("adicionar_trocar_perfil");
+        
+        if(button_troca){
+            button_troca.innerHTML = "Trocar foto de perfil";
+        }
+        
         let request_img_profile = await fetch("/api/ver/foto/perfil/pessoal", props);
 
-        if(!request_img_profile.ok){
-            console.error("Erro ao abrir imagem");
+        if(request_img_profile.status === 403){
+            sessionStorage.removeItem("token");
+            
+            window.location.href = "/";
+    
             return;
         }
-
+        
+        if(!request_img_profile.ok){
+            console.error(request_img_profile.text());
+            return;
+        }
+        
         let file = await request_img_profile.blob();
-
+        
         let url_file = URL.createObjectURL(file);
-
+        
         img_in_html.src = url_file;
         
+    }else{
+        let button_delete_img_perfil = document.getElementById("deletar_img_perfil");
+
+        if(button_delete_img_perfil){
+            button_delete_img_perfil.style = "display: none;"
+        }
     }
 
     let nome_preview_main = document.getElementById("nome_perfil");

@@ -1,184 +1,82 @@
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+.buttons-container {
     display: flex;
     flex-direction: column;
-}
-
-.sidebar {
-    width: 250px;
-    background-color: #333;
-    color: #fff;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    transition: transform 0.3s ease;
-    overflow-y: auto;
-    z-index: 1000;
-}
-
-.sidebar.hidden {
-    transform: translateX(-100%);
-}
-
-.sidebar-logo {
-    text-align: center;
-    padding: 1em;
-    background-color: #444;
-    border-bottom: 1px solid #555;
-}
-
-.sidebar-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar-menu li {
-    border-bottom: 1px solid #444;
-}
-
-.sidebar-menu button {
-    width: 100%;
-    background: none;
-    border: none;
-    color: #fff;
-    text-align: left;
-    padding: 15px;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
     align-items: center;
-    transition: background-color 0.3s;
-}
-
-.sidebar-menu button:hover {
-    background-color: #555;
-}
-
-.sidebar-menu i {
-    margin-right: 10px;
-}
-
-.content {
-    margin-left: 250px;
-    padding: 20px;
-    flex: 1;
-    transition: margin-left 0.3s ease;
-}
-
-.content.shift {
-    margin-left: 0;
-}
-
-h1, p {
-    margin: 0 0 20px;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#profile-picture {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    gap: 20px;
     margin-right: 20px;
 }
 
-.user-details h2 {
-    margin: 0;
-    font-size: 24px;
-    color: #333;
-}
-
-.user-details p {
-    margin: 5px 0 0;
-    color: #777;
-}
-
-/* Button to toggle sidebar */
-.sidebar-toggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: #333;
-    color: #fff;
-    padding: 10px;
+.styled-button_perfil {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
     cursor: pointer;
-    border-radius: 5px;
-    z-index: 1001;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
-.sidebar-toggle i {
-    font-size: 1.5rem;
+.styled-button_perfil:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Media Queries para Responsividade */
-
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: 100vh;
-        transform: translateX(-100%);
-    }
-
-    .content {
-        margin-left: 0;
-        padding: 10px;
-    }
-
-    .sidebar-menu {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .user-profile {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    #profile-picture {
-        margin: 0 auto 20px;
-    }
-
-    .sidebar-menu button {
-        font-size: 0.9rem;
-    }
-
-    .content.shift {
-        margin-left: 0;
-    }
-
-    .sidebar-toggle {
-        display: block;
-    }
-
-    .sidebar.hidden {
-        transform: translateX(0);
-    }
+.styled-button_perfil:active {
+    transform: scale(0.95);
 }
 
-@media (min-width: 769px) {
-    .sidebar-toggle {
-        display: none;
+.file-input {
+    display: none;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.file-label:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.file-label:active {
+    transform: scale(0.95);
+}
+
+.image-preview {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.selected-image {
+    max-width: 100%;
+    max-height: 300px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .buttons-container {
+        gap: 10px;
+        margin-right: 10px;
     }
 
-    .sidebar {
-        transform: translateX(0);
-    }
-
-    .content.shift {
-        margin-left: 250px;
+    .styled-button_perfil {
+        padding: 10px 20px;
+        font-size: 16px;
     }
 }

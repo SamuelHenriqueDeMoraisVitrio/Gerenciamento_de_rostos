@@ -56,13 +56,11 @@ function Cria_body(body)
 
         if content_type == nil then
             body.erro = serjao.send_text(VALUE_INVALID, 400)
-
             return nil
         end
 
         if Not_nil and extension ~= extension_file then
             table.erro = serjao.send_text(VALUE_INVALID, 400)
-
             return nil
         end
 
