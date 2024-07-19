@@ -1,5 +1,8 @@
 
 
+---@class Getextension
+---@field Get_image_info_extension fun(content:any)string|nil,string|nil
+---@field Convert_extension_for_content_type fun(extension:string):string|nil,string|nil
 
 ---@param content any
 ---@return string|nil
@@ -27,6 +30,9 @@ function Get_image_info_extension(content)
 end
 
 
+---@param extension string
+---@return string | nil
+---@return string | nil
 function Convert_extension_for_content_type(extension)
 
     if extension == "png" then

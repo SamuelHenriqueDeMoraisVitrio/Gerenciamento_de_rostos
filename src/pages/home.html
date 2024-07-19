@@ -16,10 +16,12 @@
         </div>
         <ul class="sidebar-menu">
             <li>
-                <button onclick="">
-                    <i class="fas fa-user"></i>
-                    Perfil
-                </button>
+                <form action="/home">
+                    <button>
+                        <i class="fas fa-user"></i>
+                        Perfil
+                    </button>
+                </form>
             </li>
             <li>
                 <button onclick="">
@@ -52,8 +54,9 @@
         <div class="user-profile">
             <img src="/static/imgs/user-icon-2098873_640.png" alt="Foto de Perfil" class="profile-picture">
             <div class="user-details">
-                <h2>Nome do Usuário</h2>
-                <p>Email: usuario@example.com</p>
+                <h2 id="nome_perfil">Nome_value</h2>
+                <p id="email_perfil_show">email_value</p>
+                <p id="class_perfil_show">class_value</p>
             </div>
         </div>
     </div>

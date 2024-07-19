@@ -42,8 +42,9 @@ window.onload = async function () {
 
     let dados_do_user = await faz_requisicao_autenticada("/api/usuario")
 
+    console.log(dados_do_user)
+
     if(dados_do_user.root){
-        console.log("ROOT é true")
         
         let menu = document.getElementsByClassName('sidebar-menu')[0];
         let listItem = document.createElement('li');
@@ -54,9 +55,19 @@ window.onload = async function () {
         listItem.appendChild(button);
     
         menu.appendChild(listItem);
-
     }
 
+    if(dados_do_user.perfil_bool){
+        
+    }
+
+    let nome_preview_main = document.getElementById("nome_perfil");
+    let email_preview_main = document.getElementById("email_perfil_show");
+    let class_preview_main = document.getElementById("class_perfil_show");
+
+    nome_preview_main.innerHTML = dados_do_user.nome;
+    email_preview_main.innerHTML = "E-mail: " + dados_do_user.email;
+    class_preview_main.innerHTML = "Class: " + dados_do_user.class;
 }
 
 

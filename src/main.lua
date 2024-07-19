@@ -121,6 +121,11 @@ local function main_server(rq)
     return Dell_img_perfil(headders, banco)
   end
 
+  if API .. PREVIEW .. IMAGEM .. PERFIL == rq.route then
+
+    return Preview_image_perfil(headders, banco)
+  end
+
   if API .. LIST .. USER .. CURRENT .. GUYS == rq.route then
 
     return List_current_guys(headders, banco)
@@ -149,6 +154,21 @@ local function main_server(rq)
   if API .. DELETE .. IMAGEM .. GUYS == rq.route then
 
     return Dell_one_img_guys(headders, banco)
+  end
+
+  if API .. ADD .. IMAGEM .. PERFIL .. GUYS == rq.route then
+
+    return Add_img_perfil(headders, banco, body)
+  end
+
+  if API .. DELETE .. IMAGEM .. PERFIL .. GUYS == rq.route then
+
+    return Dell_img_perfil(headders, banco)
+  end
+
+  if API .. PREVIEW .. IMAGEM .. PERFIL .. GUYS == rq.route then
+
+    return Preview_image_perfil(headders, banco)
   end
 
   if API .. DELETE .. TOKEN_ROUTE == rq.route then

@@ -1,5 +1,6 @@
 
 
+
 ---@param headders Headders
 ---@param banco DtwResource
 ---@return serjaoResponse
@@ -18,7 +19,7 @@ function Retorna_dados_do_user(headders, banco)
   local frequencia = erro_ou_user.get_value_from_sub_resource(FREQUENCY_BANCO)
   local root = erro_ou_user.sub_resource(ROOT_BANCO).get_bool()
   local perfil_dir = erro_ou_user.sub_resource(DIR_PERFIL)
-  local perfil_bool = perfil_dir.get_value_from_sub_resource(BOOL_PERFIL)
+  local perfil_bool = perfil_dir.sub_resource(BOOL_PERFIL).get_bool()
 
   local json = {
       nome = nome,
