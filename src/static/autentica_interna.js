@@ -53,8 +53,6 @@ window.onload = async function () {
     props.headers = {};
     props.headers.token = token;
 
-    console.log(dados_do_user);
-
     if(dados_do_user.root){
         
         let menu = document.getElementsByClassName('sidebar-menu')[0];
@@ -79,8 +77,6 @@ window.onload = async function () {
         }
 
         let file = await request_img_profile.blob();
-
-        console.log(file);
 
         let url_file = URL.createObjectURL(file);
 
