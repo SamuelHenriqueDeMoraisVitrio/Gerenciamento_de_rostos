@@ -60,6 +60,8 @@ IMG_MAX = "img_max"
 IMG_MIN = "img_min"
 VALOR = "valor"
 ID = "id"
+FREQ_MIN = "frequencia_min"
+FREQ_MAX = "frequencia_max"
 
 --Banco
 BANCO = "data"

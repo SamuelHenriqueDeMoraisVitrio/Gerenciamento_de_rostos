@@ -18,12 +18,14 @@ function Lista_users(headers, banco)
     local filtragem_img_max = headers.obtem_headder_numerico_opcional(IMG_MAX)
     local filtragem_img_min = headers.obtem_headder_numerico_opcional(IMG_MIN)
     local filtragem_root = headers.obtem_headder_booleano_opcional(ROOT)
+    local filtragem_frequencia_min = headers.obtem_headder_numerico_opcional(FREQ_MIN)
+    local filtragem_frequencia_max = headers.obtem_headder_numerico_opcional(FREQ_MAX)
     
     if headers.erro then
     	return headers.erro
     end
 
-    local descricao  = Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_min, filtragem_saldo_max, filtragem_root, filtragem_img_min, filtragem_img_max)
+    local descricao  = Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_min, filtragem_saldo_max, filtragem_root, filtragem_img_min, filtragem_img_max, filtragem_frequencia_min, filtragem_frequencia_max)
     return descricao
 end
 

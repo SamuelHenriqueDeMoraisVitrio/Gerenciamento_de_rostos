@@ -14,8 +14,10 @@
 ---@param filtragem_root boolean | nil
 ---@param filtragem_img_min number | nil
 ---@param filtragem_img_max number | nil
+---@param filtragem_frequencia_min number | nil
+---@param filtragem_frequencia_max number | nil
 ---@return DescricaoUsuario[], number
-function Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_min, filtragem_saldo_max, filtragem_root, filtragem_img_min, filtragem_img_max)
+function Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_min, filtragem_saldo_max, filtragem_root, filtragem_img_min, filtragem_img_max, filtragem_frequencia_min, filtragem_frequencia_max)
 
   local users = banco.sub_resource(USERS_BANCO)
 
@@ -24,6 +26,7 @@ function Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_
     local nome = element.get_value_from_sub_resource(NOME_BANCO)
     local email = element.get_value_from_sub_resource(EMAIL_BANCO)
     local saldo = element.get_value_from_sub_resource(SALDO_BANCO)
+    local freq = element.get_value_from_sub_resource(FREQUENCY_BANCO)
     local root = element.sub_resource(ROOT_BANCO).get_bool()
     local sub_imgs, size = element.sub_resource(IMGS_BANCO).list()
 
@@ -67,12 +70,25 @@ function Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_
       end
     end
 
+    if filtragem_frequencia_min then
+      if filtragem_frequencia_min > size then
+        return nil
+      end
+    end
+
+    if filtragem_frequencia_max then
+      if filtragem_frequencia_max < size then
+        return nil
+      end
+    end
+
     return {
       nome = nome,
       email = email,
       saldo = saldo,
       root = root,
-      imagens = size
+      imagens = size,
+      frequencia = freq
     }
   end)
 
