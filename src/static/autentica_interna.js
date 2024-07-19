@@ -38,10 +38,25 @@ async function faz_requisicao_autenticada(rota, props){
     return json;
 }
 
-
 window.onload = async function () {
 
     let dados_do_user = await faz_requisicao_autenticada("/api/usuario")
+
+    if(dados_do_user.root){
+        console.log("ROOT é true")
+        
+        let menu = document.getElementsByClassName('sidebar-menu')[0];
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.setAttribute('onclick', "navigateTo('modo-root')");
+        button.innerHTML = '<i class="fas fa-terminal"></i> Modo Root';
+        
+        listItem.appendChild(button);
+    
+        menu.appendChild(listItem);
+
+    }
+
 }
 
 
