@@ -158,17 +158,17 @@ local function main_server(rq)
 
   if API .. ADD .. IMAGEM .. PERFIL .. GUYS == rq.route then
 
-    return Add_img_perfil(headders, banco, body)
+    return Add_img_perfil_guys(headders, banco, body)
   end
 
   if API .. DELETE .. IMAGEM .. PERFIL .. GUYS == rq.route then
 
-    return Dell_img_perfil(headders, banco)
+    return Dell_img_perfil_guys(headders, banco)
   end
 
   if API .. PREVIEW .. IMAGEM .. PERFIL .. GUYS == rq.route then
 
-    return Preview_image_perfil(headders, banco)
+    return Preview_image_perfil_guys(headders, banco)
   end
 
   if API .. DELETE .. TOKEN_ROUTE == rq.route then
