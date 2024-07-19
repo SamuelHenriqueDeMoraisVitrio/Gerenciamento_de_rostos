@@ -136,7 +136,7 @@ h1, p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.profile-picture {
+#profile-picture {
     border-radius: 50%;
     width: 100px;
     height: 100px;

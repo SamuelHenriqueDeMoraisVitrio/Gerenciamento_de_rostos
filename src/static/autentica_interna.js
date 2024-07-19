@@ -4,7 +4,7 @@ async function faz_requisicao_autenticada(rota, props){
 
     let token = sessionStorage.getItem("token");
     if(!token){
-        window.location.href = "/index";
+        window.location.href = "/";
         return;
     }
 
@@ -21,9 +21,9 @@ async function faz_requisicao_autenticada(rota, props){
     let response = await fetch(rota, props);
 
     if(response.status === 403){
-        sessionStorage.removeItem("token")
+        sessionStorage.removeItem("token");
         
-        window.location.href = "/index";
+        window.location.href = "/";
 
         return;
     }
@@ -33,23 +33,34 @@ async function faz_requisicao_autenticada(rota, props){
         return;
     }
 
-    let json = await response.json()
+    let json = await response.json();
 
     return json;
 }
 
 window.onload = async function () {
 
-    let dados_do_user = await faz_requisicao_autenticada("/api/usuario")
+    let dados_do_user = await faz_requisicao_autenticada("/api/usuario");
+    
+    let token = sessionStorage.getItem("token");
 
-    console.log(dados_do_user)
+    if(!token){
+        window.location.href = "/";
+        return;
+    }
+
+    let props = {};
+    props.headers = {};
+    props.headers.token = token;
+
+    console.log(dados_do_user);
 
     if(dados_do_user.root){
         
         let menu = document.getElementsByClassName('sidebar-menu')[0];
         let listItem = document.createElement('li');
         let button = document.createElement('button');
-        button.setAttribute('onclick', "navigateTo('modo-root')");
+        button.setAttribute('onclick', "");
         button.innerHTML = '<i class="fas fa-terminal"></i> Modo Root';
         
         listItem.appendChild(button);
@@ -58,6 +69,22 @@ window.onload = async function () {
     }
 
     if(dados_do_user.perfil_bool){
+        let img_in_html = document.getElementById("profile-picture");
+
+        let request_img_profile = await fetch("/api/ver/foto/perfil/pessoal", props);
+
+        if(!request_img_profile.ok){
+            console.error("Erro ao abrir imagem");
+            return;
+        }
+
+        let file = await request_img_profile.blob();
+
+        console.log(file);
+
+        let url_file = URL.createObjectURL(file);
+
+        img_in_html.src = url_file;
         
     }
 
@@ -79,13 +106,13 @@ async function logout(){
         return;
     }
 
-    let props = {}
-    props.headers = {}
-    props.headers.token = token
+    let props = {};
+    props.headers = {};
+    props.headers.token = token;
 
-    await fetch("/api/deleta/token", props)
+    await fetch("/api/deleta/token", props);
     
-    sessionStorage.removeItem("token")
+    sessionStorage.removeItem("token");
     
     window.location.href = "/";
 }
