@@ -14,7 +14,7 @@ h1 {
     color: #333; /* Define a cor do texto */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 780px) {
     h1 {
         font-size: 2rem; /* Ajuste o tamanho da fonte para dispositivos móveis */
         margin: 10px 0; /* Reduz a margem para dispositivos móveis */
@@ -140,7 +140,7 @@ h1, p {
 
 /* Media Queries para Responsividade */
 
-@media (max-width: 768px) {
+@media (max-width: 780px) {
     .sidebar {
         width: 100%;
         height: 100vh;
@@ -183,7 +183,7 @@ h1, p {
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 780px) {
     .sidebar-toggle {
         display: none;
     }
