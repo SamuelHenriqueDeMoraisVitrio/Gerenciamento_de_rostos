@@ -3,7 +3,7 @@
 
 ---@param headders Headders
 ---@param banco DtwResource
----@return DtwResource|serjaoResponse|nil
+---@return serjaoResponse
 function Dell_img_perfil_guys(headders, banco)
 
     local ok, error_or_user = Altentica(headders, banco, false)

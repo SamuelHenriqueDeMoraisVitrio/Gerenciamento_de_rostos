@@ -77,8 +77,6 @@ window.onload = async function () {
             button_troca.innerHTML = "Trocar foto de perfil";
         }
 
-        console.log(route_preview_img_perfil)
-
         img_element.src = route_preview_img_perfil;
     }else{
         let button_delete_img_perfil = document.getElementById("deletar_img_perfil");
@@ -133,13 +131,13 @@ if(button_delete_img_perfil){
 }
 */
 
-let nome_preview_main = document.getElementById("nome_perfil");
-let email_preview_main = document.getElementById("email_perfil_show");
-let class_preview_main = document.getElementById("class_perfil_show");
+    let nome_preview_main = document.getElementById("nome_perfil");
+    let email_preview_main = document.getElementById("email_perfil_show");
+    let class_preview_main = document.getElementById("class_perfil_show");
 
-nome_preview_main.innerHTML = dados_do_user.nome;
-email_preview_main.innerHTML = "E-mail: " + dados_do_user.email;
-class_preview_main.innerHTML = "Class: " + dados_do_user.class;
+    nome_preview_main.innerHTML = dados_do_user.nome;
+    email_preview_main.innerHTML = "E-mail: " + dados_do_user.email;
+    class_preview_main.innerHTML = "Class: " + dados_do_user.class;
 }
 
 

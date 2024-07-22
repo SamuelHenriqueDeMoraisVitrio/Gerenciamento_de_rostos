@@ -17,50 +17,6 @@ document.getElementById('file-input').addEventListener('change', function(event)
 });
 
 
-/*
-async function nome_do_button(){
-
-    if(!file){
-        alert("Nenhuma imagem foi selecionada.");
-        return;
-    }
-
-    let token = sessionStorage.getItem("token");
-
-    if(!token){
-        window.location.href = "/";
-        return;
-    }
-
-    let props = {};
-    props.method = 'POST';
-    props.headers = {};
-    props.headers.token = token;
-    props.headers["content-type"] = file.type
-    props.body = file;
-
-    console.log(new_format);
-
-    let response = await fetch("/api/adicione/foto/perfil/pessoal", props);
-    
-    if(response.status === 403){
-        sessionStorage.removeItem("token");
-        window.location.href = "/";
-        return;
-    }
-    
-    if(!response.ok){
-        console.error(response.text());
-        return;
-    }
-
-    console.log(response.text())
-    window.location.href = "/";
-    return;
-}
-*/
-
-
 
 document.getElementById('adicionar_trocar_perfil').addEventListener('click', async () => {
     const imageInput = document.getElementById('file-input');
@@ -87,7 +43,7 @@ document.getElementById('adicionar_trocar_perfil').addEventListener('click', asy
 
     if(response.status === 403){
         sessionStorage.removeItem("token");
-        window.location.href = "/";
+        window.location.href = "/home";
         return;
     }
 
@@ -101,3 +57,38 @@ document.getElementById('adicionar_trocar_perfil').addEventListener('click', asy
     return;
 });
 
+
+
+document.getElementById("deletar_img_perfil").addEventListener("click", async() => {
+
+    const route_api = "/api/deleta/foto/perfil/pessoal";
+
+    const token = sessionStorage.getItem("token");
+
+    if(!token){
+        window.location.href = "/";
+        return;
+    }
+
+    let props = {};
+    props.method = 'GET';
+    props.headers = {};
+    props.headers.token = token;
+
+    const response = await fetch(route_api, props);
+
+    if(response.status == 403){
+        sessionStorage.removeItem("token");
+        window.location.href = "/";
+        return;
+    }
+    if(!response.ok){
+
+        console.error(await response.text());
+        return;
+    }
+
+    console.log(await response.text());
+    window.location.href = "/home"; 
+    return;
+});
