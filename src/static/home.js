@@ -17,16 +17,13 @@ document.getElementById('file-input').addEventListener('change', function(event)
 });
 
 
- async function nome_do_button(){
+/*
+async function nome_do_button(){
 
     if(!file){
         alert("Nenhuma imagem foi selecionada.");
         return;
     }
-
-    let new_format = new FormData();
-
-    new_format.append('image', file);
 
     let token = sessionStorage.getItem("token");
 
@@ -40,7 +37,7 @@ document.getElementById('file-input').addEventListener('change', function(event)
     props.headers = {};
     props.headers.token = token;
     props.headers["content-type"] = file.type
-    props.body = new_format;
+    props.body = file;
 
     console.log(new_format);
 
@@ -58,19 +55,19 @@ document.getElementById('file-input').addEventListener('change', function(event)
     }
 
     console.log(response.text())
+    window.location.href = "/";
     return;
 }
+*/
 
-/*
+
+
 document.getElementById('adicionar_trocar_perfil').addEventListener('click', async () => {
     const imageInput = document.getElementById('file-input');
     if (imageInput.files.length === 0) {
         alert('Por favor, selecione uma imagem primeiro.');
         return;
     }
-
-    const formData = new FormData();
-    formData.append('file', imageInput.files[0]);
 
     let token = sessionStorage.getItem("token");
 
@@ -84,7 +81,7 @@ document.getElementById('adicionar_trocar_perfil').addEventListener('click', asy
     props.headers = {};
     props.headers.token = token;
     props.headers["content-type"] = imageInput.files[0].type;
-    props.body = formData;
+    props.body = file;
 
     const response = await fetch("/api/adicione/foto/perfil/pessoal", props);
 
@@ -93,7 +90,7 @@ document.getElementById('adicionar_trocar_perfil').addEventListener('click', asy
         window.location.href = "/";
         return;
     }
-    
+
     if(!response.ok){
         console.error(response.text());
         return;
@@ -103,5 +100,4 @@ document.getElementById('adicionar_trocar_perfil').addEventListener('click', asy
     window.location.href = "/";
     return;
 });
-*/
 
