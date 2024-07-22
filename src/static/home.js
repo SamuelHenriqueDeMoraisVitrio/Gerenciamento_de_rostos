@@ -48,11 +48,11 @@ document.getElementById('adicionar_trocar_perfil').addEventListener('click', asy
     }
 
     if(!response.ok){
-        alert(response.text());
+        console.error(response.text());
         return;
     }
 
-    alert(response.text());
+    console.log(response.text());
     window.location.href = "/";
     return;
 });
