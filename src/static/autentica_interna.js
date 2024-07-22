@@ -60,12 +60,44 @@ window.onload = async function () {
         let menu = document.getElementsByClassName('sidebar-menu')[0];
         let listItem = document.createElement('li');
         let button = document.createElement('button');
-        button.setAttribute('onclick', "");
+        button.setAttribute('id', "button_root_main");
         button.innerHTML = '<i class="fas fa-terminal"></i> Modo Root';
         
         listItem.appendChild(button);
     
         menu.appendChild(listItem);
+
+        let div_modal = document.getElementById("open_modal");
+        const sidebar = document.querySelector('.sidebar');
+        const content = document.querySelector('.content');
+        let button_root_main = document.getElementById("button_root_main");
+        
+        let create_new_div_modal_in_sub_div = document.createElement("div");
+        create_new_div_modal_in_sub_div.setAttribute("id", "modal");
+        create_new_div_modal_in_sub_div.setAttribute("class", "modal");
+        create_new_div_modal_in_sub_div.innerHTML = '<div class="modal-content"><span id="closeModalBtn" class="close-btn">&times;</span><button class="modal-button">Botão 1</button><button class="modal-button">Botão 2</button><button class="modal-button">Botão 3</button><button class="modal-button">Botão 4</button><button class="modal-button">Botão 5</button></div>';
+        
+        div_modal.appendChild(create_new_div_modal_in_sub_div);
+        
+        button_root_main.addEventListener("click", function(){
+            document.getElementById('modal').style.display = 'flex';
+            sidebar.classList.toggle('hidden');
+            content.classList.toggle('shift');
+        });
+
+        document.getElementById('closeModalBtn').addEventListener('click', function() {
+            document.getElementById('modal').style.display = 'none';
+            sidebar.classList.toggle('hidden');
+            content.classList.toggle('shift');
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('modal')) {
+                document.getElementById('modal').style.display = 'none';
+                sidebar.classList.toggle('hidden');
+                content.classList.toggle('shift');
+            }
+        });
     }
 
     if(dados_do_user.perfil_bool){

@@ -1,6 +1,11 @@
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.querySelector('.sidebar');
     const content = document.querySelector('.content');
+    const root = document.getElementById("button_root_main");
     const toggleButton = document.getElementById('sidebar-toggle');
 
     toggleButton.addEventListener('click', () => {
@@ -17,3 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 */
 });
+
+
+
+
