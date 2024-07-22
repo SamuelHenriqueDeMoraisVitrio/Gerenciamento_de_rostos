@@ -43,7 +43,10 @@ function Cria_headders(headers)
         	return default
 
         end
+
     	tabela.erro = serjao.send_text("headder "..nome.." não informado",404)
+        
+        return nil
     end
 
     tabela.obtem_headder_numerico = function (nome, default)

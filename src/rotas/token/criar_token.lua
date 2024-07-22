@@ -16,20 +16,21 @@ function Cria_token(headers, banco)
      if possivel_usurio == nil then
      	return serjao.send_text(USER_NOT_FOUND,404)
      end
+
      local sha_da_senha = dtw.generate_sha(senha)
      local senha_real = possivel_usurio.sub_resource(SENHA).get_string()
-     if sha_da_senha ~=senha_real then
+     if sha_da_senha ~= senha_real then
      	return serjao.send_text("senha inválida",403)
      end
 
     local expira =  os.time() + (EXPIRACAO * 60)
-     --ta garantido que a senha ta certa
+
+    --ta garantido que a senha ta certa
     local token  = Cria_token_banco(possivel_usurio)
     local expiracao_str = os.date(DATE_FORMATED,expira)
     banco.commit()
     return {
-        token_criado =token,
+        token_criado = token,
         expira = expiracao_str
     }
-
 end

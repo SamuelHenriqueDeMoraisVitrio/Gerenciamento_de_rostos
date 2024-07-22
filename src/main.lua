@@ -39,8 +39,8 @@ local function main_server(rq)
 
   local banco = add_banco()
   local headders = Cria_headders(rq.header)
+  local params = Cria_params(rq.params)
   local body = Cria_body(rq.read_body)
-
 
   if API .. ADD .. TOKEN_ROUTE == rq.route then
     return Cria_token(headders, banco)
@@ -168,7 +168,7 @@ local function main_server(rq)
 
   if API .. PREVIEW .. IMAGEM .. PERFIL .. GUYS == rq.route then
 
-    return Preview_image_perfil_guys(headders, banco)
+    return Preview_image_perfil_guys(params, banco)
   end
 
   if API .. DELETE .. TOKEN_ROUTE == rq.route then

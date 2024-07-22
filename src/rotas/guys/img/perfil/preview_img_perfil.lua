@@ -1,12 +1,12 @@
 
 
 
----@param headders Headders
+---@param params Params
 ---@param banco DtwResource
 ---@return DtwResource|serjaoResponse|nil
-function Preview_image_perfil_guys(headders, banco)
+function Preview_image_perfil_guys(params, banco)
 
-    local ok, error_or_user = Altentica(headders, banco, false)
+    local ok, error_or_user = Altentica_params(params, banco, false)
 
     if not ok then
         return error_or_user
@@ -16,3 +16,4 @@ function Preview_image_perfil_guys(headders, banco)
 
     return response
 end
+

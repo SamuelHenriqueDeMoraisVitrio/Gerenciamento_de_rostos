@@ -1,6 +1,6 @@
 
 ---@class Body
----@field erro serjaoResponse |nil
+---@field erro serjaoResponse|nil
 ---@field obtem_body fun(default:number|nil):any|nil
 ---@field obtem_body_img_extension fun(default:number|nil, extension:string|nil):any|nil,string|nil,string|nil
 
@@ -48,14 +48,13 @@ function Cria_body(body)
         local result = table.body(default)
         if not result then
             table.erro = serjao.send_text(VALUE_INVALID, 404)
-
             return nil
         end
 
         local content_type, extension_file = Get_image_info_extension(result)
 
         if content_type == nil then
-            body.erro = serjao.send_text(VALUE_INVALID, 400)
+            table.erro = serjao.send_text(VALUE_INVALID, 400)
             return nil
         end
 

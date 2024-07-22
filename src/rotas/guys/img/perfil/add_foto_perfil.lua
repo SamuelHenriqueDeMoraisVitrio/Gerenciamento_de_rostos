@@ -13,10 +13,21 @@ function Add_img_perfil_guys(headders, banco, body)
         return error_or_user
     end
 
-    local file, extension = body.obtem_body_img_extension()
+    local file = body.obtem_body(1500000)
+    local content_type = headders.obtem_headder(CONTENT_TYPE)
+
+    if headders.erro then
+        return headders.erro
+    end
 
     if body.erro then
         return body.erro
+    end
+
+    local extension_name, extension = Convert_content_type_for_extension(content_type)
+
+    if not extension_name then
+        return serjao.send_text(VALUE_INVALID, 400)
     end
 
     local response = Add_img_perfil_banco(banco, error_or_user, file, extension)

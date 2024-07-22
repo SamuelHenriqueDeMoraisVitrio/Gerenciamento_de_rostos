@@ -62,6 +62,7 @@ VALOR = "valor"
 ID = "id"
 FREQ_MIN = "frequencia_min"
 FREQ_MAX = "frequencia_max"
+CONTENT_TYPE = "content-type"
 
 --Banco
 BANCO = "data"

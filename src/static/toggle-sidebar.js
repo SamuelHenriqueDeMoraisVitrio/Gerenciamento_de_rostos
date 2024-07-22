@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebar.classList.toggle('hidden');
         content.classList.toggle('shift');
     });
-
+/*
     // Fechar a sidebar quando o conteúdo é clicado
     content.addEventListener('click', () => {
         if (!sidebar.classList.contains('hidden')) {
@@ -15,4 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
             content.classList.remove('shift');
         }
     });
+*/
 });

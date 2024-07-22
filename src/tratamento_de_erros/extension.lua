@@ -3,6 +3,7 @@
 ---@class Getextension
 ---@field Get_image_info_extension fun(content:any)string|nil,string|nil
 ---@field Convert_extension_for_content_type fun(extension:string):string|nil,string|nil
+---@field Convert_content_type_for_extension fun(content_type:string):string|nil,string|nil
 
 ---@param content any
 ---@return string|nil
@@ -56,3 +57,33 @@ function Convert_extension_for_content_type(extension)
 
     return nil, nil
 end
+
+
+---@param content_type string
+---@return string | nil
+---@return string | nil
+function Convert_content_type_for_extension(content_type)
+
+    if content_type == "image/png" then
+        return "png", ".png"
+    end
+
+    if content_type == "image/jpeg"then
+
+        return "jpg", ".jpg"
+    end
+
+    if content_type == "image/gif" then
+
+        return "gif", ".gif"
+    end
+
+    if content_type == "image/bmp" then
+
+        return "bmp", ".bmp"
+    end
+
+    return nil, nil
+end
+
+

@@ -49,6 +49,8 @@ window.onload = async function () {
         return;
     }
 
+    console.log("token: ", token);
+
     let props = {};
     props.headers = {};
     props.headers.token = token;
@@ -67,49 +69,77 @@ window.onload = async function () {
     }
 
     if(dados_do_user.perfil_bool){
-        let img_in_html = document.getElementById("profile-picture");
+        const route_preview_img_perfil = "/api/ver/foto/perfil/pessoal?token=" + token;
         let button_troca = document.getElementById("adicionar_trocar_perfil");
+        let img_element = document.getElementById("profile-picture");
         
         if(button_troca){
             button_troca.innerHTML = "Trocar foto de perfil";
         }
-        
-        let request_img_profile = await fetch("/api/ver/foto/perfil/pessoal", props);
 
-        if(request_img_profile.status === 403){
-            sessionStorage.removeItem("token");
-            
-            window.location.href = "/";
-    
-            return;
-        }
-        
-        if(!request_img_profile.ok){
-            console.error(request_img_profile.text());
-            return;
-        }
-        
-        let file = await request_img_profile.blob();
-        
-        let url_file = URL.createObjectURL(file);
-        
-        img_in_html.src = url_file;
-        
+        console.log(route_preview_img_perfil)
+
+        img_element.src = route_preview_img_perfil;
     }else{
         let button_delete_img_perfil = document.getElementById("deletar_img_perfil");
-
+    
         if(button_delete_img_perfil){
             button_delete_img_perfil.style = "display: none;"
         }
     }
 
-    let nome_preview_main = document.getElementById("nome_perfil");
-    let email_preview_main = document.getElementById("email_perfil_show");
-    let class_preview_main = document.getElementById("class_perfil_show");
+/*
+console.log("Tem imagem de perfil: ", dados_do_user.perfil_bool);
+if(dados_do_user.perfil_bool){
+    let button_troca = document.getElementById("adicionar_trocar_perfil");
+    
+    if(button_troca){
+        button_troca.innerHTML = "Trocar foto de perfil";
+    }
+    
+    let request_img_profile = await fetch("/api/ver/foto/perfil/pessoal", props);
+    
+    if(request_img_profile.status === 403){
+        sessionStorage.removeItem("token");
+        
+        window.location.href = "/";
+        
+        return;
+    }
+        
+    if(!request_img_profile.ok){
+        console.error(request_img_profile.text());
+        return;
+    }
+    
+    let blob = await request_img_profile.blob();
+    
+    const reader = new FileReader();
+    
+    reader.onload = function(event){
+        const img_in_html = document.getElementById("profile-picture");
+        img_in_html.src = event.target.result;
+    }
+    reader.readAsDataURL(blob);
+    
+    console.log("Escreveu: ", img_in_html.src);
+    
+}else{
+    let button_delete_img_perfil = document.getElementById("deletar_img_perfil");
 
-    nome_preview_main.innerHTML = dados_do_user.nome;
-    email_preview_main.innerHTML = "E-mail: " + dados_do_user.email;
-    class_preview_main.innerHTML = "Class: " + dados_do_user.class;
+if(button_delete_img_perfil){
+    button_delete_img_perfil.style = "display: none;"
+}
+}
+*/
+
+let nome_preview_main = document.getElementById("nome_perfil");
+let email_preview_main = document.getElementById("email_perfil_show");
+let class_preview_main = document.getElementById("class_perfil_show");
+
+nome_preview_main.innerHTML = dados_do_user.nome;
+email_preview_main.innerHTML = "E-mail: " + dados_do_user.email;
+class_preview_main.innerHTML = "Class: " + dados_do_user.class;
 }
 
 
@@ -132,3 +162,18 @@ async function logout(){
     window.location.href = "/";
 }
 
+
+    // Obtém a URL atual
+    const currentUrl = window.location.href;
+
+    // Cria um objeto URL com a URL atual
+    const url = new URL(currentUrl);
+    
+    // Cria um objeto URLSearchParams com os parâmetros da query
+    const params = new URLSearchParams(url.search);
+    
+    // Pega um parâmetro específico (por exemplo, 'id')
+    const id = params.get('id');
+    
+    // Exibe o valor do parâmetro no console
+    console.log(id);
