@@ -4,7 +4,7 @@
 ---@param banco DtwResource
 ---@return serjaoResponse
 function Cria_user_server(headers, banco)
-  local ok, erro_ou_user = Altentica(headers,banco,true)
+  local ok, erro_ou_user = Altentica_sem_email(headers,banco,true)
 
   if not ok then
     return erro_ou_user

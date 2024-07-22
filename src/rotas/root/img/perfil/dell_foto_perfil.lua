@@ -6,13 +6,13 @@
 ---@return DtwResource|serjaoResponse|nil
 function Dell_img_perfil(headders, banco)
 
-    local ok, error_or_user = Altentica(headders, banco, false)
+    local ok, error_or_user = Altentica_sem_email(headders, banco, false)
 
     if not ok then
         return error_or_user
     end
 
-    local email = headders.obtem_headder(EMAIL_BANCO)
+    local email = headders.obtem_headder(EMAIL)
 
     if headders.erro then
         return headders.erro

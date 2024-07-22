@@ -5,7 +5,7 @@
 ---@return serjaoResponse
 function List_imgs(headders, banco)
 
-    local ok, erro = Altentica(headders, banco, true)
+    local ok, erro = Altentica_sem_email(headders, banco, true)
 
     if not ok then
         return erro

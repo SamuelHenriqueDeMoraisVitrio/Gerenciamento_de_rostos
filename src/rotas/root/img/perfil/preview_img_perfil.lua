@@ -6,7 +6,7 @@
 ---@return DtwResource|serjaoResponse|nil
 function Preview_image_perfil(headders, banco)
 
-    local ok, error_or_user = Altentica(headders, banco, false)
+    local ok, error_or_user = Altentica_sem_email(headders, banco, false)
 
     if not ok then
         return error_or_user

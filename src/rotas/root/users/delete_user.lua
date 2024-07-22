@@ -5,7 +5,7 @@
 ---@return serjaoResponse
 function Delete_user(headers, banco)
 
-  local ok, erro_ou_user = Altentica(headers,banco,true)
+  local ok, erro_ou_user = Altentica_sem_email(headers,banco,true)
 
   if not ok then
     return erro_ou_user

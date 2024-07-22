@@ -34,3 +34,5 @@ function Retorna_dados_do_user(headders, banco)
   return serjao.send_json(json)
 
 end
+
+

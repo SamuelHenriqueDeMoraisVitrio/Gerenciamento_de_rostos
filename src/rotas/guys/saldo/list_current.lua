@@ -14,5 +14,5 @@ function List_current_guys(headders, banco)
     local response = List_current_banco(erro_or_user)
 
     return response
-
 end
+

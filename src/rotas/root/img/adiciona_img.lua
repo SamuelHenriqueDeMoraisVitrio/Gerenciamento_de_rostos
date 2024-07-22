@@ -6,7 +6,7 @@
 ---@return serjaoResponse
 function Add_img(headders, banco, body)
 
-    local ok, erro_ou_user = Altentica(headders, banco, true)
+    local ok, erro_ou_user = Altentica_sem_email(headders, banco, true)
 
     if not ok then
       return erro_ou_user

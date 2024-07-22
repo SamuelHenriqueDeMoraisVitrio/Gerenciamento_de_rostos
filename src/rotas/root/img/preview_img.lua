@@ -5,7 +5,7 @@
 ---@return serjaoResponse
 function Preview_img(headders, banco)
 
-    local ok, erro_or_user = Altentica(headders, banco, true)
+    local ok, erro_or_user = Altentica_sem_email(headders, banco, true)
 
     if not ok then
         return erro_or_user

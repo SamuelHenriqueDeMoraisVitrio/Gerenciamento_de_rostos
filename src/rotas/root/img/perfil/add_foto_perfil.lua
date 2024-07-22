@@ -7,7 +7,7 @@
 ---@return DtwResource|serjaoResponse|nil
 function Add_img_perfil(headders, banco, body)
 
-    local ok, error_or_user = Altentica(headders, banco, false)
+    local ok, error_or_user = Altentica_sem_email(headders, banco, false)
 
     if not ok then
         return error_or_user
