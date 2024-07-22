@@ -166,10 +166,12 @@ if(button_delete_img_perfil){
     let nome_preview_main = document.getElementById("nome_perfil");
     let email_preview_main = document.getElementById("email_perfil_show");
     let class_preview_main = document.getElementById("class_perfil_show");
+    let saldo_do_cliente_show = document.getElementById("saldo_perfil_show");
 
     nome_preview_main.innerHTML = dados_do_user.nome;
     email_preview_main.innerHTML = "E-mail: " + dados_do_user.email;
     class_preview_main.innerHTML = "Class: " + dados_do_user.class;
+    saldo_do_cliente_show.innerHTML = "Saldo: " + dados_do_user.saldo;
 }
 
 
