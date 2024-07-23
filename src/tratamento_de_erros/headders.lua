@@ -31,7 +31,7 @@ function Cria_headders(headers)
         if tabela.erro then
         	return nil
         end
-
+        
     	local resultado = tabela.headers[nome]
     	if resultado then
 

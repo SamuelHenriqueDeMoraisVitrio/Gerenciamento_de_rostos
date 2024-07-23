@@ -15,7 +15,7 @@ function Cria_user_server(headers, banco)
   local senha = headers.obtem_headder(SENHA)
   local root = headers.obtem_headder_booleano(ROOT, "false")
   local saldo = headers.obtem_headder_numerico(SALDO, 100)
-  local class = headers.obtem_headder(CLASS_BANCO)
+  local class = headers.obtem_headder(CLASS_BANCO, "/")
 
   if headers.erro then
   	return headers.erro

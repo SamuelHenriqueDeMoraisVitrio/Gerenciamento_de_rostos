@@ -159,6 +159,10 @@ h1, p {
     position: relative;
 }
 
+.form_for_border{
+    border-radius: inherit;
+}
+
 .modal-button {
     background: #1c1b1b;
     display: block;

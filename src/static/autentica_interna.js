@@ -38,6 +38,45 @@ async function faz_requisicao_autenticada(rota, props){
     return json;
 }
 
+
+async function faz_requisicao_autenticada_for_text(rota, props){
+
+    let token = sessionStorage.getItem("token");
+    if(!token){
+        window.location.href = "/";
+        return;
+    }
+
+    if(!props){
+        props = {};
+    }
+
+    if(!props.headers){
+        props.headers = {};
+    }
+
+    props.headers.token = token;
+
+    let response = await fetch(rota, props);
+
+    if(response.status === 403){
+        sessionStorage.removeItem("token");
+        
+        window.location.href = "/";
+
+        return;
+    }
+
+    if(!response.ok){
+        alert(await response.text());
+        return;
+    }
+
+    let texto_r = await response.text();
+
+    return texto_r;
+}
+
 window.onload = async function () {
 
     let dados_do_user = await faz_requisicao_autenticada("/api/usuario");
@@ -75,7 +114,7 @@ window.onload = async function () {
         let create_new_div_modal_in_sub_div = document.createElement("div");
         create_new_div_modal_in_sub_div.setAttribute("id", "modal");
         create_new_div_modal_in_sub_div.setAttribute("class", "modal");
-        create_new_div_modal_in_sub_div.innerHTML = '<div class="modal-content"><span id="closeModalBtn" class="close-btn">&times;</span><button class="modal-button">Botão 1</button><button class="modal-button">Botão 2</button><button class="modal-button">Botão 3</button><button class="modal-button">Botão 4</button><button class="modal-button">Botão 5</button></div>';
+        create_new_div_modal_in_sub_div.innerHTML = '<div class="modal-content"><span id="closeModalBtn" class="close-btn">&times;</span><form action="/root_user_make" class="form_for_border"><button class="modal-button">User_make</button></form><button class="modal-button">Botão 2</button><button class="modal-button">Botão 3</button><button class="modal-button">Botão 4</button><button class="modal-button">Botão 5</button></div>';
         
         div_modal.appendChild(create_new_div_modal_in_sub_div);
         

@@ -1,0 +1,100 @@
+
+
+.container_user_make {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    max-height: 600px;
+    margin-left: 270px;
+    margin-right: 20px;
+    overflow-y: auto;
+}
+
+.container_user_input p {
+    margin: 10px 0 5px;
+    color: #333333;
+}
+
+.container_user_input input[type="text"],
+.container_user_input input[type="password"],
+.container_user_input input[type="number"],
+.container_user_input input[type="checkbox"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.container_user_input input[type="checkbox"] {
+    width: auto;
+}
+
+.container_user_input .button-commit-style {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.container_user_input .button-commit-style:hover {
+    background-color: #0056b3;
+}
+
+.container_user_input #class-list {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+
+.class-item {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.class-item:hover {
+    background-color: #c0c0c0;
+}
+
+/* Responsividade */
+@media (max-width: 780px) {
+    .container_user_make {
+        padding: 15px;
+        margin: auto;
+        max-height: 420px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        margin-top: auto;
+    }
+
+    .container_user_input input[type="text"],
+    .container_user_input input[type="password"],
+    .container_user_input input[type="number"] {
+        padding: 8px;
+    }
+
+    .container_user_input #add-class {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .class-item {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+}
