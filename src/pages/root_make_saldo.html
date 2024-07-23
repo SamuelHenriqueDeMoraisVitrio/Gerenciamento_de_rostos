@@ -14,7 +14,7 @@
 
     <script src="/static/autentica_interna.js" defer></script>
     <script src="/static/toggle-sidebar.js" defer></script>
-    <script src="/static/root_user_make.js" defer></script>
+    <script src="/static/root_make_saldo.js" defer></script>
     
 </head>
 <body>
@@ -86,22 +86,24 @@
 
     <!--Body-->
 
-    <div class="container_user_make">
-        <div class="container_user_input">
-            <p>E-mail:</p>
-            <input type="text" id="email-add">
-            <p>Adicionar saldo:</p>
-            <input type="number" id="add-balance">
-            <button onclick="commit_user()" class="button-commit-style">Adicionar usuário</button>
+    <div class="container-inputs">
+        <div class="container_user_make">
+            <div class="container_user_input">
+                <p>E-mail:</p>
+                <input type="text" id="email-add">
+                <p>Adicionar saldo:</p>
+                <input type="number" id="add-balance">
+                <button onclick="commit_user_add()" class="button-commit-style">Adicionar usuário</button>
         </div>
-    </div>
-    <div class="container_user_make">
-        <div class="container_user_input">
-            <p>E-mail:</p>
-            <input type="text" id="email-tira">
-            <p>Tirar saldo:</p>
-            <input type="number" id="tira-balance">
-            <button onclick="commit_user()" class="button-commit-style">Adicionar usuário</button>
+        </div>
+        <div class="container_user_make">
+            <div class="container_user_input">
+                <p>E-mail:</p>
+                <input type="text" id="email-tira">
+                <p>Tirar saldo:</p>
+                <input type="number" id="tira-balance">
+                <button onclick="commit_user_tira()" class="button-commit-style">Adicionar usuário</button>
+            </div>
         </div>
     </div>
 
