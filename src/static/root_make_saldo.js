@@ -20,7 +20,7 @@ async function commit_user_add(){
     props.headers.email = email;
     props.headers.valor = saldo;
 
-    const response = await faz_requisicao_autenticada("http://localhost:3000/api/incrementa/saldo/usuario", props);
+    const response = await faz_requisicao_autenticada("/api/incrementa/saldo/usuario", props);
 
     console.log(response);
 
@@ -46,7 +46,7 @@ async function commit_user_tira(){
     props.headers.valor = saldo;
 
 
-    const response = await faz_requisicao_autenticada("http://localhost:3000/api/decrementa/saldo/usuario", props);
+    const response = await faz_requisicao_autenticada("/api/decrementa/saldo/usuario", props);
 
     console.log(response);
 
