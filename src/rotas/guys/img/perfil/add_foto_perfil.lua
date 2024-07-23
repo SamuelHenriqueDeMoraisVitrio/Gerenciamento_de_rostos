@@ -24,6 +24,8 @@ function Add_img_perfil_guys(headders, banco, body)
         return body.erro
     end
 
+    print(content_type)
+
     local extension_name, extension = Convert_content_type_for_extension(content_type)
 
     if not extension_name then
