@@ -39,6 +39,8 @@ document.getElementById('adicionar_trocar_perfil').addEventListener('click', asy
     props.headers["content-type"] = imageInput.files[0].type;
     props.body = file;
 
+    alert(props.headers["content-type"]);
+
     const response = await fetch("/api/adicione/foto/perfil/pessoal", props);
 
     if(response.status === 403){
@@ -48,6 +50,7 @@ document.getElementById('adicionar_trocar_perfil').addEventListener('click', asy
     }
 
     if(!response.ok){
+        console.log("Não ta ok!");
         console.error(response.text());
         return;
     }

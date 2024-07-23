@@ -75,6 +75,8 @@ async function commit_user(){
 
     const response = await faz_requisicao_autenticada_for_text("/api/adicione/usuario", props);
 
-    console.log(response);
+    alert(response);
 
 }
+
+
