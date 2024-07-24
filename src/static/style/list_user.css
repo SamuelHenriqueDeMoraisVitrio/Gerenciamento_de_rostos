@@ -1,3 +1,12 @@
+
+
+.container-input-and-output{
+    display: flex;
+    flex-direction: row; /* Define o layout horizontal como padrão */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha e fiquem um embaixo do outro se necessário */
+    gap: 10px;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,11 +16,11 @@ body {
 
 .table-container {
     transition: 0.8s;
-    max-width: 1200px;
+    max-width: 600px;
     max-height: 400px;
     overflow-x: auto;
     padding: 20px;
-    margin-left: 250px;
+    margin-left: 20px;
     margin-right: 15px;
 }
 
@@ -32,6 +41,10 @@ th {
     color: white;
 }
 
+tbody td{
+    overflow-y: auto;
+}
+
 tbody tr:nth-child(even) {
     background-color: #e8f5e9; /* Verde muito claro para linhas pares */
 }
@@ -42,6 +55,13 @@ tbody tr:nth-child(odd) {
 
 tbody tr:hover {
     background-color: #c8e6c9; /* Verde claro para linha ao passar o mouse */
+}
+
+@media (max-width: 1362px){
+    .table-container {
+        transition: 0.1s;
+        margin-left: 250px;
+    }
 }
 
 @media (max-width: 780px), (max-height: 750px){
@@ -62,5 +82,7 @@ tbody tr:hover {
         padding: 8px;
     }
 }
+
+
 
 

@@ -50,7 +50,6 @@ document.getElementById('adicionar_trocar_perfil').addEventListener('click', asy
     }
 
     if(!response.ok){
-        console.log("Não ta ok!");
         console.error(response.text());
         return;
     }
@@ -86,7 +85,6 @@ document.getElementById("deletar_img_perfil").addEventListener("click", async() 
         return;
     }
     if(!response.ok){
-
         console.error(await response.text());
         return;
     }

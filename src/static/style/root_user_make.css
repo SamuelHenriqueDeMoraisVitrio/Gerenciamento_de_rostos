@@ -12,6 +12,13 @@
     overflow-y: auto;
 }
 
+.container-iten-input{
+    display: flex;
+    flex-direction: row; /* Define o layout horizontal como padrão */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha e fiquem um embaixo do outro se necessário */
+    gap: 10px;
+}
+
 .container_user_input p {
     margin: 10px 0 5px;
     color: #333333;
@@ -96,5 +103,12 @@
         width: 100%;
         text-align: center;
         margin: 5px 0;
+    }
+}
+
+@media (max-width: 404px){
+    .container_user_make{
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }
