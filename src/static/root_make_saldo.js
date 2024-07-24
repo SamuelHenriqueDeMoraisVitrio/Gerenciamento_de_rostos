@@ -22,7 +22,7 @@ async function commit_user_add(){
 
     const response = await faz_requisicao_autenticada("/api/incrementa/saldo/usuario", props);
 
-    alert(response);
+    console.log(response);
 
 }
 
@@ -48,7 +48,7 @@ async function commit_user_tira(){
 
     const response = await faz_requisicao_autenticada("/api/decrementa/saldo/usuario", props);
 
-    alert(response);
+    console.log(response);
 
 }
 
