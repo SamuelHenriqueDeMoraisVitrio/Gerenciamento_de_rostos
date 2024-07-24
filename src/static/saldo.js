@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        for (let i = 0; i < response.length; i++) {
+        for (let i = response.length - 1; i >= 0; i--) {
             const new_element = document.createElement("tr");
 
             new_element.innerHTML = `

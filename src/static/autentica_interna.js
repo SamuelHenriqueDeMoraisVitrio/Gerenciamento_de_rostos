@@ -25,12 +25,12 @@ async function faz_requisicao_autenticada(rota, props){
         
         window.location.href = "/";
 
-        return;
+        return null;
     }
 
     if(!response.ok){
         alert(await response.text());
-        return;
+        return null;
     }
 
     let json = await response.json();
@@ -64,12 +64,12 @@ async function faz_requisicao_autenticada_for_text(rota, props){
         
         window.location.href = "/";
 
-        return;
+        return null;
     }
 
     if(!response.ok){
         alert(await response.text());
-        return;
+        return null;
     }
 
     let texto_r = await response.text();

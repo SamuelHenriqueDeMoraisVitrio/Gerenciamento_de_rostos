@@ -1,10 +1,6 @@
 
 
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,11 +10,11 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/static/style/main.css">
-    <link rel="stylesheet" href="/static/style/saldo.css">
+    <link rel="stylesheet" href="/static/style/root_user_make.css">
 
     <script src="/static/autentica_interna.js" defer></script>
     <script src="/static/toggle-sidebar.js" defer></script>
-    <script src="/static/saldo.js" defer></script>
+    <script src="/static/root_dell_user.js"></script>
     
 </head>
 <body>
@@ -89,23 +85,15 @@
     <div id="open_modal"></div>
 
     <!--Body-->
-    <div class="table-container">
-        <table id="dataTable">
-            <thead>
-                <tr>
-                    <th>Saldo</th>
-                    <th>Valor</th>
-                    <th>Data de Alteração</th>
-                </tr>
-            </thead>
-            <tbody id="body_table_saldo">
-            </tbody>
-        </table>
-    </div>
 
+    <div class="container_user_make">
+        <div class="container_user_input">
+            <p>E-mail:</p>
+            <input type="email" id="email">
+            <button onclick="dell_user_root()" class="button-commit-style">Deleta usuário</button>
+        </div>
+    </div>
 </body>
 </html>
-
-
 
 

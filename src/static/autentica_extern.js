@@ -1,12 +1,12 @@
  
 
 window.onload = function (){
+
     let token = sessionStorage.getItem("token");
 
     if(token){
         window.location.href = "/home"
     }
-
 }
 
 async function efetua_log(){
