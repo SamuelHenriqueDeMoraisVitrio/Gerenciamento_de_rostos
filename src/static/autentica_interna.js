@@ -25,12 +25,12 @@ async function faz_requisicao_autenticada(rota, props){
         
         window.location.href = "/";
 
-        return;
+        return null;
     }
 
     if(!response.ok){
         alert(await response.text());
-        return;
+        return null;
     }
 
     let json = await response.json();
@@ -64,12 +64,12 @@ async function faz_requisicao_autenticada_for_text(rota, props){
         
         window.location.href = "/";
 
-        return;
+        return null;
     }
 
     if(!response.ok){
         alert(await response.text());
-        return;
+        return null;
     }
 
     let texto_r = await response.text();
@@ -114,7 +114,31 @@ window.onload = async function () {
         let create_new_div_modal_in_sub_div = document.createElement("div");
         create_new_div_modal_in_sub_div.setAttribute("id", "modal");
         create_new_div_modal_in_sub_div.setAttribute("class", "modal");
-        create_new_div_modal_in_sub_div.innerHTML = '<div class="modal-content"><span id="closeModalBtn" class="close-btn">&times;</span><form action="/root_user_make" class="form_for_border"><button class="modal-button">User_make</button></form><button class="modal-button">Botão 2</button><button class="modal-button">Botão 3</button><button class="modal-button">Botão 4</button><button class="modal-button">Botão 5</button></div>';
+        create_new_div_modal_in_sub_div.innerHTML = '\
+        <div class="modal-content">\
+            <span id="closeModalBtn" class="close-btn">&times;</span>\
+\
+            <form action="/root_user_make" class="form_for_border">\
+                <button class="modal-button">User_make</button>\
+            </form>\
+\
+            <form action="/list_users_root" class="form_for_border">\
+                <button class="modal-button">List_users</button>\
+            </form>\
+\
+            <form action="/delete_user" class="form_for_border">\
+                <button class="modal-button">dell_user</button>\
+            </form>\
+\
+            <form action="/root_make_saldo" class="form_for_border">\
+                <button class="modal-button">Saldo_make</button>\
+            </form>\
+\
+            <form action="/root_saldo_lote" class="form_for_border">\
+                <button class="modal-button">Saldo_lote</button>\
+            </form>\
+\
+        </div>';
         
         div_modal.appendChild(create_new_div_modal_in_sub_div);
         

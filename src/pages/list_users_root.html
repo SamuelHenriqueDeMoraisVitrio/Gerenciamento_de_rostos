@@ -1,0 +1,147 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de lixo</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/style/main.css">
+    <link rel="stylesheet" href="/static/style/root_user_make.css">
+    <link rel="stylesheet" href="/static/style/list_user.css">
+
+    <script src="/static/autentica_interna.js" defer></script>
+    <script src="/static/toggle-sidebar.js" defer></script>
+    <script src="/static/root_list_users.js"></script>
+    
+</head>
+<body>
+    <!--Menu-->
+    <div id="sidebar-toggle" class="sidebar-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <h2>LIXO</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <form action="/home">
+                    <button>
+                        <i class="fas fa-user"></i>
+                        Perfil
+                    </button>
+                </form>
+            </li>
+            <li>
+                <button onclick="">
+                    <i class="fas fa-camera"></i>
+                    Foto
+                </button>
+            </li>
+            <li>
+                <form action="/saldo">
+                    <button onclick="">
+                        <i class="fas fa-wallet"></i>
+                        Saldo
+                    </button>
+                </form>
+            </li>
+            <li>
+                <form action="/sobre">
+                    <button onclick="">
+                        <i class="fas fa-info-circle"></i>
+                        Sobre
+                    </button>
+                </form>
+            </li>
+            <li>
+                <button onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    sair
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Plataforma SESI PLANALTO</h1>
+        <div class="user-profile">
+            <!--
+            <canvas id="profile-picture"></canvas>
+            -->
+            <img src="/static/imgs/user-icon-2098873_640.png" alt="Foto de Perfil" id="profile-picture">
+            <div class="user-details">
+                <h2 id="nome_perfil">Nome_value</h2>
+                <p id="email_perfil_show">email_value</p>
+                <p id="class_perfil_show">class_value</p>
+                <p id="saldo_perfil_show">Saldo do cliente</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="open_modal"></div>
+
+    <!--Body-->
+
+    <div class="container-input-and-output">
+        <div class="container_user_make">
+            <div class="container_user_input">
+                <div class="container-iten-input">
+                    <p>E-mail:</p>
+                    <input type="text" id="email">
+                    <p>nome:</p>
+                    <input type="text" id="nome">
+                </div>
+                <div class="container-iten-input">
+                    <p>saldo mínimo:</p>
+                    <input type="number" id="balance-min">
+                    <p>saldo máximo:</p>
+                    <input type="number" id="balance-max">
+                </div>
+                <div class="container-iten-input">
+                    <p>frequência mínima:</p>
+                    <input type="number" id="frequenc-min">
+                    <p>frequência máxima:</p>
+                    <input type="number" id="frequenc-max">
+                </div>
+                <div class="container-iten-input">
+                    <p>imagem mínima:</p>
+                    <input type="number" id="img-min">
+                    <p>imagem máxima:</p>
+                    <input type="number" id="img-max">
+                </div>
+                <p>Root:</p>
+                <input type="checkbox" id="root">
+                <button onclick="refresh_list()" class="button-commit-style">Refresh</button>
+            </div>
+        </div>
+        <div class="table-container">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>E-mail</th>
+                        <th>nome</th>
+                        <th>saldo</th>
+                        <th>frequência</th>
+                        <th>imagens</th>
+                        <th>root</th>
+                    </tr>
+                </thead>
+                <tbody id="body_table_saldo">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
+
+

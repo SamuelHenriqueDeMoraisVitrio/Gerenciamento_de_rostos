@@ -6,10 +6,15 @@
 ---@param filtragem_email string | nil
 ---@param filtragem_saldo_min number | nil
 ---@param filtragem_saldo_max number | nil
+---@param filtragem_root boolean | nil
+---@param filtragem_img_min number | nil
+---@param filtragem_img_max number | nil
+---@param filtragem_frequencia_min number | nil
+---@param filtragem_frequencia_max number | nil
 ---@return table
-function Registra_transcoes_no_banco(banco, valor, filtragem_nome, filtragem_email, filtragem_saldo_min, filtragem_saldo_max)
+function Registra_transcoes_no_banco(banco, valor, filtragem_nome, filtragem_email, filtragem_saldo_min, filtragem_saldo_max, filtragem_root, filtragem_img_min, filtragem_img_max, filtragem_frequencia_min, filtragem_frequencia_max)
 
-  local usuarios,tamanho_usuarios = Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_min, filtragem_saldo_max)
+  local usuarios,tamanho_usuarios = Describe_users(banco, filtragem_nome, filtragem_email, filtragem_saldo_min, filtragem_saldo_max, filtragem_root, filtragem_img_min, filtragem_img_max, filtragem_frequencia_min, filtragem_frequencia_max)
   local resource_users = banco.sub_resource(USERS_BANCO)
   local usuarios_modificados  = {}
   for i=1,tamanho_usuarios do

@@ -1,0 +1,1 @@
+g++ -shared -fpic -o cBind/gerente.so  cBind/main.cpp

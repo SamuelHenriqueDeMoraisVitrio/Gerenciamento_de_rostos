@@ -73,8 +73,10 @@ async function commit_user(){
     props.headers.class = text_class;
 
 
-    const response = await faz_requisicao_autenticada_for_text("http://localhost:3000/api/adicione/usuario", props);
+    const response = await faz_requisicao_autenticada_for_text("/api/adicione/usuario", props);
 
-    console.log(response);
+    alert(response);
 
 }
+
+

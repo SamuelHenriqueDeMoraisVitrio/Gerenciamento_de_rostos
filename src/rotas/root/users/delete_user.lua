@@ -23,3 +23,5 @@ function Delete_user(headers, banco)
 
 end
 
+
+

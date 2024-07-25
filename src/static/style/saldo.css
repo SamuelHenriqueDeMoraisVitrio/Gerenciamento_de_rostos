@@ -6,6 +6,7 @@ body {
 }
 
 .table-container {
+    transition: 0.8s;
     max-width: 1200px;
     max-height: 400px;
     overflow-x: auto;
@@ -23,7 +24,6 @@ table {
 
 th, td {
     padding: 12px;
-    text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
@@ -46,14 +46,19 @@ tbody tr:hover {
 
 @media (max-width: 780px), (max-height: 750px){
     .table-container{
+        transition: 1s;
         max-width: 100%;
         max-height: 250px;
         margin-left: 0px;
         margin-right: 0px;
+        padding-left: 2%;
+        padding-right: 2%;
+        overflow-y: auto;
     }
 
     th, td {
-        font-size: 14px;
+        font-size: 10px;
+
         padding: 8px;
     }
 }
