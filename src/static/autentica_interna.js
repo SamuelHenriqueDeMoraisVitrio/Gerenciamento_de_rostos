@@ -134,6 +134,10 @@ window.onload = async function () {
                 <button class="modal-button">Saldo_make</button>\
             </form>\
 \
+            <form action="/root_saldo_lote" class="form_for_border">\
+                <button class="modal-button">Saldo_lote</button>\
+            </form>\
+\
         </div>';
         
         div_modal.appendChild(create_new_div_modal_in_sub_div);
