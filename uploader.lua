@@ -23,11 +23,11 @@ local function mudanca()
     print("movendo arquivos")
     move_src()
     print("inicializando servidor")
-    os.execute("cd producao/")
-    os.execute("screen -dm bash -c 'lua main.lua'")
-    os.execute("cd ..")
+
+    os.execute("cd producao/ && screen -dm bash -c 'lua main.lua'")
     print("deve estar rodando")
 end
+
 local sha_antigo = dtw.generate_sha_from_folder_by_content("src")
 while true do
     print("verificando ..")
