@@ -1,10 +1,30 @@
 local dtw = require("luaDoTheWorld/luaDoTheWorld")
 
-local function mudanca()
-    os.execute("cd ../Gerenciamento_de_rostos")
-    print("moudou")
+local function move_src()
+    local files, size = dtw.list_all("src")
+    for i = 1, size do
+        local item = files[i]
+        local caminho_antigo = dtw.concat_path("src", item)
+
+        if item ~= 'data' then
+            local novo_caminho = dtw.concat_path("producao", item)
+            dtw.copy_any_overwriting(caminho_antigo, novo_caminho)
+        end
+    end
 end
 
+
+local function mudanca()
+    print("matando servidor anterior")
+    os.execute("killall screen")
+    print("torcendo para a porta estar livre")
+    os.execute("sleep 60")
+    print("movendo arquivos")
+    move_src()
+    print("inicializando servidor")
+    os.execute("screen -dm bash -c 'lua main.lua'")
+    print("deve estar rodando")
+end
 local sha_antigo = dtw.generate_sha_from_folder_by_content("src")
 while true do
     print("verifying..")
