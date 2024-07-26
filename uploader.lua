@@ -1,6 +1,7 @@
 local dtw = require("luaDoTheWorld/luaDoTheWorld")
 
 local function mudanca()
+    os.execute("cd ../Gerenciamento_de_rostos")
     print("moudou")
 end
 
