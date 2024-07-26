@@ -27,7 +27,7 @@ local function mudanca()
 end
 local sha_antigo = dtw.generate_sha_from_folder_by_content("src")
 while true do
-    print("verifying..")
+    print("verificando ..")
     os.execute("git pull")
     local sha_novo = dtw.generate_sha_from_folder_by_content("src")
     if sha_antigo ~= sha_novo then
