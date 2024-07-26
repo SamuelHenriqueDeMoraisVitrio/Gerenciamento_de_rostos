@@ -1,6 +1,7 @@
 local dtw = require("luaDoTheWorld/luaDoTheWorld")
 
 local function mudanca()
+    print("iniciando upload")
     os.execute("cd ../Gerenciamento_de_rostos")
     os.execute("killall screen")
     os.execute("sleep 60")
