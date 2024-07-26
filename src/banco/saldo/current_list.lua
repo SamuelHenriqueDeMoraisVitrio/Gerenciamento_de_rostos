@@ -1,13 +1,9 @@
-
-
 ---@param user DtwResource
 ---@return serjaoResponse
 function List_current_banco(user)
-
     local transactions = user.sub_resource(TRANSACOES_BANCO)
 
     local list, size = transactions.map(function(element)
-        
         local valor = element.get_value_from_sub_resource(VALOR_BANCO_TRANSACOES)
         local data = element.get_value_from_sub_resource(DATA_BANCO_TRANSACOES)
         local valor_total = element.get_value_from_sub_resource(SALDO_NOW_BANCO_TRANSACOES)
@@ -19,12 +15,7 @@ function List_current_banco(user)
             data = data_convertida,
             saldo = valor_total
         }
-
     end)
 
     return serjao.send_json(list, 200)
-
-
 end
-
-
