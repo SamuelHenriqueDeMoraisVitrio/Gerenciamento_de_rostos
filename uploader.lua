@@ -15,6 +15,7 @@ local function move_src()
 end
 
 local function mudanca()
+    print("matando servidor anterior")
     os.execute("screen -X -S server quit")
     print("torcendo para a porta estar livre")
     os.execute("sleep 60")
