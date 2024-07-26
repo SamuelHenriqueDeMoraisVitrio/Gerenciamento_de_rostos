@@ -1,6 +1,7 @@
 local dtw = require("luaDoTheWorld/luaDoTheWorld")
 
 local function move_src()
+    dtw.copy_any_overwriting("producao/data", "backups/" .. os.time())
     local files, size = dtw.list_all("src")
     for i = 1, size do
         local item = files[i]
@@ -22,7 +23,7 @@ local function mudanca()
     print("movendo arquivos")
     move_src()
     print("inicializando servidor")
-    os.execute("cd producao")
+    os.execute("cd producao/")
     os.execute("screen -dm bash -c 'lua main.lua'")
     os.execute("cd ..")
     print("deve estar rodando")
