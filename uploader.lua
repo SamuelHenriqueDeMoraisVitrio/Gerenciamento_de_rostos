@@ -25,11 +25,12 @@ local function mudanca()
     os.execute("cd producao/ && screen -S server -dm bash -c 'lua main.lua'")
     print("deve estar rodando")
 end
+
+os.execute("git pull")
 mudanca()
 
 local sha_antigo = dtw.generate_sha_from_folder_by_content("src")
 while true do
-    mudanca()
     print("verificando ..")
     os.execute("git pull")
     local sha_novo = dtw.generate_sha_from_folder_by_content("src")
