@@ -3,6 +3,7 @@ local dtw = require("luaDoTheWorld/luaDoTheWorld")
 local function mudanca()
     print("moudou")
 end
+
 local sha_antigo = dtw.generate_sha_from_folder_by_content("src")
 while true do
     os.execute("git pull")
