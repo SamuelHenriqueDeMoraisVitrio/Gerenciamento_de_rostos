@@ -30,6 +30,7 @@ end
 
 local sha_antigo = dtw.generate_sha_from_folder_by_content("src")
 while true do
+    mudanca()
     print("verificando ..")
     os.execute("git pull")
     local sha_novo = dtw.generate_sha_from_folder_by_content("src")
