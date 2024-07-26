@@ -2,7 +2,12 @@ local dtw = require("luaDoTheWorld/luaDoTheWorld")
 
 local function mudanca()
     os.execute("cd ../Gerenciamento_de_rostos")
-    print("moudou")
+    os.execute("killall screen")
+    os.execute("sleep 60")
+    os.execute("cd src")
+    os.execute("screen -dm bash -c 'lua main.lua'")
+    os.execute("cd ..")
+    os.execute("cd ../base")
 end
 
 local sha_antigo = dtw.generate_sha_from_folder_by_content("src")
