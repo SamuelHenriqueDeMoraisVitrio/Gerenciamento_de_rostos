@@ -43,7 +43,7 @@
     opacity: 0.75;
     transition: opacity ease 250ms;
 }
-/*.collapse{
+/*TESTE.collapse{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -95,4 +95,7 @@
 }
 #accordion label + input[type="radio"]:checked + .content{
     max-height: 400px;
+}
+#questions{
+   margin-left: 110%;
 }
