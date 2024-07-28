@@ -43,7 +43,7 @@
     opacity: 0.75;
     transition: opacity ease 250ms;
 }
-.collapse{
+/*.collapse{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -51,8 +51,9 @@
 .pergunta{
     background-color: white;
     color: rgb(0, 0, 0, 0.8)
-    cursor: pointer
+    cursor: pointer;
 }
+    */
 #accordion{
     margin: 20px auto;
     
