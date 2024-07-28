@@ -96,6 +96,6 @@
 #accordion label + input[type="radio"]:checked + .content{
     max-height: 400px;
 }
-#h32{
-   text-align: center;
+#questions{
+    margin-left: 300px;
 }
