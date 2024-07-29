@@ -1,5 +1,5 @@
 #tit1{
-   text-align: center;
+   margin-left: 500px;
 }
 #img{
     padding: 60px;
@@ -54,7 +54,7 @@
     cursor: pointer;
 }
     */
-#accordion{
+/*#accordion{
     margin: 20px auto;
     
 }
@@ -81,7 +81,7 @@
     font-size: 22px;
     color: black
  }
- /*sumir com o checked*/
+ sumir com o checked
  #accordion label + input[type="radio"]{
     display: none;
 }
@@ -98,4 +98,6 @@
 }
 #questions{
     margin-left: 300px;
-}
+}*/
+
+
