@@ -69,7 +69,7 @@
 #accordion li label{
     padding: 10px;
     display: flex;
-    align-items: center;
+    align-items: 300px;
     justify-content: space-between;
     font-size: 18px;
     font-weight: 500;
