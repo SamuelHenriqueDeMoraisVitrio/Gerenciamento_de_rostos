@@ -1,5 +1,3 @@
-ger1 = package.loadlib("cBind/gerente.so", "gerente_faces");
-face = ger1();
 serjao = require("dependencies/serjao_berranteiro/serjao_berranteiro")
 dtw = require("dependencies/luaDoTheWorld/luaDoTheWorld")
 require("dependencies/requires")

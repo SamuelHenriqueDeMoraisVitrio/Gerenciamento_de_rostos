@@ -6,6 +6,8 @@
     border: 1px solid grey;
 }
 .container{
+    position: relative;
+    z-index: -1;
     padding: 2rem;
 }
 .slider-wrapper{

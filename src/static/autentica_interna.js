@@ -77,7 +77,23 @@ async function faz_requisicao_autenticada_for_text(rota, props){
     return texto_r;
 }
 
+
+async function html_required(){
+
+    let html = await fetch("/li");
+
+    let html_code = await html.text();
+
+    console.log(html_code);
+
+    return html_code;
+}
+
 window.onload = async function () {
+
+    let html_code = await html_required();
+
+    document.getElementById("list_html_code").innerHTML = html_code;
 
     let dados_do_user = await faz_requisicao_autenticada("/api/usuario");
     

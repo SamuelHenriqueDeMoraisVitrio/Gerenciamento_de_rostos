@@ -1,0 +1,3 @@
+/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/cBind/build/dlib_build/test_for_libjpeg_build/CMakeFiles/libjpeg_test.dir
+/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/cBind/build/dlib_build/test_for_libjpeg_build/CMakeFiles/edit_cache.dir
+/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/cBind/build/dlib_build/test_for_libjpeg_build/CMakeFiles/rebuild_cache.dir
