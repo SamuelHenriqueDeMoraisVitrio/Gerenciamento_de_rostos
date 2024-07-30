@@ -113,7 +113,7 @@ footer{
     padding-top: 50px;
     margin-left: 300px;
 }
-/*.container22{
+.container22{
     width: 85vmin;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -159,7 +159,7 @@ footer{
         transform: translateX(0);
     }
 
-}*/
+}
 img{
     width: 100%;
 }
