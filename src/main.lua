@@ -149,7 +149,7 @@ local function main_server(rq)
 
   if API .. PREVIEW .. IMAGEM .. GUYS == rq.route then
 
-    return Preview_img_guys(headders, banco)
+    return Preview_img_guys(params, banco)
   end
 
   if API .. DELETE .. IMAGEM .. GUYS == rq.route then

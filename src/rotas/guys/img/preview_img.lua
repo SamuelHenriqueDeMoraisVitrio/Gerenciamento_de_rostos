@@ -1,18 +1,20 @@
 
 
+---@param params Params
+---@param banco DtwResource
+---@return serjaoResponse
+function Preview_img_guys(params, banco)
 
-function Preview_img_guys(headders, banco)
-
-    local ok, error_or_user = Altentica(headders, banco, false)
+    local ok, error_or_user = Altentica_params(params, banco, false)
 
     if not ok then
         return error_or_user
     end
 
-    local id = headders.obtem_headder_numerico(ID)
+    local id = params.obtem_param_numerico(ID)
 
-    if headders.erro then
-        return headders.erro
+    if params.erro then
+        return params.erro
     end
 
     if id < 0 or id > 12 then
@@ -23,3 +25,4 @@ function Preview_img_guys(headders, banco)
 
     return response
 end
+

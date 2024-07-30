@@ -84,8 +84,6 @@ async function html_required(){
 
     let html_code = await html.text();
 
-    console.log(html_code);
-
     return html_code;
 }
 

@@ -3,6 +3,7 @@
 ---@field erro serjaoResponse|nil
 ---@field existe fun(nome:string):boolean
 ---@field obtem_param fun(nome:string, default:string|nil):nil|string
+---@field obtem_param_numerico fun(nome:string, default:string|nil):nil|number
 ---@field obtem_param_opcional fun(nome:string):nil|string
 
 ---@param Request Request
@@ -42,6 +43,20 @@ function Cria_params(Request)
     	table.erro = serjao.send_text("Param " .. nome .. " não informado", 404)
 
         return nil
+    end
+
+    table.obtem_param_numerico = function (nome, default)
+        
+    	local valor = table.obtem_param(nome, default)
+    	if valor == nil then
+    		return nil
+    	end
+
+        local valor_convertido = tonumber(valor)
+        if valor_convertido == nil then
+            table.erro = serjao.send_text("Param "..nome.." não é um número")
+        end
+        return valor_convertido
     end
 
     table.obtem_param_opcional = function(nome)

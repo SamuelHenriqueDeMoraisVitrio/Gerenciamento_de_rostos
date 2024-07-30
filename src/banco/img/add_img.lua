@@ -47,7 +47,5 @@ function Add_img_banco(banco, file, user_finding, extension)
 
     banco.commit()
 
-    print("Chegou aq")
-
     return serjao.send_text(IMG_ADD, 202)
 end

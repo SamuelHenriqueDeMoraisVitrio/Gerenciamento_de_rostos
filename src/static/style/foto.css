@@ -7,7 +7,6 @@
     margin-left: 280px;
 }
 
-
 .container-input{
     display: grid;
     max-width: 300px;
@@ -19,6 +18,8 @@
     margin-right: auto;
     overflow-y: auto;
     max-height: 400px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .label-id{
@@ -121,4 +122,9 @@
     .container-input{
         margin-right: 0;
     }
+
+    .container-box{
+        margin-bottom: 40px;
+    }
 }
+
