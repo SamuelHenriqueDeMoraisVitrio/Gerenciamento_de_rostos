@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/cBind/dlib/cmake_utils/test_for_libpng/libpng_test.cpp
+png.h
+-
+setjmp.h
+-
+stdio.h
+-
+stdlib.h
+-
+iostream
+-
+
