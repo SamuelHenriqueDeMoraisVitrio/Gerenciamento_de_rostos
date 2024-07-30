@@ -101,5 +101,17 @@
 #questions{
     margin-left: 300px;
 }
+.rodape{
+    margin: auto;
+   display: flex;
+   justify-content: center;
+   width: 1140px;
+}
+
+footer{
+    background-color: #333;
+    padding-top: 50px;
+}
+
 
 
