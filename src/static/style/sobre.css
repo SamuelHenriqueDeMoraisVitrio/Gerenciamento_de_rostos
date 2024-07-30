@@ -117,8 +117,6 @@ footer{
     width: 85vmin;
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
     overflow: hidden;
     border: 20p solid white;
     border-radius: 8px;
