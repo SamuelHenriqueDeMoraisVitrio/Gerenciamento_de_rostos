@@ -1,5 +1,3 @@
-ger1 = package.loadlib("cBind/build/libmain.so", "gerente_faces");
-face = ger1();
 serjao = require("dependencies/serjao_berranteiro/serjao_berranteiro")
 dtw = require("dependencies/luaDoTheWorld/luaDoTheWorld")
 require("dependencies/requires")
@@ -13,9 +11,6 @@ require_dir_recursively("rotas")
 
 SENHA_ROOT_MAIN = SENHA_ROOT_MAX
 SENHA_ROOT_READ = SENHA_ROOT_READ
-
-
-face.add()
 
 
 ---@param rq Request
