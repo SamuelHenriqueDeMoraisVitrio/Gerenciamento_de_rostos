@@ -115,13 +115,15 @@ footer{
 }
 .container22{
     width: 85vmin;
-    position: absolute;
     transform: translate(-50%, -50%);
     overflow: hidden;
     border: 20p solid white;
     border-radius: 8px;
     box-shadow: 10px 25px 30px rgba(30, 30, 200, 0.3);
     aspect-ratio: 16 / 9;
+    position: relative;
+    z-index: -1;
+    padding: 2rem;
 }
 .wrapper{
     width: 100%;
