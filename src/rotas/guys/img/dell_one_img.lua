@@ -18,8 +18,10 @@ function Dell_one_img_guys(headders, banco)
         return headders.erro
     end
 
-    if id < 0 or id > 12 then
-        return serjao.send_text(ID_INVALID, 400)
+    id = tostring(id)
+
+    if not id then
+        return serjao.send_text(VALUE_INVALID, 400)
     end
 
     local response = Dell_one_img_banco(banco, error_or_user, id)

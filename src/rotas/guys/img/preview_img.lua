@@ -17,8 +17,10 @@ function Preview_img_guys(params, banco)
         return params.erro
     end
 
-    if id < 0 or id > 12 then
-        return serjao.send_text(ID_INVALID, 400)
+    id = tostring(id)
+
+    if not id then
+        return serjao.send_text(VALUE_INVALID, 400)
     end
 
     local response = Preview_img_banco(error_or_user, id)

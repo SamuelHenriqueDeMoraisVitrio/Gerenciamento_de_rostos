@@ -49,55 +49,26 @@
 
     <!--BODY-->
 
-    <div class="container-body">
+    <div class="container-body" id="container-body">
         <div class="container-input">
-            <button class="button-style">Trocar foto</button>
-            <p class="label-id">Qual id de sua foto</p>
-            <input type="number" class="input-number-id">
+            <button class="button-style" id="button-add-img">Adicionar foto</button>
             <br>
             <label for="file-input" class="styled-button_perfil file-label">Escolher nova imagem</label>
             <input type="file" accept="image/*" id="file-input" class="file-input">
             <div class="image-preview" id="imagem_selecionada_pelo_user_para_perfil">
                 <img src="/static/imgs/Image-not-found.png" alt="Imagem Selecionada" class="selected-image" id="selected-image">
             </div>
+            <hr>
+            <p class="label-id">Qual id de sua foto</p>
+            <input type="number" class="input-number-id" id="input_id">
+            <button class="button-style" id="dell_img_by_id">Excluir img por id</button>
+            <br>
+            <button class="button-style" id="dell_imgs">Excluir todas imgs</button>
         </div>
-        <div class="container-box">
-            <div class="box-img">
-                <img src="/static/imgs/Image-not-found.png" alt="Foto de leitura" class="image-preview-list">
-                <p>id: 0</p>
-            </div>
-            <div class="box-img">
-                <img src="/static/imgs/Image-not-found.png" alt="Foto de leitura" class="image-preview-list">
-                <p>id: 0</p>
-            </div>
-            <div class="box-img">
-                <img src="/static/imgs/Image-not-found.png" alt="Foto de leitura" class="image-preview-list">
-                <p>id: 0</p>
-            </div>
-            <div class="box-img">
-                <img src="/static/imgs/Image-not-found.png" alt="Foto de leitura" class="image-preview-list">
-                <p>id: 0</p>
-            </div>
-            <div class="box-img">
-                <img src="/static/imgs/Image-not-found.png" alt="Foto de leitura" class="image-preview-list">
-                <p>id: 0</p>
-            </div>
-            <div class="box-img">
-                <img src="/static/imgs/Image-not-found.png" alt="Foto de leitura" class="image-preview-list">
-                <p>id: 0</p>
-            </div>
-            <div class="box-img">
-                <img src="/static/imgs/Image-not-found.png" alt="Foto de leitura" class="image-preview-list">
-                <p>id: 0</p>
-            </div>
-            <div class="box-img">
-                <img src="/static/imgs/Image-not-found.png" alt="Foto de leitura" class="image-preview-list">
-                <p>id: 0</p>
-            </div>
-        </div>
+        <div class="container-box" id="container-box"></div>
         <script>
             document.addEventListener('DOMContentLoaded', async () => {
-                
+                await requisita_fotos();
             });
         </script>
     </div>

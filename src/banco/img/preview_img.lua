@@ -7,15 +7,39 @@
 ---@return serjaoResponse
 function Preview_img_banco(user_finding, id)
 
-    local dir_images = user_finding.sub_resource(IMGS_BANCO).list()
+    local dir_images = user_finding.sub_resource(IMGS_BANCO)
 
-    id = id + 1
-
-    if not dir_images[id] then
+    if not dir_images then
         return serjao.send_text(ID_NOT_IMG, 404)
     end
 
-    local dir_img = dir_images[id]
+    local response, size_map = dir_images.map(
+        function(element)
+            
+            local id_foto = dtw.newPath(element.get_path_string()).get_only_name()
+
+            if id == id_foto then
+                element.destroy()
+                return {result = true, finding_dir_id = element}
+            end
+
+            return {result = false}
+        end
+    )
+
+    local tem = false
+    local dir_img = nil
+
+    for i=1, size_map do
+        if response[i].result == true then
+            tem = true
+            dir_img = response[i].finding_dir_id
+        end
+    end
+
+    if not tem or not dir_img then
+        return serjao.send_text(ID_NOT_IMG, 404)
+    end
 
     local dir_img_list, size = dir_img.list()
 
@@ -31,7 +55,6 @@ function Preview_img_banco(user_finding, id)
     end
 
     if not content_type then
-
         return serjao.send_text(ID_NOT_IMG, 500)
     end
 
