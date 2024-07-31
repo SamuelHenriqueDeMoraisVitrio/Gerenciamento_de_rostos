@@ -113,17 +113,19 @@ footer{
     padding-top: 50px;
     margin-left: 300px;
 }
-.container22{
-    width: 85vmin;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 30%;
-    left: 50%;
-    overflow: hidden;
-    border: 20p solid white;
-    border-radius: 8px;
-    box-shadow: 10px 25px 30px rgba(30, 30, 200, 0.3);
-    aspect-ratio: 16 / 9;
+ .container22{
+        width: 85vmin;
+        position: relative;
+        transform: translate(-50%, -50%);
+        
+        left: 70%;
+        overflow: hidden;
+        border: 20p solid white;
+        border-radius: 8px;
+        box-shadow: 10px 25px 30px rgba(30, 30, 200, 0.3);
+        aspect-ratio: 16 / 9;
+        size: 50px;
+        aspect-ratio: 16 / 9;
 }
 .wrapper{
     width: 100%;
