@@ -24,13 +24,15 @@ function Add_img_perfil_guys(headders, banco, body)
         return body.erro
     end
 
+    local file_formated = imageMgk.image_formated(file)
+
     local extension_name, extension = Convert_content_type_for_extension(content_type)
 
     if not extension_name then
         return serjao.send_text(VALUE_INVALID, 400)
     end
 
-    local response = Add_img_perfil_banco(banco, error_or_user, file, extension)
+    local response = Add_img_perfil_banco(banco, error_or_user, file_formated, extension)
 
     return response
 end

@@ -1,18 +1,19 @@
 
 ---@class Body
 ---@field erro serjaoResponse|nil
+---@field length number|nil
 ---@field obtem_body fun(default:number|nil):any|nil
 ---@field obtem_body_img_extension fun(default:number|nil, extension:string|nil):any|nil,string|nil,string|nil
 
 
 ---@param body table
+---@param length number
 ---@return Body
----@return string|nil
----@return string|nil
-function Cria_body(body)
+function Cria_body(body, length)
 
     local table = {}
     table.body = body
+    table.length = length
     table.erro = nil
 
     table.obtem_body = function (default)

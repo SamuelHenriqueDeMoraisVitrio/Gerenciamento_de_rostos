@@ -11,6 +11,10 @@ teste: clear
 	@cd /home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src && $(RUN)
 	@echo ""
 
+build_image: clear
+	@cd /home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src && sh build.sh
+	@echo ""
+
 zip: clear
 	@rm -f src.zip
 	@zip -r src.zip src

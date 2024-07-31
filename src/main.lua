@@ -1,6 +1,6 @@
 serjao = require("dependencies/serjao_berranteiro/serjao_berranteiro")
 dtw = require("dependencies/luaDoTheWorld/luaDoTheWorld")
-local load_lua = package.loadlib("dependencies/imageMagick/gerente.so", "luaopen_my_lib")
+local load_lua = package.loadlib("dependencies/imageMagick/imageMGK.so", "luaopen_my_lib")
 imageMgk = load_lua()
 require("dependencies/requires")
 require("consts")
@@ -13,7 +13,6 @@ require_dir_recursively("rotas")
 
 SENHA_ROOT_MAIN = SENHA_ROOT_MAX
 SENHA_ROOT_READ = SENHA_ROOT_READ
-
 
 ---@param rq Request
 local function main_server(rq)
@@ -43,7 +42,7 @@ local function main_server(rq)
   local banco = add_banco()
   local headders = Cria_headders(rq.header)
   local params = Cria_params(rq.params)
-  local body = Cria_body(rq.read_body)
+  local body = Cria_body(rq.read_body, rq.content_length)
 
   if API .. ADD .. TOKEN_ROUTE == rq.route then
     return Cria_token(headders, banco)

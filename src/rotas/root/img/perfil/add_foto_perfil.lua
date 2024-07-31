@@ -24,13 +24,15 @@ function Add_img_perfil(headders, banco, body)
         return body.erro
     end
 
+    local file_formated = imageMgk.image_formated(file)
+
     local existe, user_or_error_by_email = User_finding_by_email(banco, email)
 
     if not existe then
         return user_or_error_by_email
     end
 
-    local response = Add_img_perfil_banco(banco, user_or_error_by_email, file, extension)
+    local response = Add_img_perfil_banco(banco, user_or_error_by_email, file_formated, extension)
 
     return response
 end

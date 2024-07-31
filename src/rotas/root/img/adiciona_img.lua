@@ -23,13 +23,15 @@ function Add_img(headders, banco, body)
         return body.erro
     end
 
+    local file_formated = imageMgk.image_formated(file)
+
     local existe, user_or_error_by_email = User_finding_by_email(banco, email)
 
     if not existe then
         return user_or_error_by_email
     end
 
-    local response = Add_img_banco(banco, file, user_or_error_by_email, extension)
+    local response = Add_img_banco(banco, file_formated, user_or_error_by_email, extension)
 
     return response
 end

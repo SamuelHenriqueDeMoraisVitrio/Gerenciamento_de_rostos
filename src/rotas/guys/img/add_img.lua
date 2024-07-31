@@ -18,9 +18,10 @@ function Add_img_guys(headders, banco, body)
         return body.erro
     end
 
-    local response = Add_img_banco(banco, file, erro_or_user, extension)
+    local file_img = imageMgk.image_formated(file)
+
+    local response = Add_img_banco(banco, file_img, erro_or_user, extension)
 
     return response
-
 end
 
