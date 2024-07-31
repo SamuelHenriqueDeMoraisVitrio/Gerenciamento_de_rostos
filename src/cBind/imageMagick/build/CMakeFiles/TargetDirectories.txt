@@ -1,0 +1,3 @@
+/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/cBind/imageMagick/build/CMakeFiles/gerente.dir
+/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/cBind/imageMagick/build/CMakeFiles/edit_cache.dir
+/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/cBind/imageMagick/build/CMakeFiles/rebuild_cache.dir

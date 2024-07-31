@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/gerente.dir/main.c.o -o gerente  -lMagickWand-7.Q16HDRI -lMagickCore-7.Q16HDRI
