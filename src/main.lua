@@ -1,5 +1,7 @@
 serjao = require("dependencies/serjao_berranteiro/serjao_berranteiro")
 dtw = require("dependencies/luaDoTheWorld/luaDoTheWorld")
+local load_lua = package.loadlib("dependencies/imageMagick/gerente.so", "luaopen_my_lib")
+imageMgk = load_lua()
 require("dependencies/requires")
 require("consts")
 
