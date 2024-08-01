@@ -102,7 +102,7 @@ EXTRACT_IMG                = "./dependencies/dlib_face_detection/extract_face_me
 COMPAR_IMG                 = "./dependencies/dlib_face_detection/compare_face_metrics"
 
 --set_server
-set_server.single_process  = false
+set_server.single_process  = true
 set_server.nullterminator  = NULL
 
 --content/type
