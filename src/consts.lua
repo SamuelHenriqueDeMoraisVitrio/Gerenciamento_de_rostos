@@ -87,7 +87,7 @@ DATE                       = "data"
 FACE_DETECTED              = "face"
 --Banco perfil
 DIR_PERFIL                 = "perfil"
-IMG_PERFIL                 = "foto_perfil"
+IMG_PERFIL                 = "foto_perfil.jpg"
 BOOL_PERFIL                = "bool"
 --Token
 CRIACAO                    = "criacao"

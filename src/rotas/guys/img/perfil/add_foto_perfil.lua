@@ -1,12 +1,8 @@
-
-
-
 ---@param headders Headders
 ---@param banco DtwResource
 ---@param body Body
 ---@return DtwResource|serjaoResponse|nil
 function Add_img_perfil_guys(headders, banco, body)
-
     local ok, error_or_user = Altentica(headders, banco, false)
 
     if not ok then
@@ -32,9 +28,7 @@ function Add_img_perfil_guys(headders, banco, body)
         return serjao.send_text(VALUE_INVALID, 400)
     end
 
-    local response = Add_img_perfil_banco(banco, error_or_user, file_formated, extension)
+    local response = Add_img_perfil_banco(banco, error_or_user, file_formated)
 
     return response
 end
-
-
