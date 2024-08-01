@@ -1,17 +1,10 @@
-
-
 ---@param banco DtwResource
 ---@param user_finding DtwResource
 ---@return serjaoResponse
 function List_imgs_banco(banco, user_finding)
-
     local dir_images = user_finding.sub_resource(IMGS_BANCO)
 
-    banco.commit()
-
-    local list = dir_images.map(
-    function(element)
-
+    local list = dir_images.schema_map(function(element)
         local date = element.get_value_from_sub_resource(DATE)
 
         local convert_date = nil
@@ -20,6 +13,7 @@ function List_imgs_banco(banco, user_finding)
         end
 
         return {
+
             id_foto = dtw.newPath(element.get_path_string()).get_only_name(),
             data = convert_date
         }

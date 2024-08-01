@@ -1,11 +1,8 @@
-
-
 ---@param headders Headders
 ---@param banco DtwResource
 ---@param body Body
 ---@return serjaoResponse
 function Add_img_guys(headders, banco, body)
-
     local ok, erro_or_user = Altentica(headders, banco, false)
 
     if not ok then
@@ -20,8 +17,7 @@ function Add_img_guys(headders, banco, body)
 
     local file_img = imageMgk.image_formated(file)
 
-    local response = Add_img_banco(banco, file_img, erro_or_user, extension)
+    local response = Add_img_banco(banco, file_img, erro_or_user)
 
     return response
 end
-
