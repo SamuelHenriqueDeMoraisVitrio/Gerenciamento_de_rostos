@@ -44,6 +44,7 @@ EXPIRED_TOKEN = "token expirado"
 USER_NOT_ROOT = "O usuario não é root"
 ID_INVALID = "O id é invalido."
 ID_NOT_IMG = "Essa imagem não existe no banco."
+IMG_JA_ADD = "Essa imagem já existe no banco de dados."
 
 --Headers
 ROOT_MAX = "root_max"
@@ -83,6 +84,7 @@ SALDO_NOW_BANCO_TRANSACOES = "saldo_now"
 IMGS_BANCO = "imagens"
 IMG = "imagem"
 DATE = "data"
+FACE_DETECTED = "face"
 --Banco perfil
 DIR_PERFIL = "perfil"
 IMG_PERFIL = "foto_perfil"
