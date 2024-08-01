@@ -98,6 +98,8 @@ EXPIRACAO = 30
 
 --extra
 NULL = "null"
+EXTRACT_IMG = "./dependencies/dlib_face_detection/extract_face_metrics"
+COMPAR_IMG = "./dependencies/dlib_face_detection/compare_face_metrics"
 
 --set_server
 set_server.single_process = false

@@ -4,7 +4,7 @@
 ---@param user_finding DtwResource
 ---@param extension string
 ---@return serjaoResponse
-function Add_img_banco(banco, file, user_finding, extension, face_metrics)
+function Add_img_banco(banco, file, user_finding, extension)
 
     local imgs = user_finding.sub_resource(IMGS_BANCO)
 
@@ -15,11 +15,6 @@ function Add_img_banco(banco, file, user_finding, extension, face_metrics)
     local name_dir = "0"
     local time = 0
     local tem_igual = false
-    
-
-    if size == 0 then
-        goto continue
-    end
 
     for i = 1, size do
 
@@ -41,10 +36,6 @@ function Add_img_banco(banco, file, user_finding, extension, face_metrics)
 
     imgs.map(function (element)
 
-        if size == 0 then
-            return nil
-        end
-
         local img_request = element.get_value_from_sub_resource(img_mais_extension)
         if img_request == file then
             tem_igual = true
@@ -55,19 +46,15 @@ function Add_img_banco(banco, file, user_finding, extension, face_metrics)
         return serjao.send_text(IMG_JA_ADD, 400)
     end
 
-    print("Entrou no continue\n\n")
-
-    ::continue::
-
     local imgs_now = imgs.sub_resource(name_dir)
-
-    print(imgs_now)
-
+    
+    
     imgs_now.set_value_in_sub_resource(img_mais_extension, file)
     imgs_now.set_value_in_sub_resource(DATE, os.time())
-    imgs_now.set_value_in_sub_resource(FACE_DETECTED, nil)
-
---    banco.commit()
+    
+    banco.commit()
 
     return serjao.send_text(IMG_ADD, 202)
 end
+
+
