@@ -12,10 +12,13 @@ function Add_img_banco(banco, file, user_finding)
     end
 
     local nova_imagem = imgs.schema_new_insertion()
-    local sha_resource = nova_imagem.sub_resource(SHA_IMAGE)
-    local ok, error = sha_resource.try_set_value(dtw.generate_sha(file))
-    if not ok then
-        return serjao.send_text(IMG_JA_ADD, 400)
+
+    local ok, error   = nova_imagem.try_set_value_in_sub_resource(
+        SHA_IMAGE, dtw.generate_sha(file)
+    )
+
+    if ok == false then
+        return serjao.send_text(error, 404)
     end
 
     nova_imagem.set_value_in_sub_resource(DATE, os.time())
