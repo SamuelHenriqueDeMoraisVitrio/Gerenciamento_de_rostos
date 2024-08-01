@@ -57,4 +57,3 @@ function Add_img_banco(banco, file, user_finding, extension)
     return serjao.send_text(IMG_ADD, 202)
 end
 
-
