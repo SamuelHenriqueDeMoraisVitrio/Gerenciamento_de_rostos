@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/dependencies/dlib_face_detection/compare_face_metrics"
-  "/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/dependencies/dlib_face_detection/compare_face_metrics.pdb"
+  "/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/dependencies/dlib_face_detection/link/libcompare_face_metrics.pdb"
+  "/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/dependencies/dlib_face_detection/link/libcompare_face_metrics.so"
   "CMakeFiles/compare_face_metrics.dir/faceCompar.cpp.o"
   "CMakeFiles/compare_face_metrics.dir/faceCompar.cpp.o.d"
 )

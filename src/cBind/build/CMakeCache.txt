@@ -28,7 +28,7 @@ CMAKE_BUILD_TYPE:STRING=Release
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
+CMAKE_CXX_COMPILER:STRING=/usr/bin/c++
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -54,7 +54,7 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //C compiler
-CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
+CMAKE_C_COMPILER:STRING=/usr/bin/cc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -371,7 +371,7 @@ DLIB_PNG_SUPPORT:BOOL=ON
 //Disable this if you don't want to use a BLAS library
 DLIB_USE_BLAS:BOOL=ON
 
-//Disable this if you don't want to use a BLAS library
+//Disable this if you don't want to use NVIDIA CUDA
 DLIB_USE_CUDA:STRING=OFF
 
 //Set this to a comma-separated list of CUDA compute capabilities
@@ -871,6 +871,9 @@ ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
 //Path to a library.
 ZLIB_LIBRARY_RELEASE:FILEPATH=/usr/lib/libz.so
 
+//Dependencies for the target
+compare_face_metrics_LIB_DEPENDS:STATIC=general;dlib::dlib;
+
 //Value Computed by CMake
 dlib_BINARY_DIR:STATIC=/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/cBind/build/dlib_build
 
@@ -882,6 +885,9 @@ dlib_LIB_DEPENDS:STATIC=general;/usr/lib/libSM.so;general;/usr/lib/libICE.so;gen
 
 //Value Computed by CMake
 dlib_SOURCE_DIR:STATIC=/home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src/cBind/dlib
+
+//Dependencies for the target
+extract_face_metrics_LIB_DEPENDS:STATIC=general;dlib::dlib;
 
 //Path to a library.
 pkgcfg_lib_BLAS_REFERENCE_cblas:FILEPATH=/usr/lib/libcblas.so
@@ -964,7 +970,7 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=30
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.

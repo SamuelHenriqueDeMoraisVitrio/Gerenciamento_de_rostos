@@ -1,8 +1,9 @@
 ---@param banco DtwResource
 ---@param file string
 ---@param user_finding DtwResource
+---@param metrics string
 ---@return serjaoResponse
-function Add_img_banco(banco, file, user_finding)
+function Add_img_banco(banco, file, user_finding, metrics)
     local imgs = user_finding.sub_resource(IMGS_BANCO)
 
     local todas, tamanho = imgs.list()
@@ -13,9 +14,7 @@ function Add_img_banco(banco, file, user_finding)
 
     local nova_imagem = imgs.schema_new_insertion()
 
-    local ok, error   = nova_imagem.try_set_value_in_sub_resource(
-        SHA_IMAGE, dtw.generate_sha(file)
-    )
+    local ok, error   = nova_imagem.try_set_value_in_sub_resource(SHA_IMAGE, dtw.generate_sha(file))
 
     if ok == false then
         return serjao.send_text(error, 404)
@@ -23,6 +22,7 @@ function Add_img_banco(banco, file, user_finding)
 
     nova_imagem.set_value_in_sub_resource(DATE, os.time())
     nova_imagem.set_value_in_sub_resource(IMG, file)
+    nova_imagem.set_value_in_sub_resource(FACE_METRICS, metrics)
     banco.commit()
 
     return serjao.send_text(IMG_ADD, 202)

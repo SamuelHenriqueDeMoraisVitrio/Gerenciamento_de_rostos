@@ -4,6 +4,7 @@
 
 ---@class ImageMgk
 ---@field image_formated fun(any):ImageMgkResponse
+---@field convert_to_jpeg fun(any):ImageMgkResponse
 
 
 local load_lua = package.loadlib("dependencies/imageMagick/imageMGK.so", "luaopen_my_lib")

@@ -1,8 +1,11 @@
+#include <cstddef>
 #include <dlib/dnn.h>
 #include <dlib/image_io.h>
 #include <dlib/image_processing/frontal_face_detector.h>
 #include <dlib/image_processing.h>
 #include <iostream>
+#include <sstream>
+#include <vector>
 
 template <template <int,template<typename>class,int,typename> class block, int N, template<typename>class BN, typename SUBNET>
 using residual = dlib::add_prev1<block<N,BN,1,dlib::tag1<SUBNET>>>;
@@ -34,11 +37,16 @@ using anet_type = dlib::loss_metric<dlib::fc_no_bias<128,dlib::avg_pool_everythi
 
 std::vector<dlib::matrix<dlib::rgb_pixel>> jitter_image(const dlib::matrix<dlib::rgb_pixel>& img);
 
-int main(int argc, char** argv) try{
-    if (argc != 2){
-        std::cout << "1 USE: ./extract_face_metrics image.jpg" << std::endl;
-        return 1;
-    }
+extern "C"{
+    char *extract(unsigned char*body, size_t size);
+}
+
+// Função para carregar imagem a partir de unsigned char*
+void load_image_from_buffer(dlib::matrix<dlib::rgb_pixel>& img, const unsigned char* buffer, size_t size){
+    dlib::load_jpeg(img, buffer, size);
+}
+
+char *extract(unsigned char* body, size_t size) try{
 
     // Carregar os modelos necessários
     dlib::frontal_face_detector detector = dlib::get_frontal_face_detector();
@@ -49,7 +57,7 @@ int main(int argc, char** argv) try{
 
     // Carregar a imagem
     dlib::matrix<dlib::rgb_pixel> img;
-    dlib::load_image(img, argv[1]);
+    load_image_from_buffer(img, body, size);
 
     // Detectar faces na imagem
     std::vector<dlib::matrix<dlib::rgb_pixel>> faces;
@@ -61,27 +69,12 @@ int main(int argc, char** argv) try{
     }
 
     if (faces.size() == 0){
-        std::cout << "2 Nenhuma face encontrada na imagem!" << std::endl;
-        return 1;
+        return NULL;
     }
 
     // Obter as descrições faciais
     std::vector<dlib::matrix<float,0,1>> face_descriptors = net(faces);
 
-    /*
-    std::cout << static_cast<char *>(face_descriptors(1)) << '\n';
-
-    // Salvar as descrições em um arquivo
-    std::ofstream output(argv[2]);
-    for (const auto& descriptor : face_descriptors){
-        for (long i = 0; i < descriptor.size(); ++i){
-            output << descriptor(i) << " ";
-        }
-        output << std::endl;
-    }
-
-    std::cout << "Metricas da face salva em: " << argv[2] << std::endl;
-    */
     std::ostringstream oss;
     for (const auto& descriptor : face_descriptors) {
         for (long i = 0; i < descriptor.size(); ++i) {
@@ -95,14 +88,10 @@ int main(int argc, char** argv) try{
     std::copy(descriptor_str.begin(), descriptor_str.end(), descriptor_cstr);
     descriptor_cstr[descriptor_str.size()] = '\0'; // Null-terminator
 
-    std::cout << descriptor_cstr << std::endl;
-
-    delete[] descriptor_cstr;
-
-    return 0;
+    return descriptor_cstr;
 }
 catch (std::exception& e){
     std::cout << 1 << ' ' << e.what() << std::endl;
-    return 1;
+    return NULL;
 }
 

@@ -44,6 +44,7 @@ USER_NOT_ROOT              = "O usuario não é root"
 ID_INVALID                 = "O id é invalido."
 ID_NOT_IMG                 = "Essa imagem não existe no banco."
 IMG_JA_ADD                 = "Essa imagem já existe no banco de dados."
+FACE_NOT_FOUND             = "Face não encontrada em imagem."
 
 --Headers
 ROOT_MAX                   = "root_max"
@@ -85,6 +86,7 @@ IMGS_BANCO                 = "imagens"
 IMG                        = "imagem.jpg"
 DATE                       = "data"
 FACE_DETECTED              = "face"
+FACE_METRICS               = "metrics"
 --Banco perfil
 DIR_PERFIL                 = "perfil"
 IMG_PERFIL                 = "foto_perfil.jpg"
@@ -102,7 +104,7 @@ EXTRACT_IMG                = "./dependencies/dlib_face_detection/extract_face_me
 COMPAR_IMG                 = "./dependencies/dlib_face_detection/compare_face_metrics"
 
 --set_server
-set_server.single_process  = true
+set_server.single_process  = false
 set_server.nullterminator  = NULL
 
 --content/type

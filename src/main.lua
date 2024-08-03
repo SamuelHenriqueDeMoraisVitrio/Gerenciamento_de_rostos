@@ -1,6 +1,7 @@
 serjao = require("dependencies/serjao_berranteiro/serjao_berranteiro")
 dtw = require("dependencies/luaDoTheWorld/luaDoTheWorld")
 imageMgk = require("dependencies/imageMagick/imageMGK")
+extract = require("dependencies/dlib_face_detection/extract")
 require("dependencies/requires")
 require("consts")
 

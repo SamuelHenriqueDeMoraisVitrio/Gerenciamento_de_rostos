@@ -12,7 +12,7 @@ function Dell_one_img_guys(headders, banco)
         return error_or_user
     end
 
-    local id = headders.obtem_headder_numerico(ID)
+    local id = headders.obtem_headder(ID)
 
     if headders.erro then
         return headders.erro

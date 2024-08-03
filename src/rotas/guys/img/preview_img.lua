@@ -15,6 +15,6 @@ function Preview_img_guys(params, banco)
     end
 
     local response = Preview_img_banco(error_or_user, id)
-
+    print(response)
     return response
 end
