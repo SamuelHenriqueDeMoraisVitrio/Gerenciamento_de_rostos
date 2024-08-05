@@ -25,6 +25,8 @@ PREVIEW                    = "/ver"
 ALL                        = "/todas"
 GUYS                       = "/pessoal"
 PERFIL                     = "/perfil"
+COMPAR                     = "/compare"
+ROSTO                      = "/metricas"
 
 --Responses
 ROTA_NAO_ENCONTRADA        = "Rota não encontrada."
@@ -68,6 +70,7 @@ CONTENT_TYPE               = "content-type"
 --Banco
 BANCO                      = "data"
 USERS_BANCO                = "usuarios"
+VALUE_BANCO                = "value"
 EMAIL_BANCO                = "email"
 NOME_BANCO                 = "nome"
 SALDO_BANCO                = "saldo"
@@ -97,6 +100,7 @@ TOKENS                     = "tokens"
 TAMANHO_TOTAL              = 50
 MAXIMO_DE_TOKENS           = 5
 EXPIRACAO                  = 30
+VALOR_DEBITADO_POR_FACE    = 80
 
 --extra
 NULL                       = "null"

@@ -128,6 +128,11 @@ local function main_server(rq)
     return Preview_image_perfil(headders, banco)
   end
 
+  if API .. COMPAR .. ROSTO == rq.route then
+
+    return Compar_image_by_metrics(headders, banco, body)
+  end
+
   if API .. LIST .. USER .. CURRENT .. GUYS == rq.route then
 
     return List_current_guys(headders, banco)

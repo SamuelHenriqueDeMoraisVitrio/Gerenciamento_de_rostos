@@ -13,7 +13,7 @@ function Add_img(headders, banco, body)
     end
 
     local email = headders.obtem_headder(EMAIL)
-    local file, extension = body.obtem_body_img_extension()
+    local file = body.obtem_body_img_extension()
 
     if headders.erro then
         return headders.erro
@@ -23,15 +23,22 @@ function Add_img(headders, banco, body)
         return body.erro
     end
 
-    local file_formated = imageMgk.image_formated(file)
-
     local existe, user_or_error_by_email = User_finding_by_email(banco, email)
-
+    
     if not existe then
         return user_or_error_by_email
     end
 
-    local response = Add_img_banco(banco, file_formated, user_or_error_by_email, extension)
+    local converted = imageMgk.convert_to_jpeg(file)
+    local file_img = imageMgk.image_formated(converted)
+
+    local metrics = extract.extract(converted)
+
+    if not metrics then
+        return serjao.send_text(FACE_NOT_FOUND, 404)
+    end
+
+    local response = Add_img_banco(banco, file_img, user_or_error_by_email, metrics)
 
     return response
 end
