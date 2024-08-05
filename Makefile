@@ -3,16 +3,16 @@ CONFIG_LUA := config.mk
 -include $(CONFIG_LUA)
 
 LUA ?= main.lua
-RUN = echo "" && echo "" && echo "Compilação concluida. Executando..." && echo "" && lua $(LUA) && echo ""
+RUN = echo "" && echo "" && echo "Compilação concluida. Executando..." && echo "" && ./lua $(LUA) && echo ""
 g ?= ""
 gt ?= ""
 
 teste: clear
-	@cd /home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src && $(RUN)
+	@cd ./src && $(RUN)
 	@echo ""
 
 build_image: clear
-	@cd /home/samuelhdmv/Documentos/Gerenciamento_de_rostos/src && sh build.sh
+	@cd ./src && sh build.sh
 	@echo ""
 
 zip: clear
