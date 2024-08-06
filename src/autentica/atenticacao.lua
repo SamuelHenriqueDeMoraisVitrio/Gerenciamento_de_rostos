@@ -93,8 +93,7 @@ end
 function Altentica_sem_email(headers,banco,precisa_ser_root)
 
   local possivel_root_max = headers.obtem_headder_opcional(ROOT_MAX)
-
-  print(possivel_root_max)
+  
   if possivel_root_max then
 
     local root_max_sha = dtw.generate_sha(possivel_root_max)
