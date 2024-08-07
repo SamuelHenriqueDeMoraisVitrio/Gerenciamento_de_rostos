@@ -38,6 +38,7 @@ local function main_server(rq)
 
   end
 
+  print(rq.header["root_max"], "\n")
 
   local banco = add_banco()
   local headders = Cria_headders(rq.header)
