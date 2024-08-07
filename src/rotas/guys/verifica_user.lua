@@ -17,9 +17,12 @@ function Retorna_dados_do_user(headders, banco)
   local email = erro_ou_user.get_value_from_sub_resource(EMAIL_BANCO)
   local class = erro_ou_user.get_value_from_sub_resource(CLASS_BANCO)
   local frequencia = erro_ou_user.get_value_from_sub_resource(FREQUENCY_BANCO)
+  local img_perfil = erro_ou_user.get_value_from_sub_resource(IMG_PERFIL)
   local root = erro_ou_user.sub_resource(ROOT_BANCO).get_bool()
-  local perfil_dir = erro_ou_user.sub_resource(DIR_PERFIL)
-  local perfil_bool = perfil_dir.sub_resource(BOOL_PERFIL).get_bool()
+  local perfil_bool = false
+  if img_perfil then
+    perfil_bool = true
+  end
 
   local json = {
       nome = nome,

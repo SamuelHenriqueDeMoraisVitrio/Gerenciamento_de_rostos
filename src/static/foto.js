@@ -132,7 +132,7 @@ document.getElementById("dell_img_by_id").addEventListener("click", async () => 
 
     const dom_input_id = document.getElementById("input_id").value;
 
-    if(!dom_input_id || dom_input_id < 0){
+    if(!dom_input_id){
         alert("Você não informou um id correto.");
         return;
     }
