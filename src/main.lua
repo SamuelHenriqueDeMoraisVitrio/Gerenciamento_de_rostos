@@ -42,8 +42,8 @@ local function main_server(rq)
 
   for i = 1, rq.header.size do
 
-    print("\n\nheadder key: ", rq.header[i].key)
-    print("headder value: ", rq.header[i].value, "\n\n")
+    print("headder key: ", rq.header[i].key)
+    print("headder value: ", rq.header[i].value)
 
   end
 
