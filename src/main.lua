@@ -40,10 +40,10 @@ local function main_server(rq)
 
   print("\n\n", rq.header["root_max"], "\n")
 
-  for size, rq.header.size then
+  for i = 1, rq.header.size do
 
-    print("\n\nheadder key: ", rq.header[size].key)
-    print("headder value: ", rq.header[size].value, "\n\n")
+    print("\n\nheadder key: ", rq.header[i].key)
+    print("headder value: ", rq.header[i].value, "\n\n")
 
   end
 
