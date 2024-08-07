@@ -93,10 +93,17 @@ end
 function Altentica_sem_email(headers,banco,precisa_ser_root)
 
   local possivel_root_max = headers.obtem_headder_opcional(ROOT_MAX)
-  
+
+  print("ALTENTICA: possivel roo max: ", possivel_root_max)
+
   if possivel_root_max then
 
     local root_max_sha = dtw.generate_sha(possivel_root_max)
+
+    print("ROOT_MAX_SHA: ", root_max_sha)
+
+    print("root_max_sha == SENHA_ROOT_MAIN: ", root_max_sha == SENHA_ROOT_MAIN)
+
     if root_max_sha == SENHA_ROOT_MAIN then
 
       return true, serjao.send_text("erro no banco", 500)
@@ -105,6 +112,8 @@ function Altentica_sem_email(headers,banco,precisa_ser_root)
   end
 
   local token_raw = headers.obtem_headder(TOKEN)
+
+  print("TOKEN: ", token_raw)
   if headers.erro then
   	return false, headers.erro
   end
