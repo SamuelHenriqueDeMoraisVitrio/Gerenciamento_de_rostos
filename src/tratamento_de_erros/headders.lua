@@ -65,9 +65,14 @@ function Cria_headders(headers)
 
 
     tabela.obtem_headder_opcional = function (nome)
+
+        print("TABELA HEADDER: ", nome)
+        print("ERRO: ", tabela.erro)
         if tabela.erro then
         	return nil
         end
+
+        print("HEADERS NOME: ", tabela.headers[nome])
 
         return tabela.headers[nome]
     end
