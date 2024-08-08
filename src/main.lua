@@ -38,15 +38,6 @@ local function main_server(rq)
 
   end
 
-  print("\n\n", rq.header["root_max"], "\n")
-
-  for i = 1, rq.header.size do
-
-    print("headder key: ", rq.header[i].key)
-    print("headder value: ", rq.header[i].value)
-
-  end
-
   local banco = add_banco()
   local headders = Cria_headders(rq.header)
   local params = Cria_params(rq.params)

@@ -1,5 +1,4 @@
 
-
 async function faz_requisicao_autenticada(rota, props){
 
     let token = sessionStorage.getItem("token");
