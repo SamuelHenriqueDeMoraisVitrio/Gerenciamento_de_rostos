@@ -2,10 +2,13 @@
 
 window.onload = function (){
 
+    let token1 = getCookie("token");
     let token = sessionStorage.getItem("token");
 
+    console.log(token1);
+
     if(token){
-        window.location.href = "/home"
+        //window.location.href = "/home"
     }
 }
 
@@ -37,5 +40,6 @@ async function efetua_log(){
     let json = await resultado.json();
 
     sessionStorage.setItem("token", json.token_criado);
-    window.location.href = "/home";
+    addCookie("token", json.token_criado, null, 31);
+    //window.location.href = "/home";
 }
