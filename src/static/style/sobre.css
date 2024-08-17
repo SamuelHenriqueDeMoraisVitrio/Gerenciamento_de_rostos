@@ -45,59 +45,7 @@
     opacity: 0.75;
     transition: opacity ease 250ms;
 }
-/*TESTE.collapse{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-.pergunta{
-    background-color: white;
-    color: rgb(0, 0, 0, 0.8)
-    cursor: pointer;
-}
-    */
-/*#accordion{
-    margin: 20px auto;
-    
-}
-#accordion li{
-    list-style: none;
-    width: 60%;
-    margin-bottom: 10px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 4px;
-}
-#accordion li label{
-    padding: 10px;
-    display: flex;
-    align-items: 300px;
-    justify-content: space-between;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    color: black;
-}
-#accordion li label span{
-    transform: rotate(90deg);
-    font-size: 22px;
-    color: black
- }
- sumir com o checked
- #accordion label + input[type="radio"]{
-    display: none;
-}
-#accordion .content{
-    padding: 0 10px;
-    line-height: 26px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s;
 
-}
-#accordion label + input[type="radio"]:checked + .content{
-    max-height: 400px;
-}*/
 #questions{
     margin-left: 300px;
 }
